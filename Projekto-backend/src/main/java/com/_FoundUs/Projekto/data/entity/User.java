@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -26,6 +28,8 @@ public class User {
     private String firstName;
     private String lastName;
     private Boolean isActive;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Workspace> workspaces = new ArrayList<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
