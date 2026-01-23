@@ -1,6 +1,6 @@
 package com._FoundUs.Projekto.data.entity;
 
-import com._FoundUs.Projekto.data.enums.Visibility;
+import com._FoundUs.Projekto.domain.enums.Visibility;
 import jakarta.persistence.*;
 import lombok.*;
 
