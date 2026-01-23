@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Setter
@@ -40,7 +41,7 @@ public class Cards {
             joinColumns = @JoinColumn(name = "card_id"),
             inverseJoinColumns = @JoinColumn(name = "label_id")
     )
-    private Set<Label> labels = new HashSet<>();
+    private Set<Labels> labels = new HashSet<>();
     @OneToMany(
             mappedBy = "card",
             cascade = CascadeType.ALL,

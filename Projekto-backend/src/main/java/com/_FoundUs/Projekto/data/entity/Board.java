@@ -3,8 +3,10 @@ package com._FoundUs.Projekto.data.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import javax.smartcardio.Card;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -32,14 +34,14 @@ public class Board {
             cascade = CascadeType.REMOVE,
             orphanRemoval = true
     )
-    private List<Card> lists = new ArrayList<>();
+    private List<Cards> lists = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "board",
             cascade = CascadeType.REMOVE,
             orphanRemoval = true
     )
-    private List<Label> labels = new ArrayList<>();
+    private List<Labels> labels = new ArrayList<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
