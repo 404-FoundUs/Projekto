@@ -51,6 +51,9 @@ public class Cards {
             orphanRemoval = true
     )
     private List<Checklist> checklists = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "board_id", nullable = false)
+    private Board board;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 

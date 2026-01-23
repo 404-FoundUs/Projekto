@@ -3,9 +3,8 @@ package com._FoundUs.Projekto.data.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import javax.smartcardio.Card;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -31,8 +30,8 @@ public class Labels {
     private String color;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "board_id", nullable = false)
-    private Board boardId;
+    private Board board;
     @ManyToMany(mappedBy = "labels")
-    private Set<Cards> cards = new HashSet<>();
+    private List<Cards> cards;
 
 }

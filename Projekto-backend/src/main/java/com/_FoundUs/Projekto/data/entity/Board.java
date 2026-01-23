@@ -3,7 +3,6 @@ package com._FoundUs.Projekto.data.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import javax.smartcardio.Card;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,18 +28,9 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
-    @OneToMany(
-            mappedBy = "board",
-            cascade = CascadeType.REMOVE,
-            orphanRemoval = true
-    )
-    private List<Cards> lists = new ArrayList<>();
-
-    @OneToMany(
-            mappedBy = "board",
-            cascade = CascadeType.REMOVE,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "board")
+    private List<Cards> lists;
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Labels> labels = new ArrayList<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
