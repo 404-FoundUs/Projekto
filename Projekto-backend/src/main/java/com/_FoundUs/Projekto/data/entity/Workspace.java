@@ -23,7 +23,7 @@ public class Workspace {
     private Visibility visibility = Visibility.PUBLIC;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "owner_id", nullable = false)
-    private User ownerId;
+    private User owner;
     private LocalDateTime  createdAt;
     private LocalDateTime  updatedAt;
 
