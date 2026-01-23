@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -27,7 +28,7 @@ public class Lists {
             orphanRemoval = true
     )
     @OrderBy("position ASC")
-    private List<Card> cards = new ArrayList<>();
+    private List<Cards> cards = new ArrayList<>();
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "board_id", nullable = false)
     private Board boardId;
