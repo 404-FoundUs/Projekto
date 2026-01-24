@@ -7,8 +7,5 @@ import java.util.UUID;
 
 public interface UserStore {
     UserModel saveUser(UserModel userModel);
-    UserModel findById(UUID id);
     UserModel UpdateUser(UUID id,UserModel userModel);
-    void deleteUser(UUID id);
-    List<UserModel> findAllUsers();
 }

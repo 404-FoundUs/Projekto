@@ -13,5 +13,24 @@ public interface UserApiMapper {
     @Mapping(target = "id",ignore = true)
     UserModel toUserModel(RequestUserDto requestUserDto);
 
-    ResponseUserDto toResponseUserdto(UserModel userModel);
+    default ResponseUserDto toResponseUserdto(UserModel userModel) {
+        if (userModel == null) return null;
+
+        ResponseUserDto dto = ResponseUserDto.builder()
+                .id(userModel.getId())
+                .username(userModel.getUsername())
+                .email(userModel.getEmail())
+                .firstName(userModel.getFirstName())
+                .lastName(userModel.getLastName())
+                .isActive(userModel.getIsActive())
+                .build();
+
+        if (userModel.getWorkspaces() != null) {
+            dto.setWorkspaces(userModel.getWorkspaces());
+        }
+
+        return dto;
+    }
+
+
 }

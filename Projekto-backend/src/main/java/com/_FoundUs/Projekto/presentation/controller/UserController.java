@@ -22,9 +22,7 @@ public class UserController {
 
     private final SaveUserUsecase saveUserUsecase;
     private final UpdateUserUsecase updateUserUsecase;
-    private final DeleteUserUsecase deleteUserUsecase;
-    private final FindUserUsecase findUserUsecase;
-    private final GetAllUserUsecase getAllUserUsecase;
+
 
     private final UserApiMapper userApiMapper;
 
@@ -42,25 +40,4 @@ public class UserController {
         return new ResponseEntity<>(userApiMapper.toResponseUserdto(updateUserModel), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseUserDto> deleteUser(@PathVariable UUID id) {
-        deleteUserUsecase.deleteUser(id);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ResponseUserDto> getUser(@PathVariable UUID id) {
-        UserModel allUsers = findUserUsecase.findById(id);
-        return new ResponseEntity<>(userApiMapper.toResponseUserdto(allUsers), HttpStatus.OK);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<ResponseUserDto>> getAllUsers() {
-
-        List<UserModel> allUsers = getAllUserUsecase.findAllUsers();
-        List<ResponseUserDto> responseUserDtos = allUsers.stream()
-                .map(userApiMapper::toResponseUserdto)
-                .toList();
-        return ResponseEntity.ok(responseUserDtos);
-    }
 }
