@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -53,6 +54,13 @@ public class UserServiceImpl implements UserStore {
         user.setIsActive(userModel.getIsActive());
         User savedUser = userRepository.save(user);
         return userMapper.toUserModel(savedUser);
+    }
+
+    @Override
+    public Optional<UserModel> findByEmail(String email) {
+        return userRepository
+                .findByEmail(email)
+                .map(userMapper::toUserModel);
     }
 
 

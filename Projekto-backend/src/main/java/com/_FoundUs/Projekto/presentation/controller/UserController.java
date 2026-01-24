@@ -4,6 +4,7 @@ import com._FoundUs.Projekto.domain.model.UserModel;
 import com._FoundUs.Projekto.domain.usecase.User.*;
 import com._FoundUs.Projekto.presentation.dto.RequestUserDto;
 import com._FoundUs.Projekto.presentation.dto.ResponseUserDto;
+import com._FoundUs.Projekto.presentation.dto.SigninRequestDto;
 import com._FoundUs.Projekto.presentation.mapper.UserApiMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,15 +23,21 @@ public class UserController {
 
     private final SaveUserUsecase saveUserUsecase;
     private final UpdateUserUsecase updateUserUsecase;
-
+    private final SigninUserUsecase signinUserUsecase;
 
     private final UserApiMapper userApiMapper;
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<ResponseUserDto> saveUser(@RequestBody RequestUserDto requestUserDto) {
         UserModel userModel = userApiMapper.toUserModel(requestUserDto);
         UserModel saveUserModel = saveUserUsecase.SaveUser(userModel);
         return new ResponseEntity<>(userApiMapper.toResponseUserdto(saveUserModel), HttpStatus.OK);
+    }
+
+    @PostMapping("/signin")
+    public ResponseEntity<ResponseUserDto> signin(@RequestBody SigninRequestDto request) {
+        UserModel userModel = signinUserUsecase.signin(request.getEmail(), request.getPassword());
+        return ResponseEntity.ok(userApiMapper.toResponseUserdto(userModel));
     }
 
     @PutMapping("/{id}")
