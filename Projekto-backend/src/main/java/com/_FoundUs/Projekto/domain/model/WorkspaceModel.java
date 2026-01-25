@@ -11,6 +11,6 @@ public class WorkspaceModel {
     private String name;
     private String description;
     private Visibility visibility;
-    private UUID ownerId;                 // entity avoid කරලා id use කරන්න
+    private UUID ownerId;
     private List<UUID> memberIds;
 }
