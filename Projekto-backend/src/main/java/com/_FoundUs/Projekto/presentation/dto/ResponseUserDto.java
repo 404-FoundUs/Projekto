@@ -17,5 +17,4 @@ public class ResponseUserDto {
     private String firstName;
     private String lastName;
     private Boolean isActive;
-    private List<Workspace> workspaces = new ArrayList<>();
 }
