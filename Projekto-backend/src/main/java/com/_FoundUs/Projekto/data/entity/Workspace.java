@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Setter
@@ -26,6 +28,13 @@ public class Workspace {
     @JoinColumn(name = "owner_id", nullable = false)
     @JsonBackReference
     private User owner;
+    @ManyToMany
+    @JoinTable(
+            name = "workspace_users",
+            joinColumns = @JoinColumn(name = "workspace_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> members = new HashSet<>();
     private LocalDateTime  createdAt;
     private LocalDateTime  updatedAt;
 

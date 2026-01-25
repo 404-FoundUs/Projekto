@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Setter
 @Getter
@@ -32,6 +30,8 @@ public class User {
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Workspace> workspaces = new ArrayList<>();
+    @ManyToMany(mappedBy = "members")
+    private Set<Workspace> memberWorkspaces = new HashSet<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
