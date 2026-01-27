@@ -19,19 +19,15 @@ public interface WorkspaceApiMapper {
     @Mapping(target = "memberIds", expression = "java(mapMembersToIds(workspace.getMembers()))")
     WorkspaceModel toWorkspaceModel(Workspace workspace);
 
-    default WorkspaceResponseDto toResponseDto(Workspace workspace) {
+
+    default WorkspaceResponseDto toResponseDto(WorkspaceModel model) {
         return WorkspaceResponseDto.builder()
-                .id(workspace.getId())
-                .name(workspace.getName())
-                .description(workspace.getDescription())
-                .visibility(workspace.getVisibility())
-                .ownerId(workspace.getOwner().getId())
-                .memberIds(
-                        workspace.getMembers()
-                                .stream()
-                                .map(User::getId)
-                                .toList()
-                )
+                .id(model.getId())
+                .name(model.getName())
+                .description(model.getDescription())
+                .visibility(model.getVisibility())
+                .ownerId(model.getOwnerId())
+                .memberIds(model.getMemberIds())
                 .build();
     }
 
