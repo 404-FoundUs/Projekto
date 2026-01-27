@@ -31,7 +31,7 @@ public class User {
     @JsonManagedReference
     private List<Workspace> workspaces = new ArrayList<>();
     @ManyToMany(mappedBy = "members")
-    private Set<Workspace> memberWorkspaces = new HashSet<>();
+    private List<Workspace> memberWorkspaces = new ArrayList<>();
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
