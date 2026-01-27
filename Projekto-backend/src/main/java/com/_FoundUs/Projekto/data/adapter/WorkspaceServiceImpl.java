@@ -69,16 +69,26 @@ public class WorkspaceServiceImpl implements WorkspaceStore {
 
     @Override
     public void deleteWorkspace(UUID id) {
-
+        Workspace workspace = workspaceRepository.findById(id).orElseThrow(()-> new RuntimeException("Workspace not found"));
+        workspaceRepository.delete(workspace);
     }
 
     @Override
     public void addMemberToWorkspace(UUID workspaceId, UUID userId) {
+        Workspace workspace = workspaceRepository.findById(workspaceId).orElseThrow(()-> new RuntimeException("Workspace not found"));
+        User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("User not found"));
 
+        if (!workspace.getMembers().isEmpty()) {
+            workspace.getMembers().add(user);
+            workspaceRepository.save(workspace);
+        }
     }
 
     @Override
     public void removeMemberFromWorkspace(UUID workspaceId, UUID userId) {
+        Workspace workspace =workspaceRepository.findById(workspaceId).orElseThrow(()-> new RuntimeException("Workspace not found"));
 
+        workspace.getMembers().removeIf(user -> user.getId().equals(userId));
+        workspaceRepository.save(workspace);
     }
 }
