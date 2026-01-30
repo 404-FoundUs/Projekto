@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("Comment Service Impl Test")
+@DisplayName("CommentServiceImpl Tests")
 class CommentServiceImplTest {
 
     @Mock
@@ -48,7 +48,7 @@ class CommentServiceImplTest {
 
     private User user;
     private Cards cards;
-    private Comment commentEntity;
+    private Comment comment;
     private CommentModel commentModel;
 
     @BeforeEach
@@ -60,16 +60,16 @@ class CommentServiceImplTest {
         user = User.builder().id(userId).build();
         cards = Cards.builder().id(cardId).build();
 
-        commentEntity = Comment.builder()
+        comment = Comment.builder()
                 .id(commentId)
-                .content("Test content")
+                .content("Initial content")
                 .user(user)
                 .card(cards)
                 .build();
 
         commentModel = CommentModel.builder()
                 .id(commentId)
-                .content("Test content")
+                .content("Updated content")
                 .userId(userId)
                 .cardId(cardId)
                 .build();
@@ -77,46 +77,46 @@ class CommentServiceImplTest {
 
     @Test
     @DisplayName("save - should save comment successfully")
-    void shouldSaveComment() {
+    void save_shouldSaveComment() {
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(cardsRepository.findById(cardId)).thenReturn(Optional.of(cards));
-        when(commentMapper.toEntity(commentModel)).thenReturn(commentEntity);
-        when(commentRepository.save(commentEntity)).thenReturn(commentEntity);
-        when(commentMapper.toModel(commentEntity)).thenReturn(commentModel);
+        when(commentMapper.toEntity(commentModel)).thenReturn(comment);
+        when(commentRepository.save(comment)).thenReturn(comment);
+        when(commentMapper.toModel(comment)).thenReturn(commentModel);
 
         CommentModel result = commentService.save(commentModel);
 
         assertNotNull(result);
-        verify(commentRepository).save(commentEntity);
+        verify(commentRepository).save(comment);
     }
 
     @Test
     @DisplayName("save - should throw when user not found")
-    void shouldThrowWhenUserNotFound() {
+    void save_shouldThrowWhenUserNotFound() {
         when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class,
                 () -> commentService.save(commentModel));
     }
 
+
     @Test
-    @DisplayName("update - should update comment successfully")
-    void shouldUpdateComment() {
-        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-        when(cardsRepository.findById(cardId)).thenReturn(Optional.of(cards));
-        when(commentRepository.findById(commentId)).thenReturn(Optional.of(commentEntity));
-        when(commentRepository.save(any(Comment.class))).thenReturn(commentEntity);
-        when(commentMapper.toModel(commentEntity)).thenReturn(commentModel);
+    @DisplayName("update - should update comment when user is owner")
+    void update_shouldUpdateComment() {
+        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+        when(commentRepository.save(comment)).thenReturn(comment);
+        when(commentMapper.toModel(comment)).thenReturn(commentModel);
 
         CommentModel result = commentService.update(commentId, commentModel);
 
         assertNotNull(result);
-        verify(commentRepository).save(commentEntity);
+        assertEquals("Updated content", comment.getContent());
+        verify(commentRepository).save(comment);
     }
 
     @Test
     @DisplayName("update - should throw when comment not found")
-    void shouldThrowWhenCommentNotFound() {
+    void update_shouldThrowWhenCommentNotFound() {
         when(commentRepository.findById(commentId)).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class,
@@ -124,18 +124,38 @@ class CommentServiceImplTest {
     }
 
     @Test
+    @DisplayName("update - should throw when user is not owner")
+    void update_shouldThrowWhenUserNotOwner() {
+        UUID otherUserId = UUID.randomUUID();
+
+        commentModel = CommentModel.builder()
+                .id(commentId)
+                .content("Hack attempt")
+                .userId(otherUserId)
+                .cardId(cardId)
+                .build();
+
+        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> commentService.update(commentId, commentModel));
+
+        verify(commentRepository, never()).save(any());
+    }
+
+    @Test
     @DisplayName("delete - should delete comment successfully")
-    void shouldDeleteComment() {
-        when(commentRepository.findById(commentId)).thenReturn(Optional.of(commentEntity));
+    void delete_shouldDeleteComment() {
+        when(commentRepository.findById(commentId)).thenReturn(Optional.of(comment));
 
         commentService.delete(commentId);
 
-        verify(commentRepository).delete(commentEntity);
+        verify(commentRepository).delete(comment);
     }
 
     @Test
     @DisplayName("delete - should throw when comment not found")
-    void shouldThrowWhenDeletingMissingComment() {
+    void delete_shouldThrowWhenCommentNotFound() {
         when(commentRepository.findById(commentId)).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class,

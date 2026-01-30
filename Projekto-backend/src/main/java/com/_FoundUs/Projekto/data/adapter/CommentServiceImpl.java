@@ -37,19 +37,17 @@ public class CommentServiceImpl implements CommentRepo {
 
     @Override
     public CommentModel update(UUID id, CommentModel commentModel) {
-        User user = userRepository.findById(commentModel.getUserId()).orElseThrow(() -> new EntityNotFoundException("User not found " + commentModel.getUserId()));
-        Cards cards = cardsRepository.findById(commentModel.getCardId()).orElseThrow(() -> new EntityNotFoundException("Card not found " + commentModel.getCardId()));
-        Comment comment = commentRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Comment not found " + id));
-
-        if (!comment.getId().equals(commentModel.getId())) {
-            comment.setContent(commentModel.getContent());
-            comment.setUser(user);
-            comment.setCard(cards);
-            Comment saveComment = commentRepository.save(comment);
-            return commentMapper.toModel(saveComment);
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Comment not found " + id));
+        if (!comment.getUser().getId().equals(commentModel.getUserId())) {
+            throw new IllegalArgumentException("You cannot update this comment");
         }
-        throw new IllegalArgumentException("You cannot update this comment");
+        comment.setContent(commentModel.getContent());
+
+        Comment saved = commentRepository.save(comment);
+        return commentMapper.toModel(saved);
     }
+
 
     @Override
     public void delete(UUID id) {
