@@ -12,7 +12,7 @@ import java.util.UUID;
 public class UpdateBoardUsecase {
     private final BoardStore boardStore;
 
-    public BoardModel updateBoard(UUID workspaceId, BoardModel boardModel) {
-        return boardStore.updateBoard(workspaceId, boardModel);
+    public BoardModel updateBoard(UUID boardId, BoardModel boardModel) {
+        return boardStore.updateBoard(boardId, boardModel);
     }
 }
