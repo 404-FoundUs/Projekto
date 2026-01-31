@@ -9,6 +9,6 @@ public interface BoardStore {
     BoardModel createBoard(BoardModel boardModel);
     List<BoardModel> getBoardByWorkspace(UUID workspaceId);
     BoardModel getBoardById(UUID boardId);
-    BoardModel updateBoard(UUID workspaceId,BoardModel boardModel);
+    BoardModel updateBoard(UUID boardId,BoardModel boardModel);
     void deleteBoardById(UUID boardId);
 }
