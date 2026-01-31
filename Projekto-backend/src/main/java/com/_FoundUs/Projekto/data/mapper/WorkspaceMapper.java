@@ -12,6 +12,8 @@ import java.util.UUID;
 
 @Mapper(componentModel = "spring",unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface WorkspaceMapper {
+
+    @Mapping(target = "ownerId", source = "owner.id")
     @Mapping(target = "memberIds", expression = "java(mapMembersToIds(workspace.getMembers()))")
     WorkspaceModel toWorkspaceModel(Workspace workspace);
 

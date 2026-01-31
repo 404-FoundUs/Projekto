@@ -49,7 +49,7 @@ public interface WorkspaceApiMapper {
                 .ownerId(ownerId)
                 .build();
     }
-    
+
     default List<UUID> mapMembersToIds(List<User> members) {
         if (members == null) return List.of();
         return members.stream()

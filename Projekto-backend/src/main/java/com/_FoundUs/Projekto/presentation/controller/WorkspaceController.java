@@ -92,13 +92,20 @@ public class WorkspaceController {
     }
 
     @PostMapping("/{workspaceId}/members/{userId}")
-    public ResponseEntity<Void> addMemberToWorkspace(
+    public ResponseEntity<WorkspaceResponseDto> addMemberToWorkspace(
             @PathVariable UUID workspaceId,
             @PathVariable UUID userId
     ) {
         addMemberToWorkspaceUsecase.addMemberToWorkspace(workspaceId, userId);
-        return ResponseEntity.ok().build();
+
+        WorkspaceModel updatedWorkspace =
+                getWorkspaceByIdUsecase.getWorkspaceById(workspaceId);
+
+        return ResponseEntity.ok(
+                workspaceApiMapper.toResponseDto(updatedWorkspace)
+        );
     }
+
 
     @DeleteMapping("/{workspaceId}/members/{userId}")
     public ResponseEntity<Void> removeMemberFromWorkspace(
