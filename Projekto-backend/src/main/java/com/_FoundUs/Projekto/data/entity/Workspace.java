@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.*;
 
 @Setter
 @Getter
@@ -26,6 +26,13 @@ public class Workspace {
     @JoinColumn(name = "owner_id", nullable = false)
     @JsonBackReference
     private User owner;
+    @ManyToMany
+    @JoinTable(
+            name = "workspace_users",
+            joinColumns = @JoinColumn(name = "workspace_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> members = new ArrayList<>();
     private LocalDateTime  createdAt;
     private LocalDateTime  updatedAt;
 

@@ -2,22 +2,66 @@
 GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
 
-###
-POST http://localhost:8080/api/v1/user
+### Create User (Signup)
+POST http://localhost:8080/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "username": "Bathi",
-  "email": "bathiya@gmail.com",
-  "password": "BathiAyya123",
-  "firstName": "Bathiya",
-  "lastName": "Thisera",
-  "isActive": true,
-  "workspaces": [
-    {
-      "name": "My First Workspace",
-      "description": "This is Bathiya's personal workspace",
-      "visibility": "PRIVATE"
-    }
-  ]
+  "username": "Tharaka",
+  "email": "tharaka@gmail.com",
+  "password": "password123",
+  "firstName": "Tharaka",
+  "lastName": "Lokka",
+  "isActive": true
 }
+
+### Signin User
+POST http://localhost:8080/api/v1/user/signin
+Content-Type: application/json
+
+{
+  "email": "bathiya@gmail.com",
+  "password": "password123"
+}
+
+### Create Workspace
+POST http://localhost:8080/api/v1/workspaces?ownerId=78d0927a-be0f-423b-a804-75ace8dc0161
+Content-Type: application/json
+
+{
+  "name": "Project Beta",
+  "description": "Workspace for Project Beta",
+  "visibility": "PUBLIC"
+}
+
+### Get User Workspaces
+GET http://localhost:8080/api/v1/workspaces/user/78d0927a-be0f-423b-a804-75ace8dc0161
+Content-Type: application/json
+
+### Get Workspace by ID
+GET http://localhost:8080/api/v1/workspaces/58e0c9ca-0182-42c9-897d-62f7d97cad95
+Content-Type: application/json
+
+### Update Workspace
+PUT http://localhost:8080/api/v1/workspaces/99778641-ca38-4b9b-ae2e-260b3eb8496b?ownerId=7e394119-8c39-4fa0-a3e5-2385afc83fe1
+Content-Type: application/json
+
+{
+  "name": "Project Alpha Updated",
+  "description": "Updated description",
+  "visibility": "PRIVATE"
+}
+
+### Add Member to Workspace (Return Updated Workspace)
+POST http://localhost:8080/api/v1/workspaces/58e0c9ca-0182-42c9-897d-62f7d97cad95/members/c9c98e6a-1495-42a2-a0f7-2af9540edffd
+Content-Type: application/json
+
+
+
+### Remove Member from Workspace
+DELETE http://localhost:8080/api/v1/workspaces/58e0c9ca-0182-42c9-897d-62f7d97cad95/members/c9c98e6a-1495-42a2-a0f7-2af9540edffd
+Content-Type: application/json
+
+### Delete Workspace
+DELETE http://localhost:8080/api/v1/workspaces/58e0c9ca-0182-42c9-897d-62f7d97cad95
+Content-Type: application/json

@@ -16,7 +16,7 @@ public interface UserApiMapper {
     default ResponseUserDto toResponseUserdto(UserModel userModel) {
         if (userModel == null) return null;
 
-        ResponseUserDto dto = ResponseUserDto.builder()
+        return ResponseUserDto.builder()
                 .id(userModel.getId())
                 .username(userModel.getUsername())
                 .email(userModel.getEmail())
@@ -24,12 +24,6 @@ public interface UserApiMapper {
                 .lastName(userModel.getLastName())
                 .isActive(userModel.getIsActive())
                 .build();
-
-        if (userModel.getWorkspaces() != null) {
-            dto.setWorkspaces(userModel.getWorkspaces());
-        }
-
-        return dto;
     }
 
 
