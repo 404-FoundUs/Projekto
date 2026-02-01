@@ -1,17 +1,15 @@
-package com._FoundUs.Projekto.domain.model;
+package com._FoundUs.Projekto.presentation.dto.Cards;
 
-import com._FoundUs.Projekto.data.entity.*;
 import com._FoundUs.Projekto.domain.enums.Priority;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.UUID;
 
 @Data
 @Builder
-public class CardModel {
-
+public class CardResponseDto {
     private UUID id;
 
     private String title;
@@ -23,9 +21,4 @@ public class CardModel {
     private Priority priority;
 
     private UUID listId;
-    private UUID boardId;
-
-    private List<UUID> labelIds;
-    private List<UUID> checklistIds;
-    private List<UUID> commentIds;
 }
