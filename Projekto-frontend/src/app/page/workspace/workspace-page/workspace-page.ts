@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { SideNavigationbarWorkspace } from "../../../core/side-navigationbar-workspace/side-navigationbar-workspace";
+import { SideNavigationbarDashboard } from "../../../core/side-navigationbar-dashboard/side-navigationbar-dashboard";
+import { WorkspaceCard } from "../../../shared/workspace-card/workspace-card";
 
 @Component({
   selector: 'app-workspace-page',
-  imports: [SideNavigationbarWorkspace],
+  imports: [SideNavigationbarDashboard, WorkspaceCard],
   templateUrl: './workspace-page.html',
   styleUrl: './workspace-page.scss',
 })

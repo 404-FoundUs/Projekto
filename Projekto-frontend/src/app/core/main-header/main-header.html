@@ -1,23 +1,54 @@
-<header>
-  <div class="container">
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <i class="fas fa-code"></i>
-        TechReviewHub
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#support">Supportive Site</a></li>
-        <li><a routerLink="/login">Sign In</a></li>
-        <li><a routerLink="/register">Register</a></li>
-      </ul>
-
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
+<header
+  class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#e7ebf3] dark:border-[#2a3447] px-4 lg:px-40 py-3"
+>
+  <div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto w-full">
+    <div class="flex items-center gap-4 text-primary">
+      <div class="size-8">
+        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_6_535)">
+            <path
+              clip-rule="evenodd"
+              d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            ></path>
+          </g>
+          <defs>
+            <clippath id="clip0_6_535">
+              <rect fill="white" height="48" width="48"></rect>
+            </clippath>
+          </defs>
+        </svg>
+      </div>
+      <h2
+        class="text-[#0d121b] dark:text-white text-xl font-black leading-tight tracking-[-0.015em]"
+      >
+        Projeckto
+      </h2>
+    </div>
+    <div class="hidden md:flex flex-1 justify-end gap-8">
+      <nav class="flex items-center gap-9">
+        <a
+          class="text-[#0d121b] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+          href="#features"
+          >Features</a
+        >
+        <a
+          class="text-[#0d121b] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+          href="#pricing"
+          >Pricing</a
+        >
+        <a
+          class="text-[#0d121b] dark:text-gray-300 text-sm font-semibold hover:text-primary transition-colors"
+          href="#testimonials"
+          >Testimonials</a
+        >
+      </nav>
+      <button
+        class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all"
+      >
+        <span routerLink="/login">Get Started</span>
       </button>
-    </nav>
+    </div>
   </div>
 </header>

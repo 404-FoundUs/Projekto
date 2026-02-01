@@ -1,0 +1,83 @@
+<div class="flex h-screen overflow-hidden">
+  <aside
+    class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between p-4 flex-shrink-0"
+  >
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center gap-3 px-2">
+        <div
+          class="bg-primary rounded-lg size-10 flex items-center justify-center text-white shadow-lg shadow-primary/20"
+        >
+          <span class="material-symbols-outlined">rocket_launch</span>
+        </div>
+        <h1 class="text-[#0f172a] dark:text-white text-xl font-bold tracking-tight">Projeckto</h1>
+      </div>
+      <nav class="flex flex-col gap-1">
+        <a
+          class="flex items-center gap-3 px-3 py-2.5 rounded-xl sidebar-item-active transition-colors"
+          href="#"
+          routerLink="/dashboard"
+        >
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1"
+            >house</span
+          >
+          <span class="text-sm font-semibold">Home</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          href="#"
+          routerLink="/workspaces"
+        >
+          <span class="material-symbols-outlined">table_chart</span>
+          <span class="text-sm font-medium">Workspaces</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined">check_circle</span>
+          <span class="text-sm font-medium">Projects</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined">calendar_today</span>
+          <span class="text-sm font-medium">Calendar</span>
+        </a>
+        <a
+          class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined">group</span>
+          <span class="text-sm font-medium">Team</span>
+        </a>
+      </nav>
+    </div>
+    <div class="flex flex-col gap-1 border-t border-slate-100 dark:border-slate-800 pt-4">
+      <a
+        class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+        href="#"
+      >
+        <span class="material-symbols-outlined">settings</span>
+        <span class="text-sm font-medium">Settings</span>
+      </a>
+      <div
+        class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+        routerLink="/profile"
+      >
+        <div
+          class="size-8 rounded-full bg-cover bg-center border-2 border-white dark:border-slate-700"
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2lzwwuS7tAI0BtqUX03WJEChagKH3fuuqp0svjM2bnFW6g5oTVApGb-1G6SCNLh97nfXM8mRXVZ_zMoW6ComIW1G1x3Nxhi3tVHqNdbEnoY_F4M_7hYAjM5MjX0HU7_yJhh4VA3CG29j8kj6nsSOANmqVioEiOS_3ge8JDD2KbVTMz2ES70bu7QBjpTd7pFRxYbjLlHhdoGyT5pZM3oXukK9EPBD18XED6YIcebemr3cR0kJvBFq2m-H0tn0WNJLQ775HDvOz5A8');
+          "
+        ></div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-slate-900 dark:text-white leading-tight"
+            >Alex Chen</span
+          >
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider">Pro User</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>

@@ -1,6 +1,6 @@
 <div class="flex h-screen overflow-hidden">
   <!-- Side Navigation Bar -->
-  <app-side-navigationbar-workspace></app-side-navigationbar-workspace>
+  <app-side-navigationbar-dashboard></app-side-navigationbar-dashboard>
   <!-- Main Content Area -->
   <main class="flex-1 flex flex-col overflow-y-auto">
     <!-- Page Header -->
@@ -60,7 +60,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <!-- Create New Card -->
         <div
-          class="group cursor-pointer border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary rounded-xl flex flex-col items-center justify-center gap-4 aspect-square bg-transparent transition-all hover:bg-blue-50/50 dark:hover:bg-primary/5"
+          class="bg-white dark:bg-gray-900 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group group cursor-pointer border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary items-center justify-center bg-transparent hover:bg-blue-50/50 dark:hover:bg-primary/5"
         >
           <div
             class="bg-primary/10 text-primary rounded-full size-16 flex items-center justify-center group-hover:scale-110 transition-transform"
@@ -69,180 +69,12 @@
           </div>
           <p class="text-primary font-bold text-lg">Create Workspace</p>
         </div>
-        <!-- Workspace Card 1 -->
-        <div
-          class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group"
-        >
-          <div class="flex justify-between items-start">
-            <div
-              class="size-14 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[28px]">engineering</span>
-            </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-1">Engineering Team</h3>
-            <p class="text-gray-500 text-sm line-clamp-1">
-              Technical development and infrastructure
-            </p>
-          </div>
-          <div class="flex items-center gap-4 mt-auto">
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">group</span>
-              <span class="text-xs font-semibold">12 Members</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">folder</span>
-              <span class="text-xs font-semibold">4 Projects</span>
-            </div>
-          </div>
-          <button
-            class="w-full py-2.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
-          >
-            Enter Workspace
-          </button>
-        </div>
-        <!-- Workspace Card 2 -->
-        <div
-          class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group"
-        >
-          <div class="flex justify-between items-start">
-            <div
-              class="size-14 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[28px]">campaign</span>
-            </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-1">Marketing HQ</h3>
-            <p class="text-gray-500 text-sm line-clamp-1">Brand, campaigns and social outreach</p>
-          </div>
-          <div class="flex items-center gap-4 mt-auto">
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">group</span>
-              <span class="text-xs font-semibold">8 Members</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">folder</span>
-              <span class="text-xs font-semibold">2 Projects</span>
-            </div>
-          </div>
-          <button
-            class="w-full py-2.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
-          >
-            Enter Workspace
-          </button>
-        </div>
-        <!-- Workspace Card 3 -->
-        <div
-          class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group"
-        >
-          <div class="flex justify-between items-start">
-            <div
-              class="size-14 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[28px]">brush</span>
-            </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-1">Product Design</h3>
-            <p class="text-gray-500 text-sm line-clamp-1">UX/UI Research and prototyping</p>
-          </div>
-          <div class="flex items-center gap-4 mt-auto">
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">group</span>
-              <span class="text-xs font-semibold">5 Members</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">folder</span>
-              <span class="text-xs font-semibold">7 Projects</span>
-            </div>
-          </div>
-          <button
-            class="w-full py-2.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
-          >
-            Enter Workspace
-          </button>
-        </div>
-        <!-- Workspace Card 4 -->
-        <div
-          class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group"
-        >
-          <div class="flex justify-between items-start">
-            <div
-              class="size-14 rounded-xl bg-green-100 text-green-600 flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[28px]">payments</span>
-            </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-1">Sales &amp; Ops</h3>
-            <p class="text-gray-500 text-sm line-clamp-1">Pipeline and administrative workflow</p>
-          </div>
-          <div class="flex items-center gap-4 mt-auto">
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">group</span>
-              <span class="text-xs font-semibold">22 Members</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">folder</span>
-              <span class="text-xs font-semibold">12 Projects</span>
-            </div>
-          </div>
-          <button
-            class="w-full py-2.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
-          >
-            Enter Workspace
-          </button>
-        </div>
-        <!-- Workspace Card 5 -->
-        <div
-          class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col gap-6 hover:shadow-xl hover:-translate-y-1 transition-all group"
-        >
-          <div class="flex justify-between items-start">
-            <div
-              class="size-14 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[28px]">science</span>
-            </div>
-            <button class="text-gray-400 hover:text-gray-600">
-              <span class="material-symbols-outlined">more_vert</span>
-            </button>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-[#111318] dark:text-white mb-1">R&amp;D Lab</h3>
-            <p class="text-gray-500 text-sm line-clamp-1">
-              New technologies and experimental features
-            </p>
-          </div>
-          <div class="flex items-center gap-4 mt-auto">
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">group</span>
-              <span class="text-xs font-semibold">4 Members</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-gray-600 dark:text-gray-400">
-              <span class="material-symbols-outlined text-[18px]">folder</span>
-              <span class="text-xs font-semibold">3 Projects</span>
-            </div>
-          </div>
-          <button
-            class="w-full py-2.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
-          >
-            Enter Workspace
-          </button>
-        </div>
+        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>
       </div>
     </section>
   </main>
