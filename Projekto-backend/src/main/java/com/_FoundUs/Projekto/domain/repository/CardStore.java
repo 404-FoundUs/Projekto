@@ -11,6 +11,6 @@ public interface CardStore {
     CardModel getCardById(UUID cardId);
     CardModel updateCard(UUID cardId, CardModel cardModel);
     void deleteCardById(UUID cardId);
-    void moveCard(UUID cardId, UUID targetListId);
+    CardModel moveCard(UUID cardId, UUID targetListId, Integer newPosition);
     void reorder(UUID listId, List<UUID> orderedCardIds);
 }

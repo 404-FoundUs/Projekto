@@ -70,13 +70,28 @@ public class CardServiceImpl implements CardStore {
     }
 
     @Override
-    public void moveCard(UUID cardId, UUID targetListId) {
-        Cards cards = cardsRepository.findById(cardId).orElseThrow(()->new RuntimeException("card not found"));
-        Lists targetList = listsRepository.findById(targetListId).orElseThrow(()->new RuntimeException("list not found"));
+    public CardModel moveCard(UUID cardId, UUID targetListId, Integer newPosition) {
+        Cards card = cardsRepository.findById(cardId).orElseThrow(() -> new RuntimeException("card not found"));
+        Lists targetList = listsRepository.findById(targetListId).orElseThrow(() -> new RuntimeException("list not found"));
 
-        cards.setList(targetList);
-        cardsRepository.save(cards);
+        card.setList(targetList);
+
+        List<Cards> cardsInList = cardsRepository.findByListOrderByPositionAsc(targetList);
+
+        if (newPosition != null && newPosition < cardsInList.size()) {
+            cardsInList.add(newPosition, card);
+            for (int i = 0; i < cardsInList.size(); i++) {
+                cardsInList.get(i).setPosition(i);
+                cardsRepository.save(cardsInList.get(i));
+            }
+        } else {
+            card.setPosition(cardsInList.size());
+            cardsRepository.save(card);
+        }
+
+        return cardMapper.toModel(card);
     }
+
 
     @Override
     public void reorder(UUID listId, List<UUID> orderedCardIds) {
