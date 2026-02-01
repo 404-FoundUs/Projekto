@@ -36,6 +36,7 @@ public class Cards {
             joinColumns = @JoinColumn(name = "card_id"),
             inverseJoinColumns = @JoinColumn(name = "label_id")
     )
+    @Builder.Default
     private Set<Labels> labels = new HashSet<>();
     @OneToMany(
             mappedBy = "card",
