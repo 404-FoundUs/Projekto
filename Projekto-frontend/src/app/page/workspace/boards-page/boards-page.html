@@ -1,0 +1,208 @@
+<div
+    class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white min-h-screen"
+  >
+    <!-- Main Container -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar (SideNavBar Component) -->
+      <app-side-navigationbar-board></app-side-navigationbar-board>
+      <!-- Main Content Area -->
+      <main class="flex-1 flex flex-col overflow-y-auto">
+        <!-- Top Header (TopNavBar & Breadcrumbs) -->
+         <app-board-header></app-board-header>        
+        <!-- Board Content -->
+        <div class="px-8 pb-12">
+          <!-- Recent Boards Section -->
+          <section class="mt-8">
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary"
+                >history</span
+              >
+              Recent Boards
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            >
+              <!-- Create New Board Tile -->
+              <button
+                class="group relative flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-xl hover:border-primary hover:bg-primary/5 transition-all"
+              >
+                <div
+                  class="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"
+                >
+                  <span class="material-symbols-outlined font-bold text-3xl"
+                    >add</span
+                  >
+                </div>
+                <span
+                  class="font-semibold text-gray-600 dark:text-gray-400 group-hover:text-primary"
+                  >Create New Board</span
+                >
+              </button>
+              <!-- Board Cards -->
+              <app-board-card></app-board-card>              
+              <app-board-card></app-board-card>              
+            </div>
+          </section>
+          <!-- Pinned Boards Section -->
+          <section class="mt-12">
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-yellow-500 filled-icon"
+                >star</span
+              >
+              Pinned Boards
+            </h2>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            >
+              <!-- Pinned Board 1 -->
+              <div
+                class="group relative flex flex-col bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div
+                    class="size-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-600"
+                  >
+                    <span class="material-symbols-outlined">architecture</span>
+                  </div>
+                  <button class="text-yellow-400">
+                    <span class="material-symbols-outlined filled-icon"
+                      >star</span
+                    >
+                  </button>
+                </div>
+                <h3 class="font-bold text-base mb-1">Design System</h3>
+                <p class="text-xs text-gray-500 mb-6">Updated 3 days ago</p>
+                <div class="mt-auto flex items-center justify-between">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400"
+                    >CORE</span
+                  >
+                  <div class="flex -space-x-1">
+                    <div
+                      class="size-6 rounded-full border-2 border-white dark:border-gray-800 bg-cover"
+                      data-alt="Team member 9"
+                      style="
+                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCObWGwlnRA2R_gh4RCqZ7VgGl9wfVLJRRobV02p59pQEzmK3WfiUPJ8P9wYBuzhyUJY4vel-QsnpJVwb--GEmbtHLVPaCX43wXYZaspUxpKFlZnDET-tktUn4Q92kCFxOdfy0_xXk3_AFISDHS9cPUruZuPcxRf41mnicERxY3iRWauhHj2-SmzGP5kfjLecTFGg9W4LV2VL2tfOHZTzhb7OVFSSyzD2S-bralDU1fgetDHjc_1A1_QHcbJtRSQ9XRWxlhW40e3as&quot;);
+                      "
+                    ></div>
+                    <div
+                      class="size-6 rounded-full border-2 border-white dark:border-gray-800 bg-cover"
+                      data-alt="Team member 10"
+                      style="
+                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBZqtrxXzXRO-ruC1SmnV-RBo3gPLrb1q4EuRXNuplk5yirqgVA6VbflYqMzhBBHz7vhk_xt7_DwC5Ev2qKmTTKn6Fk4FCp8IY0Duj1BWO4EcXoA2KKh0b61YqcDv-jagZFxIslkR3utSFIuVBVDctkFCd1tHjY0gR_OLqxYv9dymBvOUWdP7RYsfbVvi2mM04grqnjaVIGHt2Iql1EbTETsoXunpN7oDp5buOTebZww7Q62eTGXnum1K4hFuqKpof_ys1-DTaXWVs&quot;);
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- All Boards Section -->
+          <section class="mt-12">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-lg font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined text-gray-500"
+                  >format_list_bulleted</span
+                >
+                All Boards
+              </h2>
+              <div class="flex items-center gap-2">
+                <div class="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+                  <button
+                    class="p-1.5 rounded bg-white dark:bg-gray-700 shadow-sm text-primary"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >grid_view</span
+                    >
+                  </button>
+                  <button
+                    class="p-1.5 rounded text-gray-400 hover:text-gray-600"
+                  >
+                    <span class="material-symbols-outlined text-xl">list</span>
+                  </button>
+                </div>
+                <button
+                  class="flex items-center gap-2 px-3 py-1.5 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg">sort</span>
+                  Sort by Date
+                </button>
+              </div>
+            </div>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            >
+              <!-- Iterative Boards -->
+              <div
+                class="group relative flex flex-col bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div
+                    class="size-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-600"
+                  >
+                    <span class="material-symbols-outlined">analytics</span>
+                  </div>
+                  <button class="text-gray-300 hover:text-yellow-400">
+                    <span class="material-symbols-outlined">star</span>
+                  </button>
+                </div>
+                <h3 class="font-bold text-base mb-1">Customer Research</h3>
+                <p class="text-xs text-gray-500">12 Boards</p>
+              </div>
+              <div
+                class="group relative flex flex-col bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div
+                    class="size-10 rounded-lg bg-pink-500/20 flex items-center justify-center text-pink-600"
+                  >
+                    <span class="material-symbols-outlined"
+                      >volunteer_activism</span
+                    >
+                  </div>
+                  <button class="text-gray-300 hover:text-yellow-400">
+                    <span class="material-symbols-outlined">star</span>
+                  </button>
+                </div>
+                <h3 class="font-bold text-base mb-1">Social Media Plan</h3>
+                <p class="text-xs text-gray-500">8 Boards</p>
+              </div>
+              <div
+                class="group relative flex flex-col bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div
+                    class="size-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-600"
+                  >
+                    <span class="material-symbols-outlined">cloud_sync</span>
+                  </div>
+                  <button class="text-gray-300 hover:text-yellow-400">
+                    <span class="material-symbols-outlined">star</span>
+                  </button>
+                </div>
+                <h3 class="font-bold text-base mb-1">DevOps Pipeline</h3>
+                <p class="text-xs text-gray-500">5 Boards</p>
+              </div>
+              <div
+                class="group relative flex flex-col bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              >
+                <div class="flex justify-between items-start mb-4">
+                  <div
+                    class="size-10 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-600"
+                  >
+                    <span class="material-symbols-outlined">payments</span>
+                  </div>
+                  <button class="text-gray-300 hover:text-yellow-400">
+                    <span class="material-symbols-outlined">star</span>
+                  </button>
+                </div>
+                <h3 class="font-bold text-base mb-1">Budget Allocation</h3>
+                <p class="text-xs text-gray-500">3 Boards</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+</div>
