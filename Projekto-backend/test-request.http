@@ -7,11 +7,11 @@ POST http://localhost:8080/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "username": "Tharaka",
-  "email": "tharaka@gmail.com",
+  "username": "Shehan",
+  "email": "shehan@gmail.com",
   "password": "password123",
-  "firstName": "Tharaka",
-  "lastName": "Lokka",
+  "firstName": "Shehan",
+  "lastName": "Kaushalya",
   "isActive": true
 }
 
@@ -20,17 +20,17 @@ POST http://localhost:8080/api/v1/user/signin
 Content-Type: application/json
 
 {
-  "email": "bathiya@gmail.com",
+  "email": "shehan@gmail.com",
   "password": "password123"
 }
 
 ### Create Workspace
-POST http://localhost:8080/api/v1/workspaces?ownerId=78d0927a-be0f-423b-a804-75ace8dc0161
+POST http://localhost:8080/api/v1/workspaces?ownerId=a753f2ca-7683-4f4d-8a5f-710181fd659e
 Content-Type: application/json
 
 {
-  "name": "Project Beta",
-  "description": "Workspace for Project Beta",
+  "name": "Project Projekto",
+  "description": "Workspace for Project 404NOTFOUNDUS",
   "visibility": "PUBLIC"
 }
 
@@ -65,3 +65,38 @@ Content-Type: application/json
 ### Delete Workspace
 DELETE http://localhost:8080/api/v1/workspaces/58e0c9ca-0182-42c9-897d-62f7d97cad95
 Content-Type: application/json
+
+
+### Create Board
+POST http://localhost:8080/api/v1/boards
+Content-Type: application/json
+
+{
+  "name": "Project Planning Board",
+  "description": "Board for sprint planning",
+  "visibility": "PUBLIC",
+  "workspaceId": "f4b909ce-f919-4263-9bb9-19d04ac561ce",
+  "createdBy": "a753f2ca-7683-4f4d-8a5f-710181fd659e"
+}
+
+### Get Boards by Workspace
+GET http://localhost:8080/api/v1/boards/workspace/f4b909ce-f919-4263-9bb9-19d04ac561ce
+
+
+### Get Board by ID
+GET http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
+
+### Update Board
+PUT http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
+Content-Type: application/json
+
+{
+  "name": "Updated Board Name",
+  "description": "Updated description",
+  "visibility": "PRIVATE",
+  "workspaceId": "11111111-1111-1111-1111-111111111111",
+  "createdBy": "22222222-2222-2222-2222-222222222222"
+}
+
+### Delete Board
+DELETE http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
