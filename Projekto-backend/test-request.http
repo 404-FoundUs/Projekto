@@ -193,3 +193,34 @@ Content-Type: application/json
     "e0ae635a-56d7-42b7-82e9-07f44030f88d"
   ]
 }
+
+### Create Label
+POST http://localhost:8080/api/v1/labels
+Content-Type: application/json
+
+{
+  "name": "Bug",
+  "color": "#FF0000",
+  "boardId": "00f98f31-dca9-4c82-9de8-6abc9aa77c47"
+}
+
+### Get Labels by Board
+GET http://localhost:8080/api/v1/labels/board/00f98f31-dca9-4c82-9de8-6abc9aa77c47
+
+### Assign Label to Card
+POST http://localhost:8080/api/v1/labels/assign
+Content-Type: application/json
+
+{
+  "cardId": "c3854912-0b81-41ae-a4fb-ba113370692c",
+  "labelId": "95ffecd2-771c-49b9-a20b-d9aeb2eac539"
+}
+
+### Remove Label from Card
+POST http://localhost:8080/api/v1/labels/remove
+Content-Type: application/json
+
+{
+  "cardId": "c3854912-0b81-41ae-a4fb-ba113370692c",
+  "labelId": "95ffecd2-771c-49b9-a20b-d9aeb2eac539"
+}
