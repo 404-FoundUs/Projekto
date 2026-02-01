@@ -7,11 +7,11 @@ POST http://localhost:8080/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "username": "Shehan",
-  "email": "shehan@gmail.com",
+  "username": "Shehans",
+  "email": "shehans@gmail.com",
   "password": "password123",
-  "firstName": "Shehan",
-  "lastName": "Kaushalya",
+  "firstName": "Shehans",
+  "lastName": "Kaushalyas",
   "isActive": true
 }
 
