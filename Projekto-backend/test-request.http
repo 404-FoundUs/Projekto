@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ### Create Workspace
-POST http://localhost:8080/api/v1/workspaces?ownerId=a753f2ca-7683-4f4d-8a5f-710181fd659e
+POST http://localhost:8080/api/v1/workspaces?ownerId=feefbcfd-871f-482a-b345-861ba3a6dd27
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 
 ### Get User Workspaces
-GET http://localhost:8080/api/v1/workspaces/user/78d0927a-be0f-423b-a804-75ace8dc0161
+GET http://localhost:8080/api/v1/workspaces/user/feefbcfd-871f-482a-b345-861ba3a6dd27
 Content-Type: application/json
 
 ### Get Workspace by ID
@@ -75,8 +75,8 @@ Content-Type: application/json
   "name": "Project Planning Board",
   "description": "Board for sprint planning",
   "visibility": "PUBLIC",
-  "workspaceId": "f4b909ce-f919-4263-9bb9-19d04ac561ce",
-  "createdBy": "a753f2ca-7683-4f4d-8a5f-710181fd659e"
+  "workspaceId": "51037f50-3a98-4012-90ba-1eede7e4a002",
+  "createdBy": "feefbcfd-871f-482a-b345-861ba3a6dd27"
 }
 
 ### Get Boards by Workspace
@@ -101,13 +101,40 @@ Content-Type: application/json
 ### Delete Board
 DELETE http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
 
-
-
 ### Create List API
 POST http://localhost:8080/api/v1/lists
 Content-Type: application/json
 
 {
-  "title": "To Do",
-  "boardId": "645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef"
+  "title": "To Do 2",
+  "boardId": "00f98f31-dca9-4c82-9de8-6abc9aa77c47"
+}
+
+### Get Lists by Board API
+GET http://localhost:8080/api/v1/lists/board/00f98f31-dca9-4c82-9de8-6abc9aa77c47
+Accept: application/json
+
+### Update List API
+PUT http://localhost:8080/api/v1/lists/7ac918ad-468c-427d-adad-8c48b3d8c185
+Content-Type: application/json
+
+{
+  "title": "In Progress",
+  "boardId": "00f98f31-dca9-4c82-9de8-6abc9aa77c47"
+}
+
+
+### Delete List API
+DELETE http://localhost:8080/api/v1/lists/7ac918ad-468c-427d-adad-8c48b3d8c185
+
+### Reorder Lists API
+PATCH http://localhost:8080/api/v1/lists/board/00f98f31-dca9-4c82-9de8-6abc9aa77c47/reorder
+Content-Type: application/json
+
+{
+  "orderedListIds": [
+    "ff8bf895-028b-4ecb-b18c-188c319f2880",
+    "95d95f1d-e0d8-42ab-8a62-4b8f6643879b",
+    "febe613c-3b00-47df-8422-d84dbd2b4f47"
+  ]
 }
