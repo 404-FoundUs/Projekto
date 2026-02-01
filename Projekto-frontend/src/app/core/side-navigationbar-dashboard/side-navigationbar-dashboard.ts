@@ -8,5 +8,6 @@ import { RouterLink } from "@angular/router";
   styleUrl: './side-navigationbar-dashboard.scss',
 })
 export class SideNavigationbarDashboard {
+isLinkDisabled: any;
 
 }
