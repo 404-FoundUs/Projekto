@@ -87,9 +87,8 @@ public class CardController {
     public ResponseEntity<Void> reorder(
             @PathVariable UUID listId,
             @RequestBody ReorderCardsRequestDto dto
-    ){
+    ) {
         reorderCardsUseCase.reorder(listId, dto.getOrderedCardIds());
-
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

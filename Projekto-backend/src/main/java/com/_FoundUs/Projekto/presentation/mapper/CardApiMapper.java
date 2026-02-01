@@ -15,7 +15,6 @@ public interface CardApiMapper {
     CardModel toModel(CardRequestDto dto);
 
     default CardResponseDto toResponse(CardModel model) {
-
         if (model == null) return null;
 
         return CardResponseDto.builder()

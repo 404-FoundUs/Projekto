@@ -10,5 +10,9 @@ import org.mapstruct.ReportingPolicy;
 public interface CardMapper {
 
     @Mapping(target = "listId", source = "list.id")
+    @Mapping(target = "boardId", source = "board.id")
+    @Mapping(target = "dueDate", source = "dueDate")
+    @Mapping(target = "priority", source = "priority")
+    @Mapping(target = "position", source = "position")
     CardModel toModel(Cards card);
 }

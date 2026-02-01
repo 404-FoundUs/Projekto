@@ -5,6 +5,7 @@ import com._FoundUs.Projekto.data.entity.Lists;
 import com._FoundUs.Projekto.data.mapper.CardMapper;
 import com._FoundUs.Projekto.data.repository.CardsRepository;
 import com._FoundUs.Projekto.data.repository.ListsRepository;
+import com._FoundUs.Projekto.domain.enums.Priority;
 import com._FoundUs.Projekto.domain.model.CardModel;
 import com._FoundUs.Projekto.domain.repository.CardStore;
 import lombok.RequiredArgsConstructor;
@@ -24,19 +25,26 @@ public class CardServiceImpl implements CardStore {
 
     @Override
     public CardModel createCard(CardModel cardModel) {
-        Lists list = listsRepository.findById(cardModel.getListId()).orElseThrow(()->new RuntimeException("list not found"));
+        Lists list = listsRepository.findById(cardModel.getListId())
+                .orElseThrow(() -> new RuntimeException("list not found"));
 
-        int nextPositions = cardsRepository.findByListOrderByPositionAsc(list).size();
+        int nextPosition = cardsRepository.findByListOrderByPositionAsc(list).size();
 
-        Cards cards = Cards.builder()
+        Cards card = Cards.builder()
                 .title(cardModel.getTitle())
                 .description(cardModel.getDescription())
-                .position(nextPositions)
+                .position(nextPosition)
                 .list(list)
+                .board(list.getBoardId())
+                .priority(cardModel.getPriority() != null ? cardModel.getPriority() : Priority.LOW)
+                .dueDate(cardModel.getDueDate())
                 .build();
 
-        return cardMapper.toModel(cardsRepository.save(cards));
+        Cards savedCard = cardsRepository.save(card);
+
+        return cardMapper.toModel(savedCard);
     }
+
 
     @Override
     public List<CardModel> getCardsByListId(UUID listId) {
@@ -95,20 +103,24 @@ public class CardServiceImpl implements CardStore {
 
     @Override
     public void reorder(UUID listId, List<UUID> orderedCardIds) {
-        Lists list = listsRepository.findById(listId).orElseThrow(()->new RuntimeException("list not found"));
+        Lists list = listsRepository.findById(listId)
+                .orElseThrow(() -> new RuntimeException("list not found"));
 
-        List<Cards> cards = cardsRepository.findByListOrderByPositionAsc(list);
+        List<Cards> cardsInList = cardsRepository.findByListOrderByPositionAsc(list);
 
         for (int i = 0; i < orderedCardIds.size(); i++) {
+            final int position = i;
             UUID cardId = orderedCardIds.get(i);
 
-            Cards card = cards.stream()
+            cardsInList.stream()
                     .filter(c -> c.getId().equals(cardId))
                     .findFirst()
-                    .orElseThrow(()->new RuntimeException("card not found"));
-
-            card.setPosition(i);
-            cardsRepository.save(card);
+                    .ifPresent(card -> {
+                        card.setPosition(position);
+                        cardsRepository.save(card);
+                    });
         }
+
     }
+
 }
