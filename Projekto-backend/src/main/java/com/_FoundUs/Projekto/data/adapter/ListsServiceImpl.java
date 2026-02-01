@@ -24,9 +24,12 @@ public class ListsServiceImpl implements ListsStore {
 
     @Override
     public ListModel createList(ListModel listModel) {
-        Board board = boardRepository.findById(listModel.getBoardId()).orElseThrow(()-> new RuntimeException("Board not found"));
 
-        int nextPosition = listsRepository.findByBoardOrderByPositionAsc(board).size();
+        Board board = boardRepository.findById(listModel.getBoardId())
+                .orElseThrow(() -> new RuntimeException("Board not found"));
+
+        int nextPosition =
+                listsRepository.findByBoardIdOrderByPositionAsc(board).size();
 
         Lists lists = Lists.builder()
                 .title(listModel.getTitle())
@@ -41,7 +44,7 @@ public class ListsServiceImpl implements ListsStore {
     public List<ListModel> getListByBoard(UUID boardId) {
         Board board = boardRepository.findById(boardId).orElseThrow(()-> new RuntimeException("Board not found"));
 
-        return listsRepository.findByBoardOrderByPositionAsc(board)
+        return listsRepository.findByBoardIdOrderByPositionAsc(board)
                 .stream()
                 .map(listsMapper::toListModel)
                 .collect(Collectors.toList());
@@ -65,11 +68,15 @@ public class ListsServiceImpl implements ListsStore {
 
     @Override
     public void reorderLists(UUID boardId, List<UUID> orderedListIds) {
-        Board board = boardRepository.findById(boardId).orElseThrow(()-> new RuntimeException("Board not found"));
 
-        List<Lists> lists = listsRepository.findByBoardOrderByPositionAsc(board);
+        Board board = boardRepository.findById(boardId)
+                .orElseThrow(() -> new RuntimeException("Board not found"));
 
-        for (int i = 0; i<orderedListIds.size(); i++) {
+        List<Lists> lists =
+                listsRepository.findByBoardIdOrderByPositionAsc(board);
+
+        for (int i = 0; i < orderedListIds.size(); i++) {
+
             UUID listId = orderedListIds.get(i);
 
             Lists column = lists.stream()

@@ -6,6 +6,7 @@ import java.util.UUID;
 
 @Data
 public class ListRequestDto {
-    private String name;
+    private String title;
     private UUID boardId;
 }
+

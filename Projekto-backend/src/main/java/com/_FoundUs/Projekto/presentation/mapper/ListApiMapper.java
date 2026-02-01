@@ -12,7 +12,9 @@ public interface ListApiMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "position", ignore = true)
+    @Mapping(target = "title", source = "title")
     ListModel toModel(ListRequestDto dto);
+
 
     default ListResponseDto toResponse(ListModel model) {
 

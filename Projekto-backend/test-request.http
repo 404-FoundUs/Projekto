@@ -100,3 +100,14 @@ Content-Type: application/json
 
 ### Delete Board
 DELETE http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
+
+
+
+### Create List API
+POST http://localhost:8080/api/v1/lists
+Content-Type: application/json
+
+{
+  "title": "To Do",
+  "boardId": "645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef"
+}
