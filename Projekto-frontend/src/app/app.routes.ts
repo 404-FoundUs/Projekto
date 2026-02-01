@@ -13,6 +13,7 @@ import { BoardsPage } from './page/workspace/boards-page/boards-page';
 import { KanbanBoardPage } from './page/workspace/boards-page/kanban-board-page/kanban-board-page';
 import { CreateModelCard } from './shared/create-model-card/create-model-card';
 import { CreateBaordCard } from './shared/create-baord-card/create-baord-card';
+import { BoardSettingsPage } from './page/workspace/boards-page/board-settings-page/board-settings-page';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,6 +30,7 @@ export const routes: Routes = [
   {path: 'workspaces/board/kanban', component: KanbanBoardPage},
   // {path: 'workspaces/board/kanban/create-model', component: CreateModelCard},
   // {path: 'workspaces/board/kanban/create-board', component: CreateBaordCard},
+  {path: 'workspaces/board/settings', component: BoardSettingsPage},
 
   // not found page
   {path: '**', component: NotFoundPage},
