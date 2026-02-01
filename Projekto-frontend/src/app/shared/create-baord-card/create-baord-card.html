@@ -1,0 +1,203 @@
+<div
+  class="bg-background-light dark:bg-background-dark font-display min-h-screen flex items-center justify-center p-4"
+>
+  <!-- Modal Overlay Backdrop -->
+  <div class="fixed inset-0 bg-overlay flex items-center justify-center z-50">
+    <!-- Modal Container -->
+    <div
+      class="bg-white dark:bg-slate-900 w-full max-w-[520px] rounded-xl shadow-2xl overflow-hidden flex flex-col"
+    >
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800"
+      >
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Create Board</h2>
+        <button
+          class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+        >
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <!-- Form Content -->
+      <div class="p-6 space-y-6 overflow-y-auto max-h-[80vh]">
+        <!-- Board Name Input -->
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+            >Board Name</label
+          >
+          <input
+            class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400"
+            placeholder="e.g., Q4 Marketing Campaign"
+            type="text"
+          />
+        </div>
+        <!-- Template Selector -->
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+            >Template</label
+          >
+          <div class="relative">
+            <select
+              class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            >
+              <option value="kanban">Kanban Board (Default)</option>
+              <option value="scrum">Scrum Sprint</option>
+              <option value="list">Simple List</option>
+              <option value="timeline">Project Timeline</option>
+            </select>
+            <div
+              class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+            >
+              <span class="material-symbols-outlined">expand_more</span>
+            </div>
+          </div>
+        </div>
+        <!-- Background Picker -->
+        <div class="space-y-3">
+          <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+            >Background</label
+          >
+          <!-- Color Swatches -->
+          <div class="flex flex-wrap gap-3">
+            <label class="group relative cursor-pointer">
+              <input checked="" class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg bg-primary border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-primary shadow-sm"
+              ></div>
+            </label>
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg bg-purple-600 border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-purple-600 shadow-sm"
+              ></div>
+            </label>
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg bg-pink-600 border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-pink-600 shadow-sm"
+              ></div>
+            </label>
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg bg-orange-500 border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-orange-500 shadow-sm"
+              ></div>
+            </label>
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg bg-emerald-500 border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-emerald-500 shadow-sm"
+              ></div>
+            </label>
+            <!-- Image Thumbnails -->
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg overflow-hidden border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-primary shadow-sm bg-cover bg-center"
+                data-alt="Abstract blue and purple gradient background"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4mT2KwMFck0VIO05JBVCarIoSaoRqnkR3yiNiZDlHQCcNpD80NylR44Cx4Y1McM4_j7S19rPDEbgWnhL2hYyYWi84BDO4cNko3iThUAjAZSxDKCWhEcUgqoHiojSFkdR12cj_uES9Id2vztPsmr-uFCbYrwLcBFpfjQboW3fbjHDpEZEOECfcgtg-yc_oY2EB1jQeVaE_v_njvI-yGY7j9NSL4eA_NFt8oKj5fRH5Kr_K30uev-qulocTWwOD4JuFFNMjF_gIqUc');
+                "
+              ></div>
+            </label>
+            <label class="group relative cursor-pointer">
+              <input class="peer sr-only" name="bg-choice" type="radio" />
+              <div
+                class="w-10 h-10 rounded-lg overflow-hidden border-2 border-transparent peer-checked:border-white peer-checked:ring-2 peer-checked:ring-primary shadow-sm bg-cover bg-center"
+                data-alt="Green forest landscape aerial view"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ2kNKozLGeSyG6VoL-1jB9JDH4EXlBqwtZHvG_GxY0HxWJb86R7zOLIFft2rY6ay_e3a39jrQ7kVtrPsQ4LDPz3h6DYDPQm_2Fa6QaiBlpj_4sd0E5IXA1-BfpxBBSOU3OjjOx8o2ho9lbwrWZI3tqG-Cna-_HKh40pTehSlxjoiXqDLpr_er9AAMTbRyZpHZGActPOHS-PR4NaGsji6KPJaCGc1AuQhgZqdKdbHmjsJcdtmg8JQuKgT1j3I9-PloGrrDvrUteWM');
+                "
+              ></div>
+            </label>
+          </div>
+        </div>
+        <!-- Visibility Toggle -->
+        <div class="space-y-3">
+          <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300"
+            >Visibility</label
+          >
+          <div class="grid grid-cols-2 gap-3">
+            <label class="cursor-pointer">
+              <input
+                checked=""
+                class="peer sr-only"
+                name="visibility"
+                type="radio"
+                value="workspace"
+              />
+              <div
+                class="flex flex-col p-3 rounded-lg border border-slate-200 dark:border-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 transition-all"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="material-symbols-outlined text-sm text-slate-500 peer-checked:text-primary"
+                    >groups</span
+                  >
+                  <span class="text-sm font-medium text-slate-900 dark:text-white">Workspace</span>
+                </div>
+                <p class="text-xs text-slate-500">Everyone can see this board.</p>
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" name="visibility" type="radio" value="private" />
+              <div
+                class="flex flex-col p-3 rounded-lg border border-slate-200 dark:border-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 transition-all"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="material-symbols-outlined text-sm text-slate-500 peer-checked:text-primary"
+                    >lock</span
+                  >
+                  <span class="text-sm font-medium text-slate-900 dark:text-white">Private</span>
+                </div>
+                <p class="text-xs text-slate-500">Only you can see this board.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Actions -->
+      <div
+        class="px-6 py-5 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end gap-3"
+      >
+        <button
+          class="px-5 py-2.5 rounded-lg text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          class="relative px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary hover:bg-primary/90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 group"
+        >
+          <!-- Text state (Hidden during loading simulation) -->
+          <span class="group-active:opacity-0 transition-opacity">Create Board</span>
+          <!-- Loading Spinner (Visible on active/loading state) -->
+          <div
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-active:opacity-100"
+          >
+            <svg
+              class="animate-spin h-5 w-5 text-white"
+              fill="none"
+              viewbox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

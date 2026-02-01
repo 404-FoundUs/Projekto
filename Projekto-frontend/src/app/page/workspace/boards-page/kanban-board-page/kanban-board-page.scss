@@ -1,0 +1,21 @@
+.material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .board-container::-webkit-scrollbar {
+        height: 8px;
+      }
+      .board-container::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .board-container::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 10px;
+      }
+      .board-container::-webkit-scrollbar-thumb:hover {
+        background: #9ca3af;
+      }

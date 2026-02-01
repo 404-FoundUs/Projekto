@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { MainHeader } from '../../../core/main-header/main-header';
+import { MainFooter } from '../../../core/main-footer/main-footer';
 
 @Component({
   selector: 'app-home-page',
-  imports: [MatToolbarModule, MatIconModule],
+  imports: [RouterLink, MainHeader, MainFooter],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
