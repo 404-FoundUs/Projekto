@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class CreateLablesModelUUsecase {
+public class CreateLablesModelUsecase {
     private final LablesStore lablesStore;
 
     public LablesModel createLablesModel(LablesModel lablesModel) {
