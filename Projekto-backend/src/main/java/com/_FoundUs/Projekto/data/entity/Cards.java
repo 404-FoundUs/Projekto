@@ -2,10 +2,7 @@ package com._FoundUs.Projekto.data.entity;
 
 import com._FoundUs.Projekto.domain.enums.Priority;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -15,6 +12,7 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class Cards {
 
     @Id
@@ -38,6 +36,7 @@ public class Cards {
             joinColumns = @JoinColumn(name = "card_id"),
             inverseJoinColumns = @JoinColumn(name = "label_id")
     )
+    @Builder.Default
     private Set<Labels> labels = new HashSet<>();
     @OneToMany(
             mappedBy = "card",

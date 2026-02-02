@@ -7,11 +7,11 @@ POST http://localhost:8080/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "username": "Shehan",
-  "email": "shehan@gmail.com",
+  "username": "Shehans",
+  "email": "shehans@gmail.com",
   "password": "password123",
-  "firstName": "Shehan",
-  "lastName": "Kaushalya",
+  "firstName": "Shehans",
+  "lastName": "Kaushalyas",
   "isActive": true
 }
 
@@ -80,7 +80,7 @@ Content-Type: application/json
 }
 
 ### Get Boards by Workspace
-GET http://localhost:8080/api/v1/boards/workspace/f4b909ce-f919-4263-9bb9-19d04ac561ce
+GET http://localhost:8080/api/v1/boards/workspace/51037f50-3a98-4012-90ba-1eede7e4a002
 
 
 ### Get Board by ID
@@ -137,4 +137,90 @@ Content-Type: application/json
     "95d95f1d-e0d8-42ab-8a62-4b8f6643879b",
     "febe613c-3b00-47df-8422-d84dbd2b4f47"
   ]
+}
+
+### Create Card
+POST http://localhost:8080/api/v1/cards
+Content-Type: application/json
+
+{
+  "title": "Test Card 6",
+  "description": "This is a test card 56",
+  "dueDate": "2026-02-05T12:00:00",
+  "priority": "HIGH",
+  "listId": "ff8bf895-028b-4ecb-b18c-188c319f2880"
+}
+
+### Get Cards by List
+GET http://localhost:8080/api/v1/cards/list/ff8bf895-028b-4ecb-b18c-188c319f2880
+
+### Get Card by ID
+GET http://localhost:8080/api/v1/cards/64d69564-c296-4830-948c-15f8e47d08aa
+
+### Update Card
+PUT http://localhost:8080/api/v1/cards/64d69564-c296-4830-948c-15f8e47d08aa
+Content-Type: application/json
+
+{
+  "title": "Updated Card Title",
+  "description": "Updated description",
+  "dueDate": "2026-02-10T12:00:00",
+  "priority": "MEDIUM",
+  "listId": "febe613c-3b00-47df-8422-d84dbd2b4f47"
+}
+
+### Delete Card
+DELETE http://localhost:8080/api/v1/cards/64d69564-c296-4830-948c-15f8e47d08aa
+
+### Move Card
+PATCH http://localhost:8080/api/v1/cards/1ecba932-627c-4545-bbc7-fddfcb023ef9/move
+Content-Type: application/json
+
+{
+  "targetListId": "95d95f1d-e0d8-42ab-8a62-4b8f6643879b",
+  "newPosition": 0
+}
+
+
+### Reorder Cards
+PATCH http://localhost:8080/api/v1/cards/list/95d95f1d-e0d8-42ab-8a62-4b8f6643879b/reorder
+Content-Type: application/json
+
+{
+  "orderedCardIds": [
+    "16e7dc5d-4b28-4f21-9f9b-adc9d2967915",
+    "44e1d32d-4464-4b0c-a736-d6a95a9a478b",
+    "e0ae635a-56d7-42b7-82e9-07f44030f88d"
+  ]
+}
+
+### Create Label
+POST http://localhost:8080/api/v1/labels
+Content-Type: application/json
+
+{
+  "name": "Bug",
+  "color": "#FF0000",
+  "boardId": "00f98f31-dca9-4c82-9de8-6abc9aa77c47"
+}
+
+### Get Labels by Board
+GET http://localhost:8080/api/v1/labels/board/00f98f31-dca9-4c82-9de8-6abc9aa77c47
+
+### Assign Label to Card
+POST http://localhost:8080/api/v1/labels/assign
+Content-Type: application/json
+
+{
+  "cardId": "c3854912-0b81-41ae-a4fb-ba113370692c",
+  "labelId": "95ffecd2-771c-49b9-a20b-d9aeb2eac539"
+}
+
+### Remove Label from Card
+POST http://localhost:8080/api/v1/labels/remove
+Content-Type: application/json
+
+{
+  "cardId": "c3854912-0b81-41ae-a4fb-ba113370692c",
+  "labelId": "95ffecd2-771c-49b9-a20b-d9aeb2eac539"
 }
