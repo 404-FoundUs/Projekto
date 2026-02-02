@@ -17,6 +17,6 @@ public class ChecklistResponseDto {
     private UUID id;
     private String title;
     private Integer position;
-    private Cards card;
+    private UUID card;
     private List<ChecklistItem> items = new ArrayList<>();
 }

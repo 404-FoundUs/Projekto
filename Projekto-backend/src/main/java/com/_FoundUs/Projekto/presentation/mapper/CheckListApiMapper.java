@@ -11,9 +11,11 @@ public interface CheckListApiMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "position", ignore = true)
-    @Mapping(target = "card", ignore = true)
+    @Mapping(target = "cardId", ignore = true)
     @Mapping(target = "items", ignore = true)
     ChecklistModel toModel(ChecklistRequestDto checklistRequestDto);
+
+    @Mapping(target = "card", source = "cardId")
     ChecklistResponseDto toDto(ChecklistModel checklistModel);
 
 }

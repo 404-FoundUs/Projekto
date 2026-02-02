@@ -29,7 +29,8 @@ public class CommentController {
 
         CommentModel commentModel = commentApiMapper.toModel(requestCommentDto);
         CommentModel saveComment = commentSaveUseCase.save(commentModel);
-        return new ResponseEntity<>(commentApiMapper.toDto(saveComment), HttpStatus.CREATED);
+        ResponseCommentDto dto = commentApiMapper.toDto(saveComment);
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
 
     }
 
