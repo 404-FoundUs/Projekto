@@ -18,4 +18,13 @@ public class ErrorController {
                 .build();
         return new ResponseEntity<>(errorApi, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorApi> handleIllegalArgumentException(IllegalArgumentException ex){
+            ErrorApi errorApi = ErrorApi.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message(ex.getMessage())
+                    .build();
+                return new ResponseEntity<>(errorApi, HttpStatus.NO_CONTENT);
+    }
 }
