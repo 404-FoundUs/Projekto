@@ -28,7 +28,6 @@ public class ChecklistController {
 
     @PostMapping("/{id}")
     public ResponseEntity<ChecklistResponseDto> save(@PathVariable UUID id, @RequestBody ChecklistRequestDto checklistRequestDto) {
-
         ChecklistModel checklistModel = checkListApiMapper.toModel(checklistRequestDto);
         ChecklistModel saveChecklist = checklistSaveUseCase.save(id, checklistModel);
         return new  ResponseEntity<>(checkListApiMapper.toDto(saveChecklist), HttpStatus.CREATED);
