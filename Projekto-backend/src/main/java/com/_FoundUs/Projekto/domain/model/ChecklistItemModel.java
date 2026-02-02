@@ -11,10 +11,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 public class ChecklistItemModel {
-
     private UUID id;
     private String content;
-    private Boolean isCompleted = false;
+    private Boolean isCompleted;
     private Integer position;
-    private Checklist checklist;
+    private UUID checklistId;
 }
