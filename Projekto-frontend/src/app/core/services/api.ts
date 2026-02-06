@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class Api {
   constructor(private httpClient: HttpClient) {}
 
   protected get<T>(endpoint: string, params?: HttpParams): Observable<T> {
-    return this.httpClient.get<T>(`${this.apiUrl}/${endpoint}`, { params });              
+    return this.httpClient.get<T>(`${this.apiUrl}/${endpoint}`, { params });
   }
 
   protected post<T>(endpoint: string, body: unknown): Observable<T> {

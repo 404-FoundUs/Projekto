@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SideNavigationbarDashboard } from "../../components/side-navigationbar-dashboard/side-navigationbar-dashboard";
+import { SideNavigationbarDashboard } from "../../../dashboard/components/side-navigationbar-dashboard/side-navigationbar-dashboard";
 import { WorkspaceCard } from "../../components/workspace-card/workspace-card";
 import { RouterLink } from "@angular/router";
 

@@ -1,455 +1,317 @@
-<div
-    class="font-display bg-background-light dark:bg-background-dark min-h-screen relative overflow-hidden"
-  >
-    <!-- Mock Background Kanban Board (Blurred) -->
-    <div
-      class="absolute inset-0 z-0 flex flex-col opacity-50 blur-sm pointer-events-none"
+<div class="font-display bg-background-light min-h-screen relative overflow-hidden">
+  <!-- Mock Background Kanban Board (Blurred) -->
+  <div class="absolute inset-0 z-0 flex flex-col opacity-50 blur-sm pointer-events-none">
+    <header
+      class="flex items-center justify-between border-b border-solid border-[#e7ebf3] px-10 py-3 bg-white"
     >
-      <header
-        class="flex items-center justify-between border-b border-solid border-[#e7ebf3] px-10 py-3 bg-white dark:bg-[#1a212f]"
-      >
-        <div class="flex items-center gap-8">
-          <div class="flex items-center gap-4 text-[#0d121b] dark:text-white">
-            <span class="material-symbols-outlined text-primary"
-              >grid_view</span
-            >
-            <h2 class="text-lg font-bold">Projeckto</h2>
-          </div>
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-4 text-[#0d121b]">
+          <span class="material-symbols-outlined text-primary">grid_view</span>
+          <h2 class="text-lg font-bold">Projeckto</h2>
         </div>
-      </header>
-      <div class="flex gap-6 p-10 overflow-x-auto">
-        <div
-          class="min-w-[300px] h-[600px] bg-gray-200 dark:bg-gray-800 rounded-lg"
-        ></div>
-        <div
-          class="min-w-[300px] h-[600px] bg-gray-200 dark:bg-gray-800 rounded-lg"
-        ></div>
-        <div
-          class="min-w-[300px] h-[600px] bg-gray-200 dark:bg-gray-800 rounded-lg"
-        ></div>
       </div>
+    </header>
+
+    <div class="flex gap-6 p-10 overflow-x-auto">
+      <div class="min-w-[300px] h-[600px] bg-gray-200 rounded-lg"></div>
+      <div class="min-w-[300px] h-[600px] bg-gray-200 rounded-lg"></div>
+      <div class="min-w-[300px] h-[600px] bg-gray-200 rounded-lg"></div>
     </div>
-    <!-- Modal Backdrop -->
+  </div>
+
+  <!-- Modal Backdrop -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md p-4 lg:p-10">
+    <!-- Modal Container -->
     <div
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md p-4 lg:p-10"
+      class="bg-white w-full max-w-[960px] max-h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300"
     >
-      <!-- Modal Container -->
-      <div
-        class="bg-white dark:bg-background-dark w-full max-w-[960px] max-h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300"
-      >
-        <!-- Modal Header -->
-        <div
-          class="flex flex-col border-b border-gray-100 dark:border-gray-800 p-6"
-        >
-          <div class="flex justify-between items-start mb-2">
-            <div
-              class="flex items-center gap-2 text-sm text-[#4c669a] dark:text-gray-400"
-            >
-              <span class="material-symbols-outlined text-sm">folder</span>
-              <a class="hover:text-primary transition-colors" href="#"
-                >Project Alpha</a
-              >
-              <span>/</span>
-              <span class="text-[#0d121b] dark:text-white font-medium"
-                >Kanban Board</span
-              >
-            </div>
-            <button
-              class="text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors"
-            >
-              <span class="material-symbols-outlined">close</span>
-            </button>
+      <!-- Modal Header -->
+      <div class="flex flex-col border-b border-gray-100 p-6">
+        <div class="flex justify-between items-start mb-2">
+          <div class="flex items-center gap-2 text-sm text-[#4c669a]">
+            <span class="material-symbols-outlined text-sm">folder</span>
+            <a class="hover:text-primary transition-colors" href="#">Project Alpha</a>
+            <span>/</span>
+            <span class="text-[#0d121b] font-medium">Kanban Board</span>
           </div>
-          <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-gray-400 text-3xl"
-              >subtitles</span
-            >
-            <input
-              class="w-full text-2xl font-bold border-none focus:ring-2 focus:ring-primary/20 rounded px-2 -ml-2 text-[#0d121b] dark:text-white bg-transparent"
-              type="text"
-              value="UI Design for Project Dashboard"
-            />
-          </div>
-          <div class="ml-10 text-sm text-[#4c669a]">
-            In list <span class="underline cursor-pointer">In Progress</span>
-          </div>
+
+          <button class="text-gray-400 hover:text-gray-600 transition-colors">
+            <span class="material-symbols-outlined">close</span>
+          </button>
         </div>
-        <!-- Modal Scrollable Body -->
-        <div class="flex-1 overflow-y-auto p-6 flex flex-col md:flex-row gap-8">
-          <!-- Main Content (Left) -->
-          <div class="flex-1 space-y-8">
-            <!-- Description -->
-            <section>
-              <div class="flex items-center gap-3 mb-3">
-                <span class="material-symbols-outlined text-gray-400"
-                  >subject</span
-                >
-                <h3 class="font-bold text-[#0d121b] dark:text-white">
-                  Description
-                </h3>
-              </div>
-              <div class="ml-10">
-                <div
-                  class="bg-gray-50 dark:bg-gray-900 rounded-lg p-1 border border-transparent focus-within:border-primary/30 transition-all"
-                >
-                  <!-- Rich Text Toolbars Mockup -->
-                  <div
-                    class="flex items-center gap-1 p-2 border-b border-gray-200 dark:border-gray-800 mb-2"
-                  >
-                    <button
-                      class="p-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400"
-                    >
-                      <span class="material-symbols-outlined text-lg"
-                        >format_bold</span
-                      >
-                    </button>
-                    <button
-                      class="p-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400"
-                    >
-                      <span class="material-symbols-outlined text-lg"
-                        >format_italic</span
-                      >
-                    </button>
-                    <button
-                      class="p-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400"
-                    >
-                      <span class="material-symbols-outlined text-lg"
-                        >format_list_bulleted</span
-                      >
-                    </button>
-                    <div
-                      class="w-px h-4 bg-gray-300 dark:bg-gray-700 mx-1"
-                    ></div>
-                    <button
-                      class="p-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400"
-                    >
-                      <span class="material-symbols-outlined text-lg"
-                        >link</span
-                      >
-                    </button>
-                  </div>
-                  <textarea
-                    class="w-full bg-transparent border-none focus:ring-0 text-sm min-h-[120px] text-[#0d121b] dark:text-gray-300 placeholder:text-gray-400"
-                    placeholder="Add a more detailed description..."
-                  >
-Detailed requirements for the new layout implementation including dark mode support and mobile responsiveness for the primary dashboard view.</textarea
-                  >
-                </div>
-                <div class="mt-2 flex gap-2">
-                  <button
-                    class="bg-primary text-white px-4 py-1.5 rounded text-sm font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    Save
-                  </button>
-                  <button
-                    class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white text-sm px-4 py-1.5 font-semibold"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </section>
-            <!-- Checklist -->
-            <section>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-gray-400"
-                    >check_box</span
-                  >
-                  <h3 class="font-bold text-[#0d121b] dark:text-white">
-                    Design Tasks
-                  </h3>
-                </div>
-                <button
-                  class="text-xs font-bold px-3 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors dark:text-gray-300"
-                >
-                  Delete
-                </button>
-              </div>
-              <div class="ml-10">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="text-xs font-bold text-[#4c669a]">60%</span>
-                  <div
-                    class="flex-1 h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden"
-                  >
-                    <div class="h-full bg-primary" style="width: 60%"></div>
-                  </div>
-                </div>
-                <div class="space-y-3">
-                  <label class="flex items-center gap-3 group cursor-pointer">
-                    <input
-                      checked=""
-                      class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300 dark:border-gray-700 dark:bg-gray-800"
-                      type="checkbox"
-                    />
-                    <span class="text-sm line-through text-gray-400"
-                      >Create wireframes for desktop</span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 group cursor-pointer">
-                    <input
-                      checked=""
-                      class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300 dark:border-gray-700 dark:bg-gray-800"
-                      type="checkbox"
-                    />
-                    <span class="text-sm line-through text-gray-400"
-                      >Define primary color palette</span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 group cursor-pointer">
-                    <input
-                      checked=""
-                      class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300 dark:border-gray-700 dark:bg-gray-800"
-                      type="checkbox"
-                    />
-                    <span class="text-sm line-through text-gray-400"
-                      >Setup component library</span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 group cursor-pointer">
-                    <input
-                      class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300 dark:border-gray-700 dark:bg-gray-800"
-                      type="checkbox"
-                    />
-                    <span class="text-sm text-[#0d121b] dark:text-gray-300"
-                      >Design mobile responsive states</span
-                    >
-                  </label>
-                  <label class="flex items-center gap-3 group cursor-pointer">
-                    <input
-                      class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300 dark:border-gray-700 dark:bg-gray-800"
-                      type="checkbox"
-                    />
-                    <span class="text-sm text-[#0d121b] dark:text-gray-300"
-                      >Accessibility audit for dark mode</span
-                    >
-                  </label>
-                </div>
-                <button
-                  class="mt-4 text-xs font-bold px-3 py-1.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors dark:text-gray-300"
-                >
-                  Add an item
-                </button>
-              </div>
-            </section>
-            <!-- Tabs for Activity -->
-            <section>
+
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-gray-400 text-3xl">subtitles</span>
+          <input
+            class="w-full text-2xl font-bold border-none focus:ring-2 focus:ring-primary/20 rounded px-2 -ml-2 text-[#0d121b] bg-transparent"
+            type="text"
+            value="UI Design for Project Dashboard"
+          />
+        </div>
+
+        <div class="ml-10 text-sm text-[#4c669a]">
+          In list <span class="underline cursor-pointer">In Progress</span>
+        </div>
+      </div>
+
+      <!-- Modal Scrollable Body -->
+      <div class="flex-1 overflow-y-auto p-6 flex flex-col md:flex-row gap-8">
+        <!-- Main Content (Left) -->
+        <div class="flex-1 space-y-8">
+          <!-- Description -->
+          <section>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="material-symbols-outlined text-gray-400">subject</span>
+              <h3 class="font-bold text-[#0d121b]">Description</h3>
+            </div>
+
+            <div class="ml-10">
               <div
-                class="border-b border-gray-200 dark:border-gray-800 flex gap-6 ml-10 mb-4"
+                class="bg-gray-50 rounded-lg p-1 border border-transparent focus-within:border-primary/30 transition-all"
               >
-                <button
-                  class="pb-2 border-b-2 border-primary text-sm font-bold text-primary"
+                <!-- Rich Text Toolbars Mockup -->
+                <div class="flex items-center gap-1 p-2 border-b border-gray-200 mb-2">
+                  <button class="p-1 hover:bg-gray-200 rounded text-gray-600">
+                    <span class="material-symbols-outlined text-lg">format_bold</span>
+                  </button>
+                  <button class="p-1 hover:bg-gray-200 rounded text-gray-600">
+                    <span class="material-symbols-outlined text-lg">format_italic</span>
+                  </button>
+                  <button class="p-1 hover:bg-gray-200 rounded text-gray-600">
+                    <span class="material-symbols-outlined text-lg">format_list_bulleted</span>
+                  </button>
+                  <div class="w-px h-4 bg-gray-300 mx-1"></div>
+                  <button class="p-1 hover:bg-gray-200 rounded text-gray-600">
+                    <span class="material-symbols-outlined text-lg">link</span>
+                  </button>
+                </div>
+
+                <textarea
+                  class="w-full bg-transparent border-none focus:ring-0 text-sm min-h-[120px] text-[#0d121b] placeholder:text-gray-400"
+                  placeholder="Add a more detailed description..."
                 >
-                  Activity
+Detailed requirements for the new layout implementation including dark mode support and mobile responsiveness for the primary dashboard view.</textarea
+                >
+              </div>
+
+              <div class="mt-2 flex gap-2">
+                <button
+                  class="bg-primary text-white px-4 py-1.5 rounded text-sm font-semibold hover:bg-primary/90 transition-colors"
+                >
+                  Save
                 </button>
                 <button
-                  class="pb-2 border-b-2 border-transparent text-sm font-bold text-gray-400 hover:text-gray-600 dark:hover:text-white"
+                  class="text-gray-500 hover:text-gray-700 text-sm px-4 py-1.5 font-semibold"
                 >
-                  Comments
-                </button>
-              </div>
-              <div class="ml-10 space-y-6">
-                <div class="flex gap-4">
-                  <div
-                    class="h-8 w-8 rounded-full bg-primary/20 flex-shrink-0 bg-cover bg-center"
-                    data-alt="User avatar placeholder"
-                    style="
-                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCcDRh_EGjbo_QfY4Ae7OoPcvmZ513MBFdsi8FRpRbB_ZNuCUJ_eUPgvEgrkq7_JrlfBc6HBGDL4yplQgBewOZVYdLbdBR9K1Qm7Sne8b0f2sDbAn712c3zxpZ_xpZLCpEuB_BvPuIGGuBi4Nr3W13dvdVn6Y-33cusWAreR51U3iYEXmR3Fv-jg-g6smHcHLBbtBb-AsHbZuaDn6nwDq35aQ8qztS6fbqGXPQcnY09UsjbdTiZfESdGTyf0Pj0Ss36ieeIYuQIKDE&quot;);
-                    "
-                  ></div>
-                  <div class="flex-1">
-                    <div
-                      class="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-3"
-                    >
-                      <textarea
-                        class="w-full bg-transparent border-none focus:ring-0 text-sm p-0 placeholder:text-gray-400 text-[#0d121b] dark:text-gray-300"
-                        placeholder="Write a comment..."
-                      ></textarea>
-                    </div>
-                    <div class="mt-2 flex gap-2">
-                      <button
-                        class="bg-primary text-white px-3 py-1 rounded text-xs font-semibold hover:bg-primary/90"
-                      >
-                        Send
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Comment List -->
-                <div class="flex gap-4">
-                  <div
-                    class="h-8 w-8 rounded-full bg-orange-400 flex-shrink-0 bg-cover bg-center"
-                    data-alt="Team member Sarah avatar"
-                    style="
-                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCugjYXwF4uD_friCFI7I7kboFTRiOmKOG5ZflhYFA6u4t1wjLuJC2BJwbNyMDFhXa7dAbCNpnWjr5Vlk7e9cO9X1e6_8kkmKi5OOjATRvCEHyy6zJY96Ippun2vwC82Eo2GiDpkeQ5RdBi2Ed7ZubLPjX9DBWpId5AsYoYwbr6_3UOCmIQZD3-oksgnFrwFQVRi7K-P4N0pBg202UNPZXnLm0o2ngeANjjb_U34a3Yq1uTH4wZftjW20ABkOxrtdKzEqop9m2d7Rs&quot;);
-                    "
-                  ></div>
-                  <div>
-                    <div class="flex items-center gap-2 mb-1">
-                      <span
-                        class="font-bold text-xs text-[#0d121b] dark:text-white"
-                        >Sarah Connor</span
-                      >
-                      <span class="text-[10px] text-gray-400">2 hours ago</span>
-                    </div>
-                    <div
-                      class="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 text-sm text-[#0d121b] dark:text-gray-300 shadow-sm border border-gray-100 dark:border-gray-700"
-                    >
-                      The color palette looks great. Make sure we use WCAG
-                      compliant contrast ratios for the primary blue on dark
-                      mode.
-                    </div>
-                    <div class="mt-1 flex gap-3 ml-1">
-                      <button
-                        class="text-[10px] font-bold text-gray-400 hover:underline"
-                      >
-                        Reply
-                      </button>
-                      <button
-                        class="text-[10px] font-bold text-gray-400 hover:underline"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          <!-- Sidebar (Right) -->
-          <div class="w-full md:w-[240px] space-y-6">
-            <div>
-              <h4
-                class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2"
-              >
-                Assignees
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <div
-                  class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-background-dark bg-blue-500 bg-cover bg-center"
-                  data-alt="Assignee avatar 1"
-                  style="
-                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAVreruoR5A8psoJ9ScesJIM-t-o2zwAXxkBmPUX0X6K_9C3sHB_edMgEsE7-sxiUYt8axw8mLBfmgzomxezSBGVQn-2kPj7YGkbtmvsVHkbuzEFJpJx0dMU__wSDWkmhq6bTkhqowgV0CeB7iGjENwwhAxNQUwGKI-0zaJYPA31mmeTNyDGBewobl64FJFyB4_AtkeyKiSm8fndUrfomnULC1EaeQMlXvkAz5_8sNg6DH1q6X5sjvzzg3p-Z60lXGm7h4VY581PwY&quot;);
-                  "
-                ></div>
-                <div
-                  class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-background-dark bg-green-500 bg-cover bg-center"
-                  data-alt="Assignee avatar 2"
-                  style="
-                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA9NkISTuA80wQnE2ZGxPp0ZIfoBI0hUSDoIvGFylDfZsNuJQ29qdWzVfRxoe8RMbbkS61dYuKm0HMVioPDcnBSXGzJ-eSgzjnPnbTrh5n1PO1xps1nKQVnjkFombtLo0GOjHebvMj_M3I2i0LpXs1cX-7fNguFatlz9IJaJ5XzZyw-ZE8UTWyxzyCOAUXSkflpxdWtEj6FuNE4BotBBKzPfG78EfxckIyKW871kzF1Zm-zmrmDHIox_EKi3CGOvRbkCHEf5fX-uZ4&quot;);
-                  "
-                ></div>
-                <button
-                  class="h-8 w-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-500 transition-colors"
-                >
-                  <span class="material-symbols-outlined text-sm">add</span>
+                  Cancel
                 </button>
               </div>
             </div>
-            <div>
-              <h4
-                class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2"
-              >
-                Labels
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded text-[11px] font-bold"
-                  >Urgent</span
-                >
-                <span
-                  class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded text-[11px] font-bold"
-                  >Frontend</span
-                >
-                <button
-                  class="h-6 px-2 bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-500 rounded transition-colors"
-                >
-                  <span class="material-symbols-outlined text-sm">add</span>
-                </button>
+          </section>
+
+          <!-- Checklist -->
+          <section>
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-gray-400">check_box</span>
+                <h3 class="font-bold text-[#0d121b]">Design Tasks</h3>
               </div>
-            </div>
-            <div>
-              <h4
-                class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2"
-              >
-                Due Date
-              </h4>
-              <button
-                class="w-full flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded hover:border-primary/50 transition-colors"
-              >
-                <div class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-primary text-lg"
-                    >calendar_today</span
-                  >
-                  <span
-                    class="text-xs font-semibold text-[#0d121b] dark:text-gray-300"
-                    >Oct 24, 2023</span
-                  >
-                </div>
-                <span class="material-symbols-outlined text-sm text-gray-400"
-                  >expand_more</span
-                >
+              <button class="text-xs font-bold px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded transition-colors text-gray-700">
+                Delete
               </button>
             </div>
-            <div>
-              <h4
-                class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2"
-              >
-                Actions
-              </h4>
-              <div class="space-y-2">
-                <button
-                  class="w-full flex items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors text-xs font-bold text-[#0d121b] dark:text-gray-300"
-                >
-                  <span class="material-symbols-outlined text-sm"
-                    >arrow_forward</span
-                  >
-                  Move
-                </button>
-                <button
-                  class="w-full flex items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors text-xs font-bold text-[#0d121b] dark:text-gray-300"
-                >
-                  <span class="material-symbols-outlined text-sm"
-                    >content_copy</span
-                  >
-                  Copy
-                </button>
-                <button
-                  class="w-full flex items-center gap-2 p-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors text-xs font-bold text-[#0d121b] dark:text-gray-300"
-                >
-                  <span class="material-symbols-outlined text-sm">share</span>
-                  Share
-                </button>
+
+            <div class="ml-10">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-bold text-[#4c669a]">60%</span>
+                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-primary" style="width: 60%"></div>
+                </div>
               </div>
+
+              <div class="space-y-3">
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300" type="checkbox" checked />
+                  <span class="text-sm line-through text-gray-400">Create wireframes for desktop</span>
+                </label>
+
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300" type="checkbox" checked />
+                  <span class="text-sm line-through text-gray-400">Define primary color palette</span>
+                </label>
+
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300" type="checkbox" checked />
+                  <span class="text-sm line-through text-gray-400">Setup component library</span>
+                </label>
+
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300" type="checkbox" />
+                  <span class="text-sm text-[#0d121b]">Design mobile responsive states</span>
+                </label>
+
+                <label class="flex items-center gap-3 group cursor-pointer">
+                  <input class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300" type="checkbox" />
+                  <span class="text-sm text-[#0d121b]">Accessibility audit for dark mode</span>
+                </label>
+              </div>
+
+              <button class="mt-4 text-xs font-bold px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded transition-colors text-gray-700">
+                Add an item
+              </button>
+            </div>
+          </section>
+
+          <!-- Tabs for Activity -->
+          <section>
+            <div class="border-b border-gray-200 flex gap-6 ml-10 mb-4">
+              <button class="pb-2 border-b-2 border-primary text-sm font-bold text-primary">
+                Activity
+              </button>
+              <button class="pb-2 border-b-2 border-transparent text-sm font-bold text-gray-400 hover:text-gray-600">
+                Comments
+              </button>
+            </div>
+
+            <div class="ml-10 space-y-6">
+              <div class="flex gap-4">
+                <div
+                  class="h-8 w-8 rounded-full bg-primary/20 flex-shrink-0 bg-cover bg-center"
+                  data-alt="User avatar placeholder"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcDRh_EGjbo_QfY4Ae7OoPcvmZ513MBFdsi8FRpRbB_ZNuCUJ_eUPgvEgrkq7_JrlfBc6HBGDL4yplQgBewOZVYdLbdBR9K1Qm7Sne8b0f2sDbAn712c3zxpZ_xpZLCpEuB_BvPuIGGuBi4Nr3W13dvdVn6Y-33cusWAreR51U3iYEXmR3Fv-jg-g6smHcHLBbtBb-AsHbZuaDn6nwDq35aQ8qztS6fbqGXPQcnY09UsjbdTiZfESdGTyf0Pj0Ss36ieeIYuQIKDE');"
+                ></div>
+
+                <div class="flex-1">
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                    <textarea
+                      class="w-full bg-transparent border-none focus:ring-0 text-sm p-0 placeholder:text-gray-400 text-[#0d121b]"
+                      placeholder="Write a comment..."
+                    ></textarea>
+                  </div>
+                  <div class="mt-2 flex gap-2">
+                    <button class="bg-primary text-white px-3 py-1 rounded text-xs font-semibold hover:bg-primary/90">
+                      Send
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment List -->
+              <div class="flex gap-4">
+                <div
+                  class="h-8 w-8 rounded-full bg-orange-400 flex-shrink-0 bg-cover bg-center"
+                  data-alt="Team member Sarah avatar"
+                  style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCugjYXwF4uD_friCFI7I7kboFTRiOmKOG5ZflhYFA6u4t1wjLuJC2BJwbNyMDFhXa7dAbCNpnWjr5Vlk7e9cO9X1e6_8kkmKi5OOjATRvCEHyy6zJY96Ippun2vwC82Eo2GiDpkeQ5RdBi2Ed7ZubLPjX9DBWpId5AsYoYwbr6_3UOCmIQZD3-oksgnFrwFQVRi7K-P4N0pBg202UNPZXnLm0o2ngeANjjb_U34a3Yq1uTH4wZftjW20ABkOxrtdKzEqop9m2d7Rs');"
+                ></div>
+
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="font-bold text-xs text-[#0d121b]">Sarah Connor</span>
+                    <span class="text-[10px] text-gray-400">2 hours ago</span>
+                  </div>
+
+                  <div class="bg-gray-50 rounded-lg p-3 text-sm text-[#0d121b] shadow-sm border border-gray-100">
+                    The color palette looks great. Make sure we use WCAG
+                    compliant contrast ratios for the primary blue on dark
+                    mode.
+                  </div>
+
+                  <div class="mt-1 flex gap-3 ml-1">
+                    <button class="text-[10px] font-bold text-gray-400 hover:underline">Reply</button>
+                    <button class="text-[10px] font-bold text-gray-400 hover:underline">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar (Right) -->
+        <div class="w-full md:w-[240px] space-y-6">
+          <div>
+            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Assignees</h4>
+            <div class="flex flex-wrap gap-2">
+              <div
+                class="h-8 w-8 rounded-full ring-2 ring-white bg-blue-500 bg-cover bg-center"
+                data-alt="Assignee avatar 1"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVreruoR5A8psoJ9ScesJIM-t-o2zwAXxkBmPUX0X6K_9C3sHB_edMgEsE7-sxiUYt8axw8mLBfmgzomxezSBGVQn-2kPj7YGkbtmvsVHkbuzEFJpJx0dMU__wSDWkmhq6bTkhqowgV0CeB7iGjENwwhAxNQUwGKI-0zaJYPA31mmeTNyDGBewobl64FJFyB4_AtkeyKiSm8fndUrfomnULC1EaeQMlXvkAz5_8sNg6DH1q6X5sjvzzg3p-Z60lXGm7h4VY581PwY');"
+              ></div>
+
+              <div
+                class="h-8 w-8 rounded-full ring-2 ring-white bg-green-500 bg-cover bg-center"
+                data-alt="Assignee avatar 2"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9NkISTuA80wQnE2ZGxPp0ZIfoBI0hUSDoIvGFylDfZsNuJQ29qdWzVfRxoe8RMbbkS61dYuKm0HMVioPDcnBSXGzJ-eSgzjnPnbTrh5n1PO1xps1nKQVnjkFombtLo0GOjHebvMj_M3I2i0LpXs1cX-7fNguFatlz9IJaJ5XzZyw-ZE8UTWyxzyCOAUXSkflpxdWtEj6FuNE4BotBBKzPfG78EfxckIyKW871kzF1Zm-zmrmDHIox_EKi3CGOvRbkCHEf5fX-uZ4');"
+              ></div>
+
+              <button class="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 text-gray-500 transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Labels</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-red-100 text-red-600 rounded text-[11px] font-bold">Urgent</span>
+              <span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-[11px] font-bold">Frontend</span>
+              <button class="h-6 px-2 bg-gray-100 flex items-center justify-center hover:bg-gray-200 text-gray-500 rounded transition-colors">
+                <span class="material-symbols-outlined text-sm">add</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Due Date</h4>
+            <button
+              class="w-full flex items-center justify-between p-2 bg-gray-50 border border-gray-200 rounded hover:border-primary/50 transition-colors"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-lg">calendar_today</span>
+                <span class="text-xs font-semibold text-[#0d121b]">Oct 24, 2023</span>
+              </div>
+              <span class="material-symbols-outlined text-sm text-gray-400">expand_more</span>
+            </button>
+          </div>
+
+          <div>
+            <h4 class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Actions</h4>
+            <div class="space-y-2">
+              <button class="w-full flex items-center gap-2 p-2 bg-gray-100 hover:bg-gray-200 rounded transition-colors text-xs font-bold text-[#0d121b]">
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                Move
+              </button>
+              <button class="w-full flex items-center gap-2 p-2 bg-gray-100 hover:bg-gray-200 rounded transition-colors text-xs font-bold text-[#0d121b]">
+                <span class="material-symbols-outlined text-sm">content_copy</span>
+                Copy
+              </button>
+              <button class="w-full flex items-center gap-2 p-2 bg-gray-100 hover:bg-gray-200 rounded transition-colors text-xs font-bold text-[#0d121b]">
+                <span class="material-symbols-outlined text-sm">share</span>
+                Share
+              </button>
             </div>
           </div>
         </div>
-        <!-- Modal Footer -->
-        <div
-          class="p-6 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center bg-gray-50/50 dark:bg-black/10"
-        >
-          <div class="flex gap-4">
-            <button
-              class="flex items-center gap-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 px-3 py-2 rounded transition-colors"
-            >
-              <span class="material-symbols-outlined text-lg">delete</span>
-              Delete Card
-            </button>
-          </div>
-          <div class="flex gap-3">
-            <button
-              class="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded text-sm font-bold text-[#0d121b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              <span class="material-symbols-outlined text-lg">archive</span>
-              Archive
-            </button>
-            <button
-              class="px-6 py-2 bg-primary text-white rounded text-sm font-bold hover:bg-primary/90 shadow-md shadow-primary/20 transition-all"
-            >
-              Update Card
-            </button>
-          </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-6 border-t border-gray-100 flex justify-between items-center bg-gray-50/50">
+        <div class="flex gap-4">
+          <button class="flex items-center gap-2 text-xs font-bold text-red-500 hover:bg-red-50 px-3 py-2 rounded transition-colors">
+            <span class="material-symbols-outlined text-lg">delete</span>
+            Delete Card
+          </button>
+        </div>
+
+        <div class="flex gap-3">
+          <button class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded text-sm font-bold text-[#0d121b] hover:bg-gray-100 transition-colors">
+            <span class="material-symbols-outlined text-lg">archive</span>
+            Archive
+          </button>
+          <button class="px-6 py-2 bg-primary text-white rounded text-sm font-bold hover:bg-primary/90 shadow-md shadow-primary/20 transition-all">
+            Update Card
+          </button>
         </div>
       </div>
     </div>
+  </div>
 </div>
