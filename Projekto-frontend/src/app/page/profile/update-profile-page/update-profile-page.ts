@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProfileHeader } from '../../../core/profile-header/profile-header';
+import { ProfileHeader } from '../../../shared/profile-header/profile-header';
 
 @Component({
   selector: 'app-update-profile-page',

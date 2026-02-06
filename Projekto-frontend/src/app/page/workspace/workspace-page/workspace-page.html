@@ -12,6 +12,7 @@
         <div class="flex items-center gap-3">
           <button
             class="bg-primary text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors shadow-sm"
+            routerLink="/workspaces/create-workspace"
           >
             <span class="material-symbols-outlined text-[20px]">add</span>
             New Workspace
@@ -64,17 +65,13 @@
         >
           <div
             class="bg-primary/10 text-primary rounded-full size-16 flex items-center justify-center group-hover:scale-110 transition-transform"
+            routerLink="/workspaces/create-workspace"
           >
             <span class="material-symbols-outlined text-[32px]">add</span>
           </div>
           <p class="text-primary font-bold text-lg">Create Workspace</p>
         </div>
-        <app-workspace-card></app-workspace-card>
-        <app-workspace-card></app-workspace-card>
-        <app-workspace-card></app-workspace-card>
-        <app-workspace-card></app-workspace-card>
-        <app-workspace-card></app-workspace-card>
-        <app-workspace-card></app-workspace-card>
+        <app-workspace-card></app-workspace-card>        
       </div>
     </section>
   </main>

@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {Routes} from '@angular/router';
 import {LogInPage} from './page/security/log-in-page/log-in-page';
 import {RegisterPage} from './page/security/register-page/register-page';
-import {NotFoundPage} from './core/not-found-page/not-found-page';
+import {NotFoundPage} from './shared/not-found-page/not-found-page';
 import {HomePage} from './page/home/home-page/home-page';
 import { ForgotPasswordPage } from './page/security/forgot-password-page/forgot-password-page';
 import { WorkspacePage } from './page/workspace/workspace-page/workspace-page';
@@ -14,6 +15,7 @@ import { KanbanBoardPage } from './page/workspace/boards-page/kanban-board-page/
 import { CreateModelCard } from './shared/create-model-card/create-model-card';
 import { CreateBaordCard } from './shared/create-baord-card/create-baord-card';
 import { BoardSettingsPage } from './page/workspace/boards-page/board-settings-page/board-settings-page';
+import { CreateWorkspaceCard } from './shared/create-workspace-card/create-workspace-card';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,10 +28,11 @@ export const routes: Routes = [
   {path: 'otp-verification', component: OtpVerificationPage},
   {path: 'dashboard', component: DashboardPage},
   {path: 'workspaces', component: WorkspacePage},
+  {path: 'workspaces/create-workspace', component: CreateWorkspaceCard},
   {path: 'workspaces/board', component: BoardsPage},
   {path: 'workspaces/board/kanban', component: KanbanBoardPage},
-  // {path: 'workspaces/board/kanban/create-model', component: CreateModelCard},
-  // {path: 'workspaces/board/kanban/create-board', component: CreateBaordCard},
+  {path: 'workspaces/board/create-board', component: CreateBaordCard},
+  {path: 'workspaces/board/kanban/create-model', component: CreateModelCard},
   {path: 'workspaces/board/settings', component: BoardSettingsPage},
 
   // not found page

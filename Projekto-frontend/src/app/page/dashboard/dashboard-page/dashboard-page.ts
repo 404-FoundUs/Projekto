@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SideNavigationbarDashboard } from "../../../core/side-navigationbar-dashboard/side-navigationbar-dashboard";
+import { SideNavigationbarDashboard } from "../../../shared/side-navigationbar-dashboard/side-navigationbar-dashboard";
 
 @Component({
   selector: 'app-dashboard-page',

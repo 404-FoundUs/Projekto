@@ -1,7 +1,5 @@
-<div class="bg-background-light dark:bg-background-dark font-display text-[#111318] antialiased">
-  <div
-    class="flex min-h-screen"
-  >
+<div class="bg-background-light font-display text-[#111318] antialiased">
+  <div class="flex min-h-screen">
     <!-- Left Side: Hero Branding Panel (Desktop Only) -->
     <div
       class="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-primary relative overflow-hidden"
@@ -64,7 +62,7 @@
       ></div>
     </div>
     <!-- Right Side: Login Form -->
-    <div class="w-full lg:w-1/2 flex flex-col bg-white dark:bg-background-dark">
+    <div class="w-full lg:w-1/2 flex flex-col bg-white">
       <!-- Mobile Logo Only -->
       <div class="lg:hidden p-8 flex items-center gap-3">
         <div class="size-8 text-primary">
@@ -77,13 +75,13 @@
             ></path>
           </svg>
         </div>
-        <h2 class="text-xl font-bold tracking-tight dark:text-white">Projeckto</h2>
+        <h2 class="text-xl font-bold tracking-tight">Projeckto</h2>
       </div>
       <div class="flex-1 flex items-center justify-center px-6 lg:px-24">
         <div class="w-full max-w-md flex flex-col gap-8">
           <!-- Heading -->
           <div class="flex flex-col gap-2">
-            <h2 class="text-[#111318] dark:text-white text-3xl font-bold tracking-tight">
+            <h2 class="text-[#111318] text-3xl font-bold tracking-tight">
               Welcome Back
             </h2>
             <p class="text-[#616f89] text-sm font-normal">
@@ -97,11 +95,11 @@
           <form class="flex flex-col gap-4">
             <!-- Email Field -->
             <div class="flex flex-col gap-2">
-              <label class="text-[#111318] dark:text-white text-sm font-medium leading-normal"
+              <label class="text-[#111318] text-sm font-medium leading-normal"
                 >Email Address</label
               >
               <input
-                class="form-input flex w-full bg-neutral-secondary-medium border rounded-lg px-4 pr-10 border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand py-2 dark:bg-[#1c2230] dark:text-white dark:border-[#2d3748] shadow-xs placeholder:text-body"
+                class="form-input flex w-full bg-neutral-secondary-medium border rounded-lg px-4 pr-10 border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand py-2 shadow-xs placeholder:text-body"
                 placeholder="name@company.com"
                 type="email"
                 value=""
@@ -110,7 +108,7 @@
             <!-- Password Field -->
             <div class="flex flex-col gap-2">
               <div class="flex items-center justify-between">
-                <label class="text-[#111318] dark:text-white text-sm font-medium leading-normal"
+                <label class="text-[#111318] text-sm font-medium leading-normal"
                   >Password</label
                 >
                 <a
@@ -121,7 +119,7 @@
               </div>
               <div class="relative flex w-full items-center">
                 <input
-                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] dark:bg-[#1c2230] dark:text-white dark:border-[#2d3748] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbdfe6] bg-white focus:border-primary h-12 placeholder:text-[#616f89] px-4 pr-10 text-sm font-normal"
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111318] focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbdfe6] bg-white focus:border-primary h-12 placeholder:text-[#616f89] px-4 pr-10 text-sm font-normal"
                   placeholder="••••••••"
                   type="password"
                   value=""
@@ -146,8 +144,7 @@
             <!-- Primary Login Button with Loading Spinner State -->
             <button
               class="mt-4 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide transition-all hover:bg-primary/90 focus:ring-4 focus:ring-primary/20"
-              type="button"
-              (click)="onSubmit()"
+              type="button"              
             >
               <!-- Spinner icon hidden by default or shown based on interaction -->
               <!-- <svg
@@ -175,17 +172,17 @@
           </form>
           <!-- Divider -->
           <div class="relative flex py-2 items-center">
-            <div class="flex-grow border-t border-[#f0f2f4] dark:border-[#2d3748]"></div>
+            <div class="flex-grow border-t border-[#f0f2f4]"></div>
             <span
               class="flex-shrink mx-4 text-[#616f89] text-xs font-medium uppercase tracking-widest"
               >Or continue with</span
             >
-            <div class="flex-grow border-t border-[#f0f2f4] dark:border-[#2d3748]"></div>
+            <div class="flex-grow border-t border-[#f0f2f4]"></div>
           </div>
           <!-- SSO Options -->
           <div class="flex flex-col gap-3">
             <button
-              class="flex w-full items-center justify-center gap-3 rounded-lg border border-[#dbdfe6] dark:border-[#2d3748] h-12 px-4 bg-white dark:bg-transparent hover:bg-background-light dark:hover:bg-white/5 transition-colors"
+              class="flex w-full items-center justify-center gap-3 rounded-lg border border-[#dbdfe6] h-12 px-4 bg-white hover:bg-background-light transition-colors"
             >
               <svg class="size-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -205,12 +202,12 @@
                   fill="#EA4335"
                 ></path>
               </svg>
-              <span class="text-[#111318] dark:text-white text-sm font-bold"
+              <span class="text-[#111318] text-sm font-bold"
                 >Sign in with Google</span
               >
             </button>
             <button
-              class="flex w-full items-center justify-center gap-3 rounded-lg border border-[#dbdfe6] dark:border-[#2d3748] h-12 px-4 bg-white dark:bg-transparent hover:bg-background-light dark:hover:bg-white/5 transition-colors"
+              class="flex w-full items-center justify-center gap-3 rounded-lg border border-[#dbdfe6] h-12 px-4 bg-white hover:bg-background-light transition-colors"
             >
               <svg class="size-6" viewbox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.4 0H0v11.4h11.4V0z" fill="#f25022"></path>
@@ -218,7 +215,7 @@
                 <path d="M11.4 11.6H0V23h11.4V11.6z" fill="#00a1f1"></path>
                 <path d="M23 11.6H11.6V23H23V11.6z" fill="#ffb900"></path>
               </svg>
-              <span class="text-[#111318] dark:text-white text-sm font-bold"
+              <span class="text-[#111318] text-sm font-bold"
                 >Sign in with Microsoft</span
               >
             </button>
@@ -227,7 +224,7 @@
       </div>
       <!-- Footer -->
       <footer
-        class="p-8 flex items-center justify-center gap-6 border-t border-[#f0f2f4] dark:border-[#2d3748]"
+        class="p-8 flex items-center justify-center gap-6 border-t border-[#f0f2f4]"
       >
         <a class="text-[#616f89] text-xs hover:text-primary" href="#">Privacy Policy</a>
         <a class="text-[#616f89] text-xs hover:text-primary" href="#">Terms of Service</a>

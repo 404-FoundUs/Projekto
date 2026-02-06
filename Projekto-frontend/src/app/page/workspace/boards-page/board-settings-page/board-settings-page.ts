@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BoardHeader } from "../../../../core/board-header/board-header";
+import { BoardHeader } from "../../../../shared/board-header/board-header";
 
 @Component({
   selector: 'app-board-settings-page',
