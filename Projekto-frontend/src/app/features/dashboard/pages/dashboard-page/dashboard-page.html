@@ -1,0 +1,421 @@
+<div
+  class="bg-background-light dark:bg-background-dark font-display text-[#1e293b] dark:text-slate-200 min-h-screen"
+>
+  <div class="flex h-screen overflow-hidden">
+    <app-side-navigationbar-dashboard></app-side-navigationbar-dashboard>
+    <main class="flex-1 flex flex-col overflow-y-auto custom-scrollbar">
+      <header class="px-8 py-10">
+        <div class="flex justify-between items-end">
+          <div>
+            <h2
+              class="text-slate-900 dark:text-white text-3xl font-extrabold leading-tight tracking-tight"
+            >
+              Welcome back, Alex! 👋
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-2 text-lg">
+              You have
+              <span
+                class="text-primary font-semibold underline underline-offset-4 decoration-primary/30"
+                >5 tasks</span
+              >
+              to complete today and
+              <span class="text-red-500 font-semibold">2 upcoming deadlines</span>.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              class="bg-primary text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-blue-700 shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
+            >
+              <span class="material-symbols-outlined text-[20px]">add</span>
+              Create New Task
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 px-8 pb-10">
+        <div class="lg:col-span-8 flex flex-col gap-10">
+          <!-- <section>
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Quick Access Workspaces
+              </h3>
+              <a
+                class="text-sm text-primary font-bold flex items-center gap-1 hover:underline"
+                href="#"
+              >
+                View All
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl flex items-center justify-between group hover:border-primary/50 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all cursor-pointer"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="size-12 rounded-xl bg-orange-50 dark:bg-orange-900/20 text-orange-600 flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-[24px]">engineering</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white">Engineering Team</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      12 members • 4 active projects
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors"
+                  >chevron_right</span
+                >
+              </div>
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl flex items-center justify-between group hover:border-primary/50 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all cursor-pointer"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="size-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-[24px]">campaign</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white">Marketing HQ</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      8 members • 2 active projects
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors"
+                  >chevron_right</span
+                >
+              </div>
+            </div>
+          </section> -->
+          <!-- <section>
+            <div class="flex items-center justify-between mb-5">
+              <div class="flex items-center gap-3">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">My Active Tasks</h3>
+                <span
+                  class="bg-red-50 dark:bg-red-900/20 text-red-600 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-tighter"
+                  >3 Urgent</span
+                >
+              </div>
+              <button
+                class="text-xs font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest"
+              >
+                Filter
+              </button>
+            </div>
+            <div class="space-y-3">
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-sm flex items-center justify-between group hover:border-primary/20 transition-all"
+              >
+                <div class="flex items-center gap-4">
+                  <button
+                    class="size-6 rounded-md border-2 border-slate-200 dark:border-slate-700 hover:border-primary flex items-center justify-center transition-colors"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-transparent hover:text-primary"
+                      >check</span
+                    >
+                  </button>
+                  <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">
+                      Finalize Q3 Infrastructure Audit
+                    </h4>
+                    <div class="flex items-center gap-4 mt-1.5">
+                      <span
+                        class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5"
+                      >
+                        <span class="material-symbols-outlined text-[16px]">engineering</span>
+                        Engineering Team
+                      </span>
+                      <span class="text-xs text-red-500 font-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[16px]">event</span>
+                        Due Today
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex -space-x-2">
+                  <img
+                    alt="Assignee"
+                    class="size-8 rounded-full border-2 border-white dark:border-slate-900"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1G_oXaO8hLbN3bYYUEGPU06nZnY82GzD-Cc0IsmngGsqmoGcChnwDPB7_QUPQ3dc2-duLIWui4UflcNAeLXqEZ0pxmft6_dJCu-bl20b4laYc-e8nE-Lik0tY6Pbw-gSjKdbLfxwETUBT8uNfknXywNff9sfUKOTtljE3F9hvVD69kTlmgDW4wVR7NeiIn7HCnfD2Hc5joF1-kMLvA79j430QRLy-S6lzf4LJ-imyxnhqrp2pD3keEDfn1bWU_iDU-2ITYzIOqEY"
+                  />
+                </div>
+              </div>
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-sm flex items-center justify-between group hover:border-primary/20 transition-all"
+              >
+                <div class="flex items-center gap-4">
+                  <button
+                    class="size-6 rounded-md border-2 border-slate-200 dark:border-slate-700 hover:border-primary flex items-center justify-center transition-colors"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-transparent hover:text-primary"
+                      >check</span
+                    >
+                  </button>
+                  <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">
+                      Review Marketing Campaign Visuals
+                    </h4>
+                    <div class="flex items-center gap-4 mt-1.5">
+                      <span
+                        class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5"
+                      >
+                        <span class="material-symbols-outlined text-[16px]">campaign</span>
+                        Marketing HQ
+                      </span>
+                      <span class="text-xs text-orange-500 font-bold flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[16px]">event</span>
+                        Tomorrow
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex -space-x-2">
+                  <img
+                    alt="Assignee"
+                    class="size-8 rounded-full border-2 border-white dark:border-slate-900"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ljH19Umnls_rhjGoveGIWHHs5rFO5-2cx2jNeGYaHi5wmuuhKBj4qfLyS32ad7BuXbpUv1LUeY_cNR4VhE-gYHyupxyM0FPk0ZTyyna_zuh7DXk-1jsMrUk2vuLEKN82lXP8_BfZUwMC4IhnBtnN7tH_XPm9cc9C1j0omPgsqOWqLPt_7nbQ4oE3GZvAnYAOCzbEx7lcRgBU_HAS252qMaPWzwntRgmEpwHFju8g5ObWto_BYDqlUo5M1G_WoD4KdyspY4YLqKA"
+                  />
+                </div>
+              </div>
+              <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-sm flex items-center justify-between group hover:border-primary/20 transition-all"
+              >
+                <div class="flex items-center gap-4">
+                  <button
+                    class="size-6 rounded-md border-2 border-slate-200 dark:border-slate-700 hover:border-primary flex items-center justify-center transition-colors"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-transparent hover:text-primary"
+                      >check</span
+                    >
+                  </button>
+                  <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white text-base">
+                      Update Security Protocols Documentation
+                    </h4>
+                    <div class="flex items-center gap-4 mt-1.5">
+                      <span
+                        class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5"
+                      >
+                        <span class="material-symbols-outlined text-[16px]">engineering</span>
+                        Engineering Team
+                      </span>
+                      <span class="text-xs text-slate-500 font-medium flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[16px]">event</span>
+                        Oct 24
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex -space-x-2">
+                  <img
+                    alt="Assignee"
+                    class="size-8 rounded-full border-2 border-white dark:border-slate-900"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjhn9WW-zYJEE3MwsvIr-cX_g1vSzW9qHVyoL_Y7HOiw7cWzYczF9FURzWQ9hACl2-amhYyQqR-Ci7Qg36HyAjKnEKfSz0gfCdxGzmuS7gUAiS5LszuyakzCgFaF9b9wlVrK4smPEbJ_mgbJ9UiaRqYePrJ9NvXxw6Dw8pR-YfNFR0PYXfZ8JLOBFMlZ8ySmYUA9JvOnSs0Hjb4DhEq_QvDiqSGPJ6gHGUPeu3p8CgEwxewDjih_qw0S9hNXAIKQDB93hjq7dlZdk"
+                  />
+                </div>
+              </div>
+            </div>
+          </section> -->
+          <!-- <section>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-5">Recent Activity</h3>
+            <div
+              class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm"
+            >
+              <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                <div
+                  class="p-5 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                >
+                  <div
+                    class="size-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                      <span class="font-bold text-slate-900 dark:text-white">Sarah Miller</span>
+                      updated the status of
+                      <span class="font-bold text-primary">API Refactoring</span>
+                      in <span class="font-medium">Engineering Team</span>.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1.5 font-medium">2 hours ago</p>
+                  </div>
+                </div>
+                <div
+                  class="p-5 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                >
+                  <div
+                    class="size-10 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-[20px]">add_comment</span>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                      <span class="font-bold text-slate-900 dark:text-white">John Doe</span>
+                      commented on
+                      <span class="font-bold text-primary">Brand Guidelines</span>: "Looks great,
+                      but let's tweak the primary logo scale..."
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1.5 font-medium">4 hours ago</p>
+                  </div>
+                </div>
+                <div
+                  class="p-5 flex gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+                >
+                  <div
+                    class="size-10 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-[20px]">person_add</span>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">
+                      <span class="font-bold text-slate-900 dark:text-white">Emily Chen</span>
+                      joined the
+                      <span class="font-bold text-primary">Marketing HQ</span>
+                      workspace.
+                    </p>
+                    <p class="text-xs text-slate-400 mt-1.5 font-medium">Yesterday at 3:45 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> -->
+        </div>
+        <div class="lg:col-span-4">
+          <section
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-8 shadow-sm h-full sticky top-4"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Calendar</h3>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-bold text-primary">Oct 2023</span>
+                <span class="material-symbols-outlined text-slate-400 text-[18px]"
+                  >calendar_month</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center mb-10">
+              <span class="text-[10px] font-bold text-slate-400 uppercase">S</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">M</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">T</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">W</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">T</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">F</span>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">S</span>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl text-slate-300"
+              >
+                20
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl text-slate-300"
+              >
+                21
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/30"
+              >
+                22
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
+              >
+                23
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
+              >
+                24
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
+              >
+                25
+              </button>
+              <button
+                class="size-10 flex items-center justify-center text-sm rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
+              >
+                26
+              </button>
+            </div>
+            <div class="mb-4">
+              <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">
+                Today's Schedule
+              </h4>
+            </div>
+            <div
+              class="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1.5px] before:bg-slate-100 dark:before:bg-slate-800"
+            >
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 size-6 rounded-full bg-white dark:bg-slate-900 border-[3px] border-primary flex items-center justify-center z-10"
+                >
+                  <div class="size-1.5 rounded-full bg-primary"></div>
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="text-[11px] font-bold text-primary bg-primary/5 px-2 py-0.5 rounded w-fit"
+                    >09:00 AM - 10:30 AM</span
+                  >
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-1.5">
+                    Daily Engineering Standup
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">Conference Room 4B • In-person</p>
+                </div>
+              </div>
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 size-6 rounded-full bg-white dark:bg-slate-900 border-[3px] border-slate-200 dark:border-slate-800 flex items-center justify-center z-10"
+                >
+                  <div class="size-1.5 rounded-full bg-slate-300"></div>
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="text-[11px] font-bold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded w-fit"
+                    >01:00 PM - 02:00 PM</span
+                  >
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-1.5">
+                    Marketing Campaign Sync
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">
+                    Google Meet •
+                    <a class="text-primary hover:underline" href="#">Join Meeting</a>
+                  </p>
+                </div>
+              </div>
+              <div class="relative pl-10">
+                <div
+                  class="absolute left-0 top-1 size-6 rounded-full bg-white dark:bg-slate-900 border-[3px] border-slate-200 dark:border-slate-800 flex items-center justify-center z-10"
+                >
+                  <div class="size-1.5 rounded-full bg-slate-300"></div>
+                </div>
+                <div class="flex flex-col">
+                  <span
+                    class="text-[11px] font-bold text-slate-400 bg-slate-50 dark:bg-slate-800 px-2 py-0.5 rounded w-fit"
+                    >04:30 PM - 05:00 PM</span
+                  >
+                  <h4 class="text-sm font-bold text-slate-900 dark:text-white mt-1.5">
+                    Infrastructure Audit Review
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-1">Review with DevOps Team</p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="w-full mt-12 py-4 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/5 rounded-2xl border-2 border-dashed border-slate-100 dark:border-slate-800 transition-all"
+            >
+              Open Full Calendar
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
