@@ -1,0 +1,83 @@
+<div
+  class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-white transition-colors duration-200"
+>
+  <div
+    class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden font-display"
+  >
+    <!-- Main Content Area -->
+    <main class="layout-container flex h-full grow flex-col items-center justify-center py-12 px-6">
+      <div
+        class="layout-content-container flex flex-col max-w-[640px] w-full flex-1 justify-center items-center"
+      >
+        <!-- Illustration Section -->
+        <div class="w-full flex justify-center mb-8">
+          <div
+            class="relative w-full max-w-[420px] aspect-video bg-cover bg-center rounded-xl shadow-sm border border-primary/10 dark:border-white/5 overflow-hidden bg-white dark:bg-slate-800 flex items-center justify-center"
+            data-alt="Illustration of a lost manager looking at an empty kanban board"
+            style="
+              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4h1y_oX3-ll8mG_iT8FKQ9n6sXxcD9_CSirTpCDx3tSmOUkHqqYM16co4Jxv8dV-QfRwiwFVr3NRVSelKlrA2OMKVAEs5--0FOTdruo3mwRO0VfCdtpNf8VEtYO287_5iB6II5-i8S5V-UqoOI0jqVTE5xaNPgkDU6bJmGpgp7mrMz_9iHscLSwNZbjJR1GSOi2oU0FakPShzBoX2hi4Frw9pjqa2qIHJ_jtkUSgcl86C6YuJ_D60JPc8h7nka8Zarj7l5HCO1xk');
+            "
+          >
+            <!-- Overlay for styling consistency if image is too bright -->
+            <div class="absolute inset-0 bg-primary/5"></div>
+          </div>
+        </div>
+        <!-- Error Messaging -->
+        <div class="flex flex-col items-center text-center gap-4">
+          <h1 class="text-primary text-8xl font-extrabold tracking-tighter leading-none">404</h1>
+          <div class="flex flex-col items-center gap-3 mt-2">
+            <h2
+              class="text-2xl md:text-3xl font-bold leading-tight tracking-[-0.015em] text-[#0d121b] dark:text-white"
+            >
+              Oops! Page Not Found
+            </h2>
+            <p
+              class="text-[#4c669a] dark:text-slate-400 text-base md:text-lg font-normal leading-relaxed max-w-[520px]"
+            >
+              The link you followed might be broken, or the page may have been moved. Let's get you
+              back on track with your projects.
+            </p>
+          </div>
+        </div>
+        <!-- Action Buttons (EmptyState-like structure modified for specific requirement) -->
+        <div class="flex flex-col items-center gap-4 mt-10 w-full">
+          <a
+            class="flex min-w-[220px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all hover:bg-primary/90 hover:shadow-lg active:scale-95"
+            href="#"
+            routerLink="/home"
+            >            
+            <span class="material-symbols-outlined mr-2 text-[20px]">dashboard</span>
+            <span class="truncate">Back to Dashboard</span>
+          </a>
+          <!-- MetaText-inspired Link -->
+          <a
+            class="text-primary text-sm font-semibold leading-normal py-2 px-4 hover:underline flex items-center gap-1"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-[18px]">support_agent</span>
+            Contact Support
+          </a>
+        </div>
+      </div>
+    </main>
+    <!-- Footer (Subtle) -->
+    <footer
+      class="flex flex-col gap-6 px-5 py-8 text-center border-t border-slate-200 dark:border-slate-800"
+    >
+      <div class="flex items-center justify-center gap-2 mb-1">
+        <span class="material-symbols-outlined text-primary text-[24px]">account_tree</span>
+        <span class="font-bold text-[#0d121b] dark:text-white tracking-tight">Projeckto</span>
+      </div>
+      <p class="text-[#4c669a] dark:text-slate-500 text-sm font-normal leading-normal">
+        © 2024 Projeckto Inc. All rights reserved.
+      </p>
+    </footer>
+  </div>
+  <!-- Script to handle potential dark mode toggling or testing -->
+  <script>
+    // Check for system preference or set default
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // document.documentElement.classList.add('dark');
+    }
+  </script>
+</div>

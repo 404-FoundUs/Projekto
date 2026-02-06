@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -8,5 +8,5 @@ import { RouterLink } from "@angular/router";
   styleUrl: './workspace-card.scss',
 })
 export class WorkspaceCard {  
-  icon: string = 'man';
+  icon = 'man';
 }
