@@ -29,7 +29,7 @@ export const routes: Routes = [
   {path: 'dashboard', component: DashboardPage},
   {path: 'workspaces', component: WorkspacePage},
   {path: 'workspaces/create-workspace', component: CreateWorkspaceCard},
-  {path: 'workspaces/board', component: BoardsPage},
+  {path: 'workspaces/:id', component: BoardsPage},
   {path: 'workspaces/board/kanban', component: KanbanBoardPage},
   {path: 'workspaces/board/create-board', component: CreateBaordCard},
   {path: 'workspaces/board/kanban/create-model', component: CreateModelCard},

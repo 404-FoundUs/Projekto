@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -17,7 +18,7 @@ export class Api {
     return this.httpClient.get<T>(`${this.apiUrl}/${endpoint}`, { params });
   }
 
-  protected post<T>(endpoint: string, body: unknown): Observable<T> {
+  protected post<T>(endpoint: string, body: unknown, p0?: { params: HttpParams; }): Observable<T> {
     return this.httpClient.post<T>(`${this.apiUrl}/${endpoint}`, body);
   }
 

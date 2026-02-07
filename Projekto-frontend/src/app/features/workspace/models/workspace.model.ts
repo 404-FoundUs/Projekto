@@ -15,3 +15,12 @@ export interface CreateWorkspaceDto {
   description: string;
   visibility: Visibility;
 }
+
+export interface WorkspaceResponseDto {
+  id: string;
+  name: string;
+  description: string;
+  visibility: Visibility;
+  ownerId: string;
+  memberIds: string[];
+}

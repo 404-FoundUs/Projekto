@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { SideNavigationbarDashboard } from '../../../dashboard/components/side-navigationbar-dashboard/side-navigationbar-dashboard';
@@ -21,6 +22,10 @@ export class WorkspacePage implements OnInit {
   constructor(private workspaceService: Workspace) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.workspaceService.getAllWorkspacesByUser(this.userId).subscribe({
       next: (response) => {
         this.workspaces = response;

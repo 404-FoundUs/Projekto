@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
 <script id="tailwind-config">
   tailwind.config = {
@@ -28,97 +29,66 @@
   <div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
 
   <!-- Modal Container -->
-  <div class="relative z-10 w-full max-w-[640px] bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col">
+  <div
+    class="relative z-10 w-full max-w-[640px] bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col"
+  >
     <!-- Header -->
-    <div class="px-8 pt-8 pb-4">
-      <div class="flex justify-between items-start">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="px-8 pt-8 pb-4 flex justify-between items-start">
         <div class="flex flex-col gap-1">
-          <h1 class="text-[#111318] text-2xl font-bold leading-tight">
-            Create your workspace
-          </h1>
+          <h1 class="text-[#111318] text-2xl font-bold leading-tight">Create your workspace</h1>
           <p class="text-[#616f89] text-sm font-normal">
             Workspaces are where your team manages projects and tasks.
           </p>
         </div>
-        <button class="text-[#616f89] hover:bg-gray-100 p-2 rounded-full transition-colors">
+        <button
+          type="button"
+          class="text-[#616f89] hover:bg-gray-100 p-2 rounded-full transition-colors"
+        >
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
-    </div>
 
-    <!-- Form Content -->
-    <div class="px-8 py-2 overflow-y-auto max-h-[70vh]">
-      <div class="py-4">
-        <p class="text-[#111318] text-sm font-semibold mb-3">Workspace Logo</p>
-        <div class="flex items-center gap-6">
-          <div
-            class="w-24 h-24 bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-colors group"
-            data-alt="Workspace logo upload placeholder with dashed border"
-          >
-            <span class="material-symbols-outlined text-gray-400 group-hover:text-primary mb-1">
-              add_a_photo
-            </span>
-            <span class="text-[10px] text-gray-500 font-medium">Upload</span>
-          </div>
-          <div class="flex-1">
-            <p class="text-[#111318] text-sm font-medium">Recommended: 400x400px</p>
-            <p class="text-[#616f89] text-xs mt-1">
-              PNG, JPG or SVG up to 2MB. This will be shown in the sidebar and emails.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-4 py-4">
+      <!-- Form Content -->
+      <div class="px-8 py-2 overflow-y-auto max-h-[70vh] space-y-4">
+        <!-- Workspace Name -->
         <div class="flex flex-col gap-2">
           <label class="text-[#111318] text-sm font-semibold">
             Workspace Name <span class="text-red-500">*</span>
           </label>
           <input
-            class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-sm transition-all"
-            placeholder="e.g., Marketing Team"
             type="text"
-            value=""
+            formControlName="name"
+            placeholder="e.g., Marketing Team"
+            class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-sm transition-all"
           />
+          <p *ngIf="isControlInvalid('name')" class="text-red-500 text-xs mt-1">
+            Workspace name is required
+          </p>
         </div>
 
+        <!-- Description -->
         <div class="flex flex-col gap-2">
           <label class="text-[#111318] text-sm font-semibold">Description (Optional)</label>
           <textarea
-            class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary min-h-[100px] p-4 text-sm resize-none"
+            formControlName="description"
             placeholder="What's this workspace about?"
+            class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary min-h-[100px] p-4 text-sm resize-none"
           ></textarea>
+          <p *ngIf="isControlInvalid('description')" class="text-red-500 text-xs mt-1">
+            Workspace description is required
+          </p>
         </div>
 
-        <div class="flex flex-col gap-2">
-          <label class="text-[#111318] text-sm font-semibold">Invite Members</label>
-          <div class="relative">
-            <div
-              class="w-full rounded-lg border border-[#dbdfe6] bg-white flex flex-wrap gap-2 p-2 min-h-12 items-center"
-            >
-              <div class="flex items-center gap-1.5 bg-gray-100 px-2 py-1 rounded-full border border-gray-200">
-                <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
-                  JD
-                </div>
-                <span class="text-xs font-medium text-[#111318]">John Doe</span>
-                <button class="material-symbols-outlined text-[14px] text-gray-400 hover:text-red-500">
-                  close
-                </button>
-              </div>
-
-              <input
-                class="flex-1 bg-transparent border-none focus:ring-0 text-sm min-w-[150px] text-[#111318]"
-                placeholder="Enter names or email addresses..."
-                type="text"
-              />
-            </div>
-          </div>
-        </div>
-
+        <!-- Workspace Privacy Toggle -->
         <div class="pt-2">
-          <div class="flex items-center justify-between gap-4 rounded-lg border border-[#dbdfe6] bg-white p-4">
+          <div
+            class="flex items-center justify-between gap-4 rounded-lg border border-[#dbdfe6] bg-white p-4"
+          >
             <div class="flex gap-3 items-center">
-              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <div
+                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+              >
                 <span class="material-symbols-outlined">lock</span>
               </div>
               <div class="flex flex-col">
@@ -129,23 +99,33 @@
               </div>
             </div>
 
-            <label class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full border-none bg-gray-200 p-1 transition-colors has-[:checked]:bg-primary">
-              <input checked class="sr-only peer" type="checkbox" />
-              <div class="h-5 w-5 rounded-full bg-white shadow-md transition-transform peer-checked:translate-x-5"></div>
+            <label
+              class="relative flex h-[28px] w-[48px] cursor-pointer items-center rounded-full bg-gray-200 p-1 transition-colors"
+            >
+              <input type="checkbox" formControlName="isPrivate" class="sr-only peer" />
+              <div
+                class="h-5 w-5 rounded-full bg-white shadow-md transition-transform peer-checked:translate-x-5"
+              ></div>
             </label>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Footer Actions -->
-    <div class="px-8 py-6 border-t border-[#dbdfe6] mt-4 bg-gray-50/50 flex justify-end gap-3">
-      <button class="px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-600 hover:bg-gray-100 transition-colors">
-        Cancel
-      </button>
-      <button class="px-8 py-2.5 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
-        Create Workspace
-      </button>
-    </div>
+      <!-- Footer Actions -->
+      <div class="px-8 py-6 border-t border-[#dbdfe6] mt-4 bg-gray-50/50 flex justify-end gap-3">
+        <button
+          type="button"
+          class="px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="px-8 py-2.5 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all"
+        >
+          Create Workspace
+        </button>
+      </div>
+    </form>
   </div>
 </div>
