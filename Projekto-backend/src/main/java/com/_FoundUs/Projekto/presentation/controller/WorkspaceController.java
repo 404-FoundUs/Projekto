@@ -1,6 +1,5 @@
 package com._FoundUs.Projekto.presentation.controller;
 
-import com._FoundUs.Projekto.data.entity.User;
 import com._FoundUs.Projekto.domain.model.WorkspaceModel;
 import com._FoundUs.Projekto.domain.usecase.Workspace.*;
 import com._FoundUs.Projekto.presentation.dto.Workspace.CreateWorkspaceRequestDto;
@@ -21,6 +20,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class WorkspaceController {
 
+    // 1st component creates after the initialization.
     private final AddMemberToWorkspaceUsecase addMemberToWorkspaceUsecase;
     private final CreateWorkspaceUsecase createWorkspaceUsecase;
     private final DeleteWorkspaceUsecase deleteWorkspaceUsecase;
@@ -80,7 +80,7 @@ public class WorkspaceController {
                 .build();
 
         WorkspaceModel updated = updateWorkspaceUsecase.updateWorkspace(workspaceId, model);
-        return new ResponseEntity<>(workspaceApiMapper.toResponseDto(updated),HttpStatus.OK);
+        return new ResponseEntity<>(workspaceApiMapper.toResponseDto(updated), HttpStatus.OK);
     }
 
     @DeleteMapping("/{workspaceId}")

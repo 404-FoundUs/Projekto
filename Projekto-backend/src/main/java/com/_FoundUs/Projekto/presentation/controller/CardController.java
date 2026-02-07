@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/cards")
 @RequiredArgsConstructor
 public class CardController {
-
+    // 3rd component creates after the initialization.
     private final CreateCardUsecase createCardUseCase;
     private final GetCardsByListIdUsecase getCardsByListUseCase;
     private final GetCardByIdUsecase getCardByIdUseCase;

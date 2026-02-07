@@ -7,8 +7,8 @@ POST http://localhost:8080/api/v1/user/signup
 Content-Type: application/json
 
 {
-  "username": "Shehans",
-  "email": "shehans@gmail.com",
+  "username": "Shehan",
+  "email": "shehan@gmail.com",
   "password": "password123",
   "firstName": "Shehans",
   "lastName": "Kaushalyas",
@@ -25,12 +25,12 @@ Content-Type: application/json
 }
 
 ### Create Workspace
-POST http://localhost:8080/api/v1/workspaces?ownerId=feefbcfd-871f-482a-b345-861ba3a6dd27
+POST http://localhost:8080/api/v1/workspaces?ownerId=4af22f20-c6a7-4df6-b864-1170237a16d3
 Content-Type: application/json
 
 {
-  "name": "Project Projekto",
-  "description": "Workspace for Project 404NOTFOUNDUS",
+  "name": "Project Hello",
+  "description": "Workspace for Project projeckassssto",
   "visibility": "PUBLIC"
 }
 
@@ -75,8 +75,8 @@ Content-Type: application/json
   "name": "Project Planning Board",
   "description": "Board for sprint planning",
   "visibility": "PUBLIC",
-  "workspaceId": "51037f50-3a98-4012-90ba-1eede7e4a002",
-  "createdBy": "feefbcfd-871f-482a-b345-861ba3a6dd27"
+  "workspaceId": "11b45c8d-3182-433c-8e3d-d5e1476cf7a3",
+  "createdBy": "4af22f20-c6a7-4df6-b864-1170237a16d3"
 }
 
 ### Get Boards by Workspace

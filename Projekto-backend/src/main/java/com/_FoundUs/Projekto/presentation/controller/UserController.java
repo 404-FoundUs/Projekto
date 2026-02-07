@@ -11,10 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -27,17 +24,17 @@ public class UserController {
 
     private final UserApiMapper userApiMapper;
 
+    @PostMapping("/signin")
+    public ResponseEntity<ResponseUserDto> signing(@RequestBody SigninRequestDto request) {
+        UserModel userModel = signinUserUsecase.signin(request.getEmail(), request.getPassword());
+        return ResponseEntity.ok(userApiMapper.toResponseUserdto(userModel));
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<ResponseUserDto> saveUser(@RequestBody RequestUserDto requestUserDto) {
         UserModel userModel = userApiMapper.toUserModel(requestUserDto);
         UserModel saveUserModel = saveUserUsecase.SaveUser(userModel);
         return new ResponseEntity<>(userApiMapper.toResponseUserdto(saveUserModel), HttpStatus.OK);
-    }
-
-    @PostMapping("/signin")
-    public ResponseEntity<ResponseUserDto> signin(@RequestBody SigninRequestDto request) {
-        UserModel userModel = signinUserUsecase.signin(request.getEmail(), request.getPassword());
-        return ResponseEntity.ok(userApiMapper.toResponseUserdto(userModel));
     }
 
     @PutMapping("/{id}")
