@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
 <div class="flex h-screen overflow-hidden">
   <!-- Side Navigation Bar -->
   <app-side-navigationbar-dashboard></app-side-navigationbar-dashboard>
@@ -7,9 +8,7 @@
     <!-- Page Header -->
     <header class="p-8 pb-0">
       <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
-        <h2 class="text-[#111318] text-4xl font-black leading-tight tracking-tight">
-          Workspaces
-        </h2>
+        <h2 class="text-[#111318] text-4xl font-black leading-tight tracking-tight">Workspaces</h2>
 
         <div class="flex items-center gap-3">
           <button
@@ -76,8 +75,8 @@
           </div>
           <p class="text-primary font-bold text-lg">Create Workspace</p>
         </div>
-
-        <app-workspace-card></app-workspace-card>
+        <app-workspace-card *ngFor="let ws of workspaces; trackBy: trackById" [workspace]="ws">
+        </app-workspace-card>
       </div>
     </section>
   </main>
