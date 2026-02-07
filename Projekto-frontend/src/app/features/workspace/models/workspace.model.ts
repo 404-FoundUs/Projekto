@@ -9,3 +9,9 @@ export interface WorkspaceDto {
   memberIds: string[];
   projectCount: number; // or whatever your backend returns
 }
+
+export interface CreateWorkspaceDto {
+  name: string;
+  description: string;
+  visibility: Visibility;
+}
