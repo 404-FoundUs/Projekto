@@ -1,5 +1,7 @@
-import { Visibility } from "../enums/workspace.enum";
-
+export enum Visibility {
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE',
+}
 export interface WorkspaceDto {
   id: string;
   name: string;
@@ -14,6 +16,7 @@ export interface CreateWorkspaceDto {
   name: string;
   description: string;
   visibility: Visibility;
+  userId:string;
 }
 
 export interface WorkspaceResponseDto {

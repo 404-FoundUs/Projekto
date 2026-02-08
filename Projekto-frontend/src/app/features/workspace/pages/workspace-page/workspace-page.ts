@@ -26,7 +26,7 @@ export class WorkspacePage implements OnInit {
   }
 
   loadData() {
-    this.workspaceService.getAllWorkspacesByUser(this.userId).subscribe({
+    this.workspaceService.getWorkspaces(this.userId).subscribe({
       next: (response) => {
         this.workspaces = response;
       },

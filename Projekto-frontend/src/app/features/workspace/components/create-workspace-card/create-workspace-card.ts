@@ -1,8 +1,7 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Visibility } from '../../enums/workspace.enum';
-import { CreateWorkspaceDto } from '../../models/workspace.model';
+import { CreateWorkspaceDto, Visibility } from '../../models/workspace.model';
 import { Workspace } from '../../services/workspace';
 import { CommonModule } from '@angular/common';
 
@@ -39,19 +38,18 @@ export class CreateWorkspaceCard implements OnInit {
       name: this.form.value.name!,
       description: this.form.value.description!,
       visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
+      userId: '4af22f20-c6a7-4df6-b864-1170237a16d3', //check the user id issue here | solve this with jwt auth!
     };
 
-    this.workspaceService
-      .createWorkSpaceByUser('4af22f20-c6a7-4df6-b864-1170237a16d3', dto)
-      .subscribe({
-        next: (workspace) => {
-          console.log('Workspace created:', workspace);
-          this.form.reset({ isPrivate: true });
-        },
-        error: (err) => {
-          console.error('Error creating workspace:', err);
-        },
-      });
+    this.workspaceService.createWorkspace(dto).subscribe({
+      next: (workspace) => {
+        console.log('Workspace created:', workspace);
+        this.form.reset({ isPrivate: true });
+      },
+      error: (err) => {
+        console.error('Error creating workspace:', err);
+      },
+    });
   }
 
   // Helper to check validation

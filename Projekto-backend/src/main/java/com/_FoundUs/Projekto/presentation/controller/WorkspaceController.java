@@ -33,13 +33,12 @@ public class WorkspaceController {
 
     @PostMapping
     public ResponseEntity<WorkspaceResponseDto> createWorkspace(
-            @RequestParam UUID ownerId,
             @RequestBody CreateWorkspaceRequestDto requestDto) {
         WorkspaceModel workspaceModel = WorkspaceModel.builder()
                 .name(requestDto.getName())
                 .description(requestDto.getDescription())
                 .visibility(requestDto.getVisibility())
-                .ownerId(ownerId)
+                .ownerId(requestDto.getOwnerId())
                 .build();
 
         WorkspaceModel saved =
@@ -60,11 +59,12 @@ public class WorkspaceController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{workspaceId}")
-    public ResponseEntity<WorkspaceResponseDto> getWorkspaceById(@PathVariable UUID workspaceId) {
-        WorkspaceModel workspaceModel = getWorkspaceByIdUsecase.getWorkspaceById(workspaceId);
-        return ResponseEntity.ok(workspaceApiMapper.toResponseDto(workspaceModel));
-    }
+    /* this business logic not used so far ! */
+    //    @GetMapping("/{workspaceId}")
+//    public ResponseEntity<WorkspaceResponseDto> getWorkspaceById(@PathVariable UUID workspaceId) {
+//        WorkspaceModel workspaceModel = getWorkspaceByIdUsecase.getWorkspaceById(workspaceId);
+//        return ResponseEntity.ok(workspaceApiMapper.toResponseDto(workspaceModel));
+//    }
 
     @PutMapping("/{workspaceId}")
     public ResponseEntity<WorkspaceResponseDto> updateWorkspace(
