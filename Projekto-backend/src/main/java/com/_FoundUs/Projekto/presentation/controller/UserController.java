@@ -34,7 +34,7 @@ public class UserController {
     public ResponseEntity<ResponseUserDto> saveUser(@RequestBody RequestUserDto requestUserDto) {
         UserModel userModel = userApiMapper.toUserModel(requestUserDto);
         UserModel saveUserModel = saveUserUsecase.SaveUser(userModel);
-        return new ResponseEntity<>(userApiMapper.toResponseUserdto(saveUserModel), HttpStatus.OK);
+        return new ResponseEntity<>(userApiMapper.toResponseUserdto(saveUserModel), HttpStatus.CREATED); // ok updated to created !
     }
 
     @PutMapping("/{id}")

@@ -16,7 +16,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/workspaces")
+@RequestMapping("/api/v1/workspaces/")
 @RequiredArgsConstructor
 public class WorkspaceController {
 
@@ -49,7 +49,7 @@ public class WorkspaceController {
         );
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<List<WorkspaceResponseDto>> getUserWorkspace(@PathVariable UUID userId) {
         List<WorkspaceResponseDto> response = getUserWorkspacesUsecase.getUserWorkspaces(userId)
                 .stream()
