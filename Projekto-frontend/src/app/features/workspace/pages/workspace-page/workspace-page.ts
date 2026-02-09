@@ -15,7 +15,7 @@ import { NgForOf } from '@angular/common';
   styleUrl: './workspace-page.scss',
 })
 export class WorkspacePage implements OnInit {
-  userId = '4af22f20-c6a7-4df6-b864-1170237a16d3';
+  userId = '65ef429c-1697-4403-bbb5-f698456b2879';
 
   workspaces: WorkspaceDto[] = [];
 

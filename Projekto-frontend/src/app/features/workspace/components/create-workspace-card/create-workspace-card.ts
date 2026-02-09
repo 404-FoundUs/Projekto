@@ -38,13 +38,13 @@ export class CreateWorkspaceCard implements OnInit {
       name: this.form.value.name!,
       description: this.form.value.description!,
       visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
-      userId: '4af22f20-c6a7-4df6-b864-1170237a16d3', //check the user id issue here | solve this with jwt auth!
+      ownerId: '65ef429c-1697-4403-bbb5-f698456b2879', //check the user id issue here | solve this with jwt auth!
     };
 
     this.workspaceService.createWorkspace(dto).subscribe({
       next: (workspace) => {
         console.log('Workspace created:', workspace);
-        this.form.reset({ isPrivate: true });
+        this.form.reset({ isPrivate: true });        
       },
       error: (err) => {
         console.error('Error creating workspace:', err);

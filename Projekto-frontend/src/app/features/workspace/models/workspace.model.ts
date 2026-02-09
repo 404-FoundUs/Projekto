@@ -1,3 +1,5 @@
+import { UUID } from 'node:crypto';
+
 export enum Visibility {
   PUBLIC = 'PUBLIC',
   PRIVATE = 'PRIVATE',
@@ -16,7 +18,7 @@ export interface CreateWorkspaceDto {
   name: string;
   description: string;
   visibility: Visibility;
-  userId:string;
+  ownerId: UUID;
 }
 
 export interface WorkspaceResponseDto {
