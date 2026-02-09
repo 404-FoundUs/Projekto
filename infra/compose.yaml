@@ -1,6 +1,6 @@
 # Use postgres/example user/password credentials
 services:
-  postgres_db:
+  postgres_db:    
     image: postgres
     restart: always
     # set shared memory limit when using docker compose
@@ -10,10 +10,12 @@ services:
     ports:
       - 5432:5432
     volumes:
+      # Mount the named volume to the Postgres data directory      
       - type: tmpfs
-        target: /dev/shm
+        target: /var/lib/postgresql/data/base/pgsql_tmp
         tmpfs:
-          size: 134217728 # 128*2^20 bytes = 128Mb
+          # 1G max - https://www.kernel.org/doc/html/latest/filesystems/tmpfs.html
+          size: 134217728
 
   # adminer:
   #   image: adminer
