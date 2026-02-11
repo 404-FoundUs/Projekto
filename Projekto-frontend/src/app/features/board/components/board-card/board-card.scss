@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.loading {
+  @apply opacity-60 pointer-events-none;
+}
+
+.group {
+  &:hover {
+    transform: scale(1.02);
+  }
+}

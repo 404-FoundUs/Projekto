@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
+/* eslint-disable @angular-eslint/prefer-inject */
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {} from '../../services/boards-service';
 
 @Component({
   selector: 'app-board-card',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './board-card.html',
-  styleUrl: './board-card.scss',
+  styleUrls: ['./board-card.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BoardCard {
+export class BoardCardComponent {
 
 }
