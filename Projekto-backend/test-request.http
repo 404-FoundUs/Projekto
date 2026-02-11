@@ -75,19 +75,19 @@ Content-Type: application/json
   "name": "Project Planning Board",
   "description": "Board for sprint planning",
   "visibility": "PUBLIC",
-  "workspaceId": "11b45c8d-3182-433c-8e3d-d5e1476cf7a3",
-  "createdBy": "4af22f20-c6a7-4df6-b864-1170237a16d3"
+  "workspaceId": "5d2871fe-5984-4110-bd40-a337db158897",
+  "createdBy": "1eb8083f-cda4-4c7b-9a11-74bdb4389765"
 }
 
 ### Get Boards by Workspace
-GET http://localhost:8080/api/v1/boards/workspace/51037f50-3a98-4012-90ba-1eede7e4a002
+GET http://localhost:8080/api/v1/boards/workspace/5d2871fe-5984-4110-bd40-a337db158897
 
 
 ### Get Board by ID
 GET http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
 
 ### Update Board
-PUT http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
+PUT http://localhost:8080/api/v1/boards/b5ddb9bf-e8c6-430b-bfba-3152fe6ba54b
 Content-Type: application/json
 
 {
