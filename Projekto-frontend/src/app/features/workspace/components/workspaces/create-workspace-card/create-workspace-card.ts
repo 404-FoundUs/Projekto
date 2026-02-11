@@ -1,8 +1,8 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CreateWorkspaceDto, Visibility } from '../../models/workspace.model';
-import { Workspace } from '../../services/workspace';
+import { CreateWorkspaceDto, Visibility } from '../../../models/workspace.model';
+import { Workspace } from '../../../services/workspace';
 import { CommonModule } from '@angular/common';
 
 @Component({

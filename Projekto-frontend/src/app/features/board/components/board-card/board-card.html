@@ -1,0 +1,108 @@
+<!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
+<div
+  class="group relative flex flex-col bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary/50 transition-all cursor-pointer"
+  [routerLink]="['/workspaces', workspaceId, 'boards', board.id, 'kanban']"
+>
+  <!-- Header -->
+  <div class="flex justify-between items-start mb-4">
+    <!-- Board Icon -->
+    <div 
+      class="size-10 rounded-lg flex items-center justify-center"
+      [style.background-color]="board.color + '20'"
+      [style.color]="board.color"
+    >
+      <span class="material-symbols-outlined">{{ board.icon || 'campaign' }}</span>
+    </div>
+
+    <!-- Pin Button -->
+    <button 
+      class="text-gray-300 hover:text-yellow-400 transition-colors z-10"
+      [class.text-yellow-400]="isPinned"
+      (click)="onTogglePin($event)"
+      [attr.aria-label]="isPinned ? 'Unpin board' : 'Pin board'"
+    >
+      <span 
+        class="material-symbols-outlined" 
+        [class.filled-icon]="isPinned"
+      >
+        star
+      </span>
+    </button>
+  </div>
+
+  <!-- Board Info -->
+  <h3 class="font-bold text-base mb-1 text-gray-900 line-clamp-2">
+    {{ board.name }}
+  </h3>
+  
+  <p class="text-xs text-gray-500 mb-6">
+    {{ getLastActiveText() }}
+  </p>
+
+  <!-- Footer -->
+  <div class="mt-auto">
+    
+    <!-- Progress Section (if available) -->
+    <div *ngIf="board.totalTasks && board.totalTasks > 0" class="mb-4">
+      <div class="flex justify-between text-xs font-medium mb-1.5">
+        <span class="text-gray-500">Progress</span>
+        <span class="text-primary">
+          {{ board.completedTasks || 0 }}/{{ board.totalTasks }} Tasks
+        </span>
+      </div>
+
+      <div class="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+        <div 
+          class="h-full bg-primary transition-all duration-300"
+          [style.width.%]="getProgressPercentage()"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Members Section -->
+    <div 
+      *ngIf="board.members && board.members.length > 0" 
+      class="flex items-center -space-x-2"
+    >
+      <!-- Member Avatars -->
+      <div
+        *ngFor="let member of visibleMembers; let i = index"
+        class="size-7 rounded-full border-2 border-white bg-cover bg-center"
+        [style.background-image]="'url(' + member + ')'"
+        [attr.data-alt]="'Team member ' + (i + 1)"
+      ></div>
+
+      <!-- More Members Indicator -->
+      <div
+        *ngIf="remainingMembersCount > 0"
+        class="size-7 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-500"
+      >
+        +{{ remainingMembersCount }}
+      </div>
+    </div>
+
+    <!-- Empty State - No Members -->
+    <div 
+      *ngIf="!board.members || board.members.length === 0"
+      class="flex items-center gap-2 text-xs text-gray-400"
+    >
+      <span class="material-symbols-outlined text-sm">group</span>
+      <span>No members yet</span>
+    </div>
+  </div>
+
+  <!-- Hover Actions (Optional) -->
+  <div 
+    class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1"
+  >
+    <!-- Settings Button -->
+    <button
+      class="p-1.5 bg-white rounded-lg shadow-md hover:bg-gray-50 transition-colors"
+      [routerLink]="['/workspaces', workspaceId, 'boards', board.id, 'settings']"
+      (click)="$event.stopPropagation()"
+      [attr.aria-label]="'Board settings'"
+    >
+      <span class="material-symbols-outlined text-lg text-gray-600">settings</span>
+    </button>
+  </div>
+</div>

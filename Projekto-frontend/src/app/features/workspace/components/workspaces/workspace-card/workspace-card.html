@@ -39,10 +39,9 @@
   </div>
 
   <button
-    class="w-full py-2.5 bg-gray-50 text-gray-700 rounded-lg font-semibold
-           group-hover:bg-primary group-hover:text-white transition-colors"           
-           [routerLink]="['/workspaces/board', workspace.id]"
-           >
+    class="w-full py-2.5 bg-gray-50 text-gray-700 rounded-lg font-semibold group-hover:bg-primary group-hover:text-white transition-colors"
+    [routerLink]="['/workspaces/' + workspace.id + '/boards']" 
+  >
     Enter Workspace
   </button>
 </div>
