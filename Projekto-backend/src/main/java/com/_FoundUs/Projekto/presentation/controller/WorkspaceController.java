@@ -1,6 +1,5 @@
 package com._FoundUs.Projekto.presentation.controller;
 
-import com._FoundUs.Projekto.data.entity.User;
 import com._FoundUs.Projekto.domain.model.WorkspaceModel;
 import com._FoundUs.Projekto.domain.usecase.Workspace.*;
 import com._FoundUs.Projekto.presentation.dto.Workspace.CreateWorkspaceRequestDto;
@@ -17,10 +16,11 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/workspaces")
+@RequestMapping("/api/v1/workspaces/")
 @RequiredArgsConstructor
 public class WorkspaceController {
 
+    // 1st component creates after the initialization.
     private final AddMemberToWorkspaceUsecase addMemberToWorkspaceUsecase;
     private final CreateWorkspaceUsecase createWorkspaceUsecase;
     private final DeleteWorkspaceUsecase deleteWorkspaceUsecase;
@@ -33,13 +33,12 @@ public class WorkspaceController {
 
     @PostMapping
     public ResponseEntity<WorkspaceResponseDto> createWorkspace(
-            @RequestParam UUID ownerId,
             @RequestBody CreateWorkspaceRequestDto requestDto) {
         WorkspaceModel workspaceModel = WorkspaceModel.builder()
                 .name(requestDto.getName())
                 .description(requestDto.getDescription())
                 .visibility(requestDto.getVisibility())
-                .ownerId(ownerId)
+                .ownerId(requestDto.getOwnerId())
                 .build();
 
         WorkspaceModel saved =
@@ -50,7 +49,7 @@ public class WorkspaceController {
         );
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/{userId}")
     public ResponseEntity<List<WorkspaceResponseDto>> getUserWorkspace(@PathVariable UUID userId) {
         List<WorkspaceResponseDto> response = getUserWorkspacesUsecase.getUserWorkspaces(userId)
                 .stream()
@@ -60,11 +59,12 @@ public class WorkspaceController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{workspaceId}")
-    public ResponseEntity<WorkspaceResponseDto> getWorkspaceById(@PathVariable UUID workspaceId) {
-        WorkspaceModel workspaceModel = getWorkspaceByIdUsecase.getWorkspaceById(workspaceId);
-        return ResponseEntity.ok(workspaceApiMapper.toResponseDto(workspaceModel));
-    }
+    /* this business logic not used so far ! */
+    //    @GetMapping("/{workspaceId}")
+//    public ResponseEntity<WorkspaceResponseDto> getWorkspaceById(@PathVariable UUID workspaceId) {
+//        WorkspaceModel workspaceModel = getWorkspaceByIdUsecase.getWorkspaceById(workspaceId);
+//        return ResponseEntity.ok(workspaceApiMapper.toResponseDto(workspaceModel));
+//    }
 
     @PutMapping("/{workspaceId}")
     public ResponseEntity<WorkspaceResponseDto> updateWorkspace(
@@ -80,7 +80,7 @@ public class WorkspaceController {
                 .build();
 
         WorkspaceModel updated = updateWorkspaceUsecase.updateWorkspace(workspaceId, model);
-        return new ResponseEntity<>(workspaceApiMapper.toResponseDto(updated),HttpStatus.OK);
+        return new ResponseEntity<>(workspaceApiMapper.toResponseDto(updated), HttpStatus.OK);
     }
 
     @DeleteMapping("/{workspaceId}")

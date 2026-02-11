@@ -18,6 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class BoardController {
 
+    // 2nd component creates after the initialization.
     private final CreateBoardUseCase createBoardUseCase;
     private final GetBoardByWorkspaceUsecase getBoardByWorkspaceUsecase;
     private final GetBoardByIdUsecase getBoardByIdUsecase;

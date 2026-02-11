@@ -37,3 +37,4 @@ connect.lock
 typings/
 
 env/
+.env.local
