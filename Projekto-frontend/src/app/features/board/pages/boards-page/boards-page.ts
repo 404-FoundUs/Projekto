@@ -1,12 +1,12 @@
+import { BoardService } from './../../services/boards-service';
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Board } from '../../../workspace/models/board.model';
-import { BoardService } from '../../services/boards-service';
-import { SideNavigationbarBoard } from "../../components/side-navigationbar-board/side-navigationbar-board";
-import { BoardHeader } from "../../components/board-header/board-header";
-import { BoardCardComponent } from "../../components/board-card/board-card";
+import { SideNavigationbarBoard } from '../../components/side-navigationbar-board/side-navigationbar-board';
+import { BoardHeader } from '../../components/board-header/board-header';
+import { BoardCardComponent } from '../../components/board-card/board-card';
 
 @Component({
   selector: 'app-boards-page',
@@ -14,23 +14,23 @@ import { BoardCardComponent } from "../../components/board-card/board-card";
   imports: [SideNavigationbarBoard, BoardHeader, BoardCardComponent],
 })
 export class BoardsPage implements OnInit, OnDestroy {
-toggleSortDropdown() {
-throw new Error('Method not implemented.');
-}
-getSortLabel() {
-throw new Error('Method not implemented.');
-}
-setSortBy(arg0: unknown) {
-throw new Error('Method not implemented.');
-}
+  toggleSortDropdown() {
+    throw new Error('Method not implemented.');
+  }
+  getSortLabel() {
+    throw new Error('Method not implemented.');
+  }
+  // setSortBy(arg0: unknown) {
+  //   throw new Error('Method not implemented.');
+  // }
   workspaceId = '';
   boards: Board[] = [];
   loading = false;
   error: string | null = null;
 
   private destroy$ = new Subject<void>();
-viewMode: any;
-sortBy: any;
+  viewMode: unknown;
+  sortBy: unknown;
 
   constructor(
     private route: ActivatedRoute,

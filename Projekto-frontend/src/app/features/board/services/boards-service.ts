@@ -6,9 +6,8 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment.development';
 import { Board, CreateBoardDto, UpdateBoardDto } from '../../workspace/models/board.model';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BoardService {
   // ✅ FIXED: Match backend endpoint structure
@@ -28,14 +27,14 @@ export class BoardService {
    */
   getBoardsByWorkspace(workspaceId: string): Observable<Board[]> {
     return this.http.get<Board[]>(`${this.API_URL}/workspace/${workspaceId}`).pipe(
-      map(boards => this.convertDates(boards)),
-      tap(boards => {
+      map((boards) => this.convertDates(boards)),
+      tap((boards) => {
         this.boardsSubject.next(boards);
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error fetching boards:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -45,11 +44,11 @@ export class BoardService {
    */
   getBoard(boardId: string): Observable<Board> {
     return this.http.get<Board>(`${this.API_URL}/${boardId}`).pipe(
-      map(board => this.convertDate(board)),
-      catchError(error => {
+      map((board) => this.convertDate(board)),
+      catchError((error) => {
         console.error('Error fetching board:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -64,15 +63,15 @@ export class BoardService {
     const { ...cleanData } = boardData;
 
     return this.http.post<Board>(this.API_URL, cleanData).pipe(
-      map(board => this.convertDate(board)),
-      tap(newBoard => {
+      map((board) => this.convertDate(board)),
+      tap((newBoard) => {
         const current = this.boardsSubject.value;
         this.boardsSubject.next([...current, newBoard]);
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error creating board:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -82,14 +81,14 @@ export class BoardService {
    */
   updateBoard(boardId: string, boardData: CreateBoardDto): Observable<Board> {
     return this.http.put<Board>(`${this.API_URL}/${boardId}`, boardData).pipe(
-      map(board => this.convertDate(board)),
-      tap(updatedBoard => {
+      map((board) => this.convertDate(board)),
+      tap((updatedBoard) => {
         this.updateBoardInCache(updatedBoard);
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error updating board:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -99,14 +98,14 @@ export class BoardService {
    */
   patchBoard(boardId: string, updates: UpdateBoardDto): Observable<Board> {
     return this.http.patch<Board>(`${this.API_URL}/${boardId}`, updates).pipe(
-      map(board => this.convertDate(board)),
-      tap(updatedBoard => {
+      map((board) => this.convertDate(board)),
+      tap((updatedBoard) => {
         this.updateBoardInCache(updatedBoard);
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error patching board:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -118,12 +117,12 @@ export class BoardService {
     return this.http.delete<void>(`${this.API_URL}/${boardId}`).pipe(
       tap(() => {
         const current = this.boardsSubject.value;
-        this.boardsSubject.next(current.filter(b => b.id !== boardId));
+        this.boardsSubject.next(current.filter((b) => b.id !== boardId));
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error deleting board:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -133,14 +132,14 @@ export class BoardService {
    */
   toggleBoardPin(boardId: string): Observable<Board> {
     return this.http.patch<Board>(`${this.API_URL}/${boardId}/pin`, {}).pipe(
-      map(board => this.convertDate(board)),
-      tap(updatedBoard => {
+      map((board) => this.convertDate(board)),
+      tap((updatedBoard) => {
         this.updateBoardInCache(updatedBoard);
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error toggling pin:', error);
         throw error;
-      })
+      }),
     );
   }
 
@@ -151,7 +150,7 @@ export class BoardService {
    */
   private updateBoardInCache(updatedBoard: Board): void {
     const current = this.boardsSubject.value;
-    const index = current.findIndex(b => b.id === updatedBoard.id);
+    const index = current.findIndex((b) => b.id === updatedBoard.id);
 
     if (index !== -1) {
       current[index] = updatedBoard;
@@ -163,7 +162,7 @@ export class BoardService {
    * Convert date strings to Date objects
    */
   private convertDates(boards: Board[]): Board[] {
-    return boards.map(board => this.convertDate(board));
+    return boards.map((board) => this.convertDate(board));
   }
 
   private convertDate(board: Board): Board {
@@ -171,7 +170,7 @@ export class BoardService {
       ...board,
       createdAt: new Date(board.createdAt),
       updatedAt: new Date(board.updatedAt),
-      lastActiveAt: board.lastActiveAt ? new Date(board.lastActiveAt) : undefined
+      lastActiveAt: board.lastActiveAt ? new Date(board.lastActiveAt) : undefined,
     };
   }
 
