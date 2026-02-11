@@ -41,7 +41,7 @@ public class UserController {
     public ResponseEntity<ResponseUserDto> updateUser(@PathVariable UUID id, @RequestBody RequestUserDto requestUserDto) {
         UserModel userModel = userApiMapper.toUserModel(requestUserDto);
         UserModel updateUserModel = updateUserUsecase.UpdateUser(id, userModel);
-        return new ResponseEntity<>(userApiMapper.toResponseUserdto(updateUserModel), HttpStatus.OK);
+        return new ResponseEntity<>(userApiMapper.toResponseUserdto(updateUserModel), HttpStatus.CREATED); // ok updated to created !
     }
 
 }
