@@ -1,17 +1,17 @@
 import { BoardService } from './../../services/boards-service';
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Board } from '../../../workspace/models/board.model';
 import { SideNavigationbarBoard } from '../../components/side-navigationbar-board/side-navigationbar-board';
 import { BoardHeader } from '../../components/board-header/board-header';
-import { BoardCardComponent } from '../../components/board-card/board-card';
+import { BoardCard } from '../../components/board-card/board-card';
 
 @Component({
   selector: 'app-boards-page',
   templateUrl: './boards-page.html',
-  imports: [SideNavigationbarBoard, BoardHeader, BoardCardComponent],
+  imports: [SideNavigationbarBoard, BoardHeader, BoardCard, RouterLink],
 })
 export class BoardsPage implements OnInit, OnDestroy {
   toggleSortDropdown() {
@@ -24,7 +24,7 @@ export class BoardsPage implements OnInit, OnDestroy {
   //   throw new Error('Method not implemented.');
   // }
   workspaceId = '';
-  boards: Board[] = [];
+  board: Board[] = [];
   loading = false;
   error: string | null = null;
 
@@ -63,7 +63,7 @@ export class BoardsPage implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (boards: Board[]) => {
-          this.boards = boards;
+          this.board = boards;
           this.loading = false;
         },
         error: (error: { status: number }) => {
@@ -98,9 +98,9 @@ export class BoardsPage implements OnInit, OnDestroy {
       .subscribe({
         next: (updatedBoard: Board) => {
           // Update local board
-          const index = this.boards.findIndex((b) => b.id === board.id);
+          const index = this.board.findIndex((b) => b.id === board.id);
           if (index !== -1) {
-            this.boards[index] = updatedBoard;
+            this.board[index] = updatedBoard;
           }
         },
         error: (error: unknown) => {
