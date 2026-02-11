@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Board } from '../../../workspace/models/board.model';
-import { BoardService } from '../../../workspace/services/boards/boards-service';
+import { BoardService } from '../../services/boards-service';
 import { SideNavigationbarBoard } from "../../components/side-navigationbar-board/side-navigationbar-board";
 import { BoardHeader } from "../../components/board-header/board-header";
 import { BoardCardComponent } from "../../components/board-card/board-card";

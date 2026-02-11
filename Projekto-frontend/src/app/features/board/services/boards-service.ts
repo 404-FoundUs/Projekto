@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
-import { environment } from '../../../../../environments/environment.development';
-import { Board, CreateBoardDto, UpdateBoardDto } from '../../models/board.model';
+import { environment } from '../../../../environments/environment.development';
+import { Board, CreateBoardDto, UpdateBoardDto } from '../../workspace/models/board.model';
 
 
 @Injectable({
@@ -13,7 +13,7 @@ import { Board, CreateBoardDto, UpdateBoardDto } from '../../models/board.model'
 export class BoardService {
   // ✅ FIXED: Match backend endpoint structure
   private readonly API_URL = `${environment.apiUrl}/boards`;
-  
+
   // State management
   private boardsSubject = new BehaviorSubject<Board[]>([]);
   public boards$ = this.boardsSubject.asObservable();
@@ -56,13 +56,13 @@ export class BoardService {
   /**
    * ✅ Create new board
    * POST /api/v1/boards
-   * 
+   *
    * ⚠️ IMPORTANT: Do NOT send createdBy - backend gets it from JWT token
    */
   createBoard(boardData: CreateBoardDto): Observable<Board> {
     // ✅ Remove createdBy if accidentally included
     const { ...cleanData } = boardData;
-    
+
     return this.http.post<Board>(this.API_URL, cleanData).pipe(
       map(board => this.convertDate(board)),
       tap(newBoard => {
@@ -152,7 +152,7 @@ export class BoardService {
   private updateBoardInCache(updatedBoard: Board): void {
     const current = this.boardsSubject.value;
     const index = current.findIndex(b => b.id === updatedBoard.id);
-    
+
     if (index !== -1) {
       current[index] = updatedBoard;
       this.boardsSubject.next([...current]);
