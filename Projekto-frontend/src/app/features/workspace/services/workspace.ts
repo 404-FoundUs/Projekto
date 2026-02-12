@@ -9,7 +9,7 @@ import { CreateWorkspaceDto, WorkspaceDto, WorkspaceResponseDto } from '../model
 })
 export class Workspace extends Api {
   // change if somethig breaks as 'workspaces/'
-  private endpoint = `workspaces/`;
+  private endpoint = `workspaces`;
 
   // create workspace for user
   createWorkspace(dto: CreateWorkspaceDto): Observable<WorkspaceResponseDto> {
@@ -17,13 +17,13 @@ export class Workspace extends Api {
   }
 
   //update workspace for user
-  updateWorkspace(endpoint: string, dto: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
-    return this.put<CreateWorkspaceDto>(endpoint, dto);
+  updateWorkspace(dto: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
+    return this.put<CreateWorkspaceDto>(this.endpoint, dto);
   }
 
   // delete workspace from user
   deleteWorkspace(id: string): Observable<void> {
-    return this.delete<void>(this.endpoint, id);
+    return this.delete<void>(`${this.endpoint}/${id}`);
   }
   // get the workspace acording to the user
   getWorkspaces(userID: string): Observable<WorkspaceDto[]> {
