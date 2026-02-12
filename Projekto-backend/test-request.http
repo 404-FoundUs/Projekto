@@ -84,7 +84,7 @@ GET http://localhost:8080/api/v1/boards/workspace/5d2871fe-5984-4110-bd40-a337db
 
 
 ### Get Board by ID
-GET http://localhost:8080/api/v1/boards/645c4497-0dd3-4bf2-a5d1-4a50dbf6f3ef
+GET http://localhost:8080/api/v1/boards/2f9081a2-f596-4698-b735-e745bcda206a
 
 ### Update Board
 PUT http://localhost:8080/api/v1/boards/b5ddb9bf-e8c6-430b-bfba-3152fe6ba54b
