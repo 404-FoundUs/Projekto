@@ -22,7 +22,6 @@ export class BoardsPage implements OnInit {
   ngOnInit(): void {
     this.loadData();
   }
-
   // load data by workspace
   loadData() {
     this.boardService.getBoardByWorkspace(this.workspaceid).subscribe({
@@ -39,6 +38,17 @@ export class BoardsPage implements OnInit {
     this.boardService.getBoard(this.workspaceid).subscribe({
       next: (response) => {
         console.log('success', response);
+      },
+      error: (error) => {
+        console.log('error', error);
+      },
+    });
+  }
+  // delete board using id
+  deleteboard() {
+    this.boardService.deleteBoard(this.workspaceid).subscribe({
+      next: (response) => {
+        console.log('sucess', response);
       },
       error: (error) => {
         console.log('error', error);
