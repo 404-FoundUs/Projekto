@@ -24,13 +24,12 @@ export class BoardsPage implements OnInit {
   }
 
   loadData() {
-    this.boardService.getBoard(this.workspaceid).subscribe({
+    this.boardService.getBoardByWorkspace(this.workspaceid).subscribe({
       next: (response) => {
-        this.boards = response;
-        console.log(response);
+        console.log('success', response);
       },
       error: (error) => {
-        console.log('error',error);
+        console.log('error', error);
       },
     });
   }

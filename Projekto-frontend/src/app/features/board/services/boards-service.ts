@@ -7,7 +7,7 @@ import { Api } from '../../../core/services/api';
   providedIn: 'root',
 })
 export class BoardService extends Api {
-  private endpoint = '/boards';
+  private endpoint = 'boards/workspace/';
   // create
   createBoard(dto: BoardRequestDto): Observable<BoardRequestDto> {
     return this.post<BoardRequestDto>(this.endpoint, dto);
@@ -22,7 +22,7 @@ export class BoardService extends Api {
     return this.delete<BoardRequestDto>(this.endpoint, boardid);
   }
   // search
-  getBoard(boardid: string): Observable<BoardRequestDto[]> {
-    return this.get<BoardRequestDto[]>(this.endpoint + boardid);
+  getBoardByWorkspace(workspaceid: string): Observable<BoardRequestDto[]> {
+    return this.get<BoardRequestDto[]>(this.endpoint + workspaceid);
   }
 }
