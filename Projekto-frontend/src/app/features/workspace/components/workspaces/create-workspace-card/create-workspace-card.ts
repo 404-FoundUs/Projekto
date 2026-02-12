@@ -44,13 +44,25 @@ export class CreateWorkspaceCard implements OnInit {
     this.workspaceService.createWorkspace(dto).subscribe({
       next: (workspace) => {
         console.log('Workspace created:', workspace);
-        this.form.reset({ isPrivate: true });        
+        this.form.reset({ isPrivate: true });
       },
       error: (err) => {
         console.error('Error creating workspace:', err);
       },
     });
   }
+
+  // update workspace
+  // updateWorkspace() {
+  //   this.workspaceService.updateWorkspace(12121,).subscribe({
+  //     next: (reponse) => {
+  //       console.log('success', reponse);
+  //     },
+  //     error: (error) => {
+  //       console.log('error', error);
+  //     },
+  //   });
+  // }
 
   // Helper to check validation
   isControlInvalid(controlName: string): boolean {

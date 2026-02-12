@@ -29,3 +29,9 @@ export interface WorkspaceResponseDto {
   ownerId: string;
   memberIds: string[];
 }
+export interface WorkspaceUpdateDto {
+  id: string;
+  name: string;
+  description: string;
+  visibility: Visibility;
+}

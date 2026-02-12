@@ -2,7 +2,12 @@
 import { Injectable } from '@angular/core';
 import { Api } from '../../../core/services/api';
 import { Observable } from 'rxjs';
-import { CreateWorkspaceDto, WorkspaceDto, WorkspaceResponseDto } from '../models/workspace.model';
+import {
+  CreateWorkspaceDto,
+  WorkspaceDto,
+  WorkspaceResponseDto,
+  WorkspaceUpdateDto,
+} from '../models/workspace.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +22,8 @@ export class Workspace extends Api {
   }
 
   //update workspace for user
-  updateWorkspace(dto: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
-    return this.put<CreateWorkspaceDto>(this.endpoint, dto);
+  updateWorkspace(p0: number, dto: WorkspaceUpdateDto): Observable<WorkspaceUpdateDto> {
+    return this.put<WorkspaceUpdateDto>(this.endpoint, dto);
   }
 
   // delete workspace from user
