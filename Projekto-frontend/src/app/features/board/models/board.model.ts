@@ -1,3 +1,7 @@
+export enum Visibility {
+  WORKSPACE = 'WORKSPACE',
+  PRIVATE = 'PRIVATE',
+}
 export interface BoardRequestDto {
   name: string;
   description: string;
