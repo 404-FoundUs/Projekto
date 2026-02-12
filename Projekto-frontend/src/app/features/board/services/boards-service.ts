@@ -21,7 +21,7 @@ export class BoardService extends Api {
 
   // delete
   deleteBoard(boardid: string): Observable<BoardRequestDto> {
-    return this.delete<BoardRequestDto>(this.endpoint, boardid);
+    return this.delete<BoardRequestDto>(`${this.endpoint}/${boardid}`);
   }
 
   // search by board id
