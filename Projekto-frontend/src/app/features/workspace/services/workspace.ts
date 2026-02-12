@@ -10,11 +10,6 @@ import { CreateWorkspaceDto, WorkspaceDto, WorkspaceResponseDto } from '../model
 export class Workspace extends Api {
   private endpoint = `workspaces/`;
 
-  // get the workspace acording to the user
-  getWorkspaces(userID: string): Observable<WorkspaceDto[]> {
-    return this.get<WorkspaceDto[]>(this.endpoint +  userID); // url error fixed with / concat
-  }
-
   // create workspace for user
   createWorkspace(dto: CreateWorkspaceDto): Observable<WorkspaceResponseDto> {
     return this.post<WorkspaceResponseDto>(this.endpoint, dto);
@@ -28,5 +23,9 @@ export class Workspace extends Api {
   // delete workspace from user
   deleteWorkspace(endpoint: string, id: string): Observable<WorkspaceDto> {
     return this.delete<WorkspaceDto>(endpoint, id);
+  }
+  // get the workspace acording to the user
+  getWorkspaces(userID: string): Observable<WorkspaceDto[]> {
+    return this.get<WorkspaceDto[]>(this.endpoint + userID); // url error fixed with / concat
   }
 }
