@@ -14,13 +14,14 @@ import { BoardResponseDto } from '../../models/board.model';
 })
 export class BoardsPage implements OnInit {
   private userid = '1eb8083f-cda4-4c7b-9a11-74bdb4389765';
-  private workspaceid = '5d2871fe-5984-4110-bd40-a337db158897';
+  private workspaceid = 'b5ddb9bf-e8c6-430b-bfba-3152fe6ba54b';
 
   boards: BoardResponseDto[] = [];
 
   constructor(private boardService: BoardService) {}
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    this.loadData();
+    // this.loadData();
   }
   // load data by workspace
   loadData() {

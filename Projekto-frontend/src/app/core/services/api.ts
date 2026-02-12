@@ -26,8 +26,8 @@ export class Api {
     return this.httpClient.put<T>(`${this.apiUrl}/${endpoint}`, body);
   }
 
-  protected delete<T>(endpoint: string, workspaceId: string): Observable<T> {
-    return this.httpClient.delete<T>(`${this.apiUrl}/${endpoint}`);
+  protected delete<T>(endpoint: string, id: string): Observable<T> {
+    return this.httpClient.delete<T>(`${this.apiUrl}/${endpoint}/${id}`);
   }
 
   protected patch<T>(endpoint: string, body: unknown): Observable<T> {

@@ -15,7 +15,8 @@ import { NgForOf } from '@angular/common';
   styleUrl: './workspace-page.scss',
 })
 export class WorkspacePage implements OnInit {
-  userId = '65ef429c-1697-4403-bbb5-f698456b2879';
+  userId = '1eb8083f-cda4-4c7b-9a11-74bdb4389765';
+  workspaceid = 'b5ddb9bf-e8c6-430b-bfba-3152fe6ba54b';
 
   workspaces: WorkspaceDto[] = [];
 
@@ -29,12 +30,38 @@ export class WorkspacePage implements OnInit {
     this.workspaceService.getWorkspaces(this.userId).subscribe({
       next: (response) => {
         this.workspaces = response;
+        console.log('success', response);
       },
       error: (error) => {
         console.error('error', error);
       },
     });
   }
+
+  // load data by workspace id
+  // loadDataById() {
+  //   this.workspaceService.getWorkspacesById(this.workspaceid).subscribe({
+  //     next: (response) => {
+  //       // this.workspaces = response;
+  //       console.log('success', response);
+  //     },
+  //     error: (error) => {
+  //       console.error('error', error);
+  //     },
+  //   });
+  // }
+
+  // works but need some changes and checks
+  // deleteById() {
+  //   this.workspaceService.deleteWorkspace(this.workspaceid).subscribe({
+  //     next: (response) => {
+  //       console.log('success', response);
+  //     },
+  //     error: (error) => {
+  //       console.log('error', error);
+  //     },
+  //   });
+  // }
 
   trackById(_: number, ws: WorkspaceDto): string {
     return ws.id;
