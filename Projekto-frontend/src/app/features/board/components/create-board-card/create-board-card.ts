@@ -60,6 +60,19 @@ export class CreateBoardCard implements OnInit {
     });
   }
 
+  // update board
+  // updateWorkspace() {
+  //   this.workspaceService.updateWorkspace(12121,).subscribe({
+  //     next: (reponse) => {
+  //       console.log('success', reponse);
+  //     },
+  //     error: (error) => {
+  //       console.log('error', error);
+  //     },
+  //   });
+  // }
+
+
   // Helper to check validation
   isControlInvalid(controlName: string): boolean {
     const control = this.form.get(controlName);

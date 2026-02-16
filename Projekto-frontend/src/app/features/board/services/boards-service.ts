@@ -9,7 +9,7 @@ export class BoardService extends Api {
   // testing only for create
   // POST http://localhost:8080/api/v1/boards
   private createendpoint = 'boards';
-  private endpoint = 'boards/workspace';
+  private endpoint = 'boards/workspace/';
   // create
   createBoard(dto: BoardRequestDto): Observable<BoardRequestDto> {
     return this.post<BoardRequestDto>(this.createendpoint, dto);
@@ -20,8 +20,8 @@ export class BoardService extends Api {
   }
 
   // delete
-  deleteBoard(boardid: string): Observable<BoardRequestDto> {
-    return this.delete<BoardRequestDto>(`${this.endpoint}/${boardid}`);
+  deleteBoard(boardid: string): Observable<void> {
+    return this.delete<void>(`${this.endpoint}/${boardid}`);
   }
 
   // search by board id

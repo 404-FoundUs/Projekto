@@ -14,7 +14,7 @@ import {
 })
 export class Workspace extends Api {
   // change if somethig breaks as 'workspaces/'
-  private endpoint = `workspaces`;
+  private endpoint = `workspaces/`;
 
   // create workspace for user
   createWorkspace(dto: CreateWorkspaceDto): Observable<WorkspaceResponseDto> {
