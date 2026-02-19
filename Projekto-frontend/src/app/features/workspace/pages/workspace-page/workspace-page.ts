@@ -2,11 +2,11 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { SideNavigationbarDashboard } from '../../../dashboard/components/side-navigationbar-dashboard/side-navigationbar-dashboard';
-import { WorkspaceCard } from '../../components/workspaces/workspace-card/workspace-card';
 import { RouterLink } from '@angular/router';
 import { WorkspaceDto } from '../../models/workspace.model';
 import { Workspace } from '../../services/workspace';
 import { NgForOf } from '@angular/common';
+import { WorkspaceCard } from '../../components/workspace-card/workspace-card';
 
 @Component({
   selector: 'app-workspace-page',

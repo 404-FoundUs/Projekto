@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WorkspacePage } from './pages/workspace-page/workspace-page';
-import { CreateWorkspaceCard } from './components/workspaces/create-workspace-card/create-workspace-card';
+import { CreateWorkspaceCard } from './components/create-workspace-card/create-workspace-card';
 
 const routes: Routes = [
   { path: '', component: WorkspacePage },

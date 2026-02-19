@@ -22,7 +22,7 @@ export class Workspace extends Api {
   }
 
   //update workspace for user
-  updateWorkspace(p0: number, dto: WorkspaceUpdateDto): Observable<WorkspaceUpdateDto> {
+  updateWorkspace(dto: WorkspaceUpdateDto): Observable<WorkspaceUpdateDto> {
     return this.put<WorkspaceUpdateDto>(this.endpoint, dto);
   }
 

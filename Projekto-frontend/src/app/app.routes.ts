@@ -14,7 +14,6 @@ import { BoardsPage } from './features/board/pages/boards-page/boards-page';
 import { KanbanBoardPage } from './features/board/pages/kanban-board-page/kanban-board-page';
 import { CreateModelCard } from './features/board/components/create-model-card/create-model-card';
 import { BoardSettingsPage } from './features/board/pages/board-settings-page/board-settings-page';
-import { CreateWorkspaceCard } from './features/workspace/components/workspaces/create-workspace-card/create-workspace-card';
 import { features } from 'process';
 import { profile } from 'console';
 import { ProfileModule } from './features/profile/profile-module';
