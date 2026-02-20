@@ -1,8 +1,8 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CreateWorkspaceDto, Visibility } from '../../../models/workspace.model';
-import { Workspace } from '../../../services/workspace';
+import { CreateWorkspaceDto, Visibility } from '../../../domain/entities/workspace.model';
+import { Workspace } from '../../../infrastructure/api/workspace';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -44,7 +44,7 @@ export class CreateWorkspaceCard implements OnInit {
     this.workspaceService.createWorkspace(dto).subscribe({
       next: (workspace) => {
         console.log('Workspace created:', workspace);
-        this.form.reset({ isPrivate: true });        
+        this.form.reset({ isPrivate: true });
       },
       error: (err) => {
         console.error('Error creating workspace:', err);

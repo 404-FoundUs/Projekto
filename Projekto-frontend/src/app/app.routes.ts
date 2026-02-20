@@ -5,7 +5,7 @@ import {RegisterPage} from './features/auth/pages/register-page/register-page';
 import {NotFoundPage} from './shared/pages/not-found-page/not-found-page';
 import {HomePage} from './features/home/pages/home-page/home-page';
 import {ForgotPasswordPage} from './features/auth/pages/forgot-password-page/forgot-password-page';
-import {WorkspacePage} from './features/workspace/pages/workspace-page/workspace-page';
+import {WorkspacePage} from './features/workspace/presentation/pages/pages/workspace-page/workspace-page';
 import {ProfilePage} from './features/profile/pages/profile-page/profile-page';
 import {UpdateProfilePage} from './features/profile/pages/update-profile-page/update-profile-page';
 import {OtpVerificationPage} from './features/auth/pages/otp-verification-page/otp-verification-page';
@@ -17,7 +17,7 @@ import {CreateBaordCard} from './features/board/components/create-baord-card/cre
 import {BoardSettingsPage} from './features/board/pages/board-settings-page/board-settings-page';
 import {
   CreateWorkspaceCard
-} from './features/workspace/components/workspaces/create-workspace-card/create-workspace-card';
+} from './features/workspace/presentation/components/create-workspace-card/create-workspace-card';
 
 export const routes: Routes = [
   // Root redirect

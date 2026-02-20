@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Injectable } from '@angular/core';
-import { Api } from '../../../core/services/api';
+import { Api } from '../../../../core/services/api';
 import { Observable } from 'rxjs';
-import { CreateWorkspaceDto, WorkspaceDto, WorkspaceResponseDto } from '../models/workspace.model';
+import { CreateWorkspaceDto, WorkspaceDto, WorkspaceResponseDto } from '../../domain/entities/workspace.model';
 
 @Injectable({
   providedIn: 'root',
