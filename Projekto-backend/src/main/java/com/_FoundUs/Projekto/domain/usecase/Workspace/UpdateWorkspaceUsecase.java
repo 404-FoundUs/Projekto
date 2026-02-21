@@ -12,7 +12,7 @@ import java.util.UUID;
 public class UpdateWorkspaceUsecase {
     private final WorkspaceStore workspaceStore;
 
-    public WorkspaceModel  updateWorkspace(UUID id, WorkspaceModel workspaceModel) {
+    public WorkspaceModel updateWorkspace(UUID id, WorkspaceModel workspaceModel) {
         return workspaceStore.updateWorkspace(id, workspaceModel);
     }
 }
