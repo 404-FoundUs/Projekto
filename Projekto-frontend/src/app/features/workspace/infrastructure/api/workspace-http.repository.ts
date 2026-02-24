@@ -19,7 +19,7 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
   constructor(private httpClient: HttpClient) {}
 
   create(model: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
-    return this.httpClient.post<CreateWorkspaceDto>(this.baseUrl, { model });
+    return this.httpClient.post<CreateWorkspaceDto>(this.baseUrl, model);
   }
   addMemberToWorkspace(workspaceId: UUID, userId: UUID): Observable<WorkspaceDto> {
     return this.httpClient.post<WorkspaceDto>(this.baseUrl, { workspaceId, userId });
