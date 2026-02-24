@@ -37,7 +37,7 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
   getWorkspaceById(workspaceId: UUID): Observable<WorkspaceDto[]> {
     return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + workspaceId);
   }
-  getUserWorkspaces(userId: UUID): Observable<WorkspaceResponseDto[]> {
-    return this.httpClient.get<WorkspaceResponseDto[]>(this.baseUrl + userId);
+  getUserWorkspaces(userId: string): Observable<WorkspaceDto[]> {
+    return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + userId);
   }
 }
