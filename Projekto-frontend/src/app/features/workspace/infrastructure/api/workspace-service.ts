@@ -16,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class WorkspaceService implements WorkspaceRepository {
-  private baseUrl = 'http://localhost:8080/api/v1/workspaces';
+  private baseUrl = environment.apiUrl + '/workspaces';
 
   constructor(private httpClient: HttpClient) {}
 
