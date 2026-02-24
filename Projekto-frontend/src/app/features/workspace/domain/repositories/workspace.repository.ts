@@ -13,5 +13,5 @@ export abstract class WorkspaceRepository {
   abstract delete(userId: UUID): Observable<void>;
   abstract removeMemberFromWorkspace(workspaceId: UUID, userId: UUID): Observable<void>;
   abstract getWorkspaceById(workspaceId: string): Observable<WorkspaceResponseDto[]>;
-  abstract getUserWorkspaces(userId: string): Observable<WorkspaceResponseDto[]>;
+  abstract getUserWorkspaces(userId: string): Observable<WorkspaceDto[]>;
 }
