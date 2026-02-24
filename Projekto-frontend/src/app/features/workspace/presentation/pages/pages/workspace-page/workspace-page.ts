@@ -24,7 +24,7 @@ export class WorkspacePage implements OnInit {
 
   private getUserWorkspaces: GetUserWorkspacesUsecase;
 
-  constructor(private repo:WorkspaceHttpRepository) {
+  constructor(private repo: WorkspaceHttpRepository) {
     this.getUserWorkspaces = new GetUserWorkspacesUsecase(repo);
   }
   ngOnInit(): void {
@@ -32,16 +32,14 @@ export class WorkspacePage implements OnInit {
   }
 
   loadData() {
-    this.getUserWorkspaces
-      .execute('65ef429c-1697-4403-bbb5-f698456b2879')
-      .subscribe({
-        next: (response) => {
-          console.log('success response', response);
-        },
-        error: (err) => {
-          console.error('error' + err);
-        },
-      });
+    this.getUserWorkspaces.execute('65ef429c-1697-4403-bbb5-f698456b2879').subscribe({
+      next: (response) => {
+        console.log('success response', response);
+      },
+      error: (err) => {
+        console.error('error' + err);
+      },
+    });
   }
 
   trackById(_: number, ws: WorkspaceDto): string {

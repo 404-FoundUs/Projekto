@@ -34,10 +34,10 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
   removeMemberFromWorkspace(workspaceId: UUID, userId: UUID): Observable<void> {
     return this.httpClient.delete<void>(this.baseUrl);
   }
-  getWorkspaceById(workspaceId: UUID): Observable<WorkspaceResponseDto[]> {
-    throw new Error('Method not implemented.');
+  getWorkspaceById(workspaceId: UUID): Observable<WorkspaceDto[]> {
+    return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + workspaceId);
   }
   getUserWorkspaces(userId: UUID): Observable<WorkspaceResponseDto[]> {
-    return this.httpClient.get<WorkspaceResponseDto[]>(`${this.baseUrl}/userId=${userId}`);
+    return this.httpClient.get<WorkspaceResponseDto[]>(this.baseUrl + userId);
   }
 }
