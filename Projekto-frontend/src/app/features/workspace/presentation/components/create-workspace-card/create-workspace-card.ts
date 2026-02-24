@@ -1,8 +1,6 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CreateWorkspaceDto, Visibility } from '../../../domain/entities/workspace.model';
-import { Workspace } from '../../../infrastructure/api/workspace';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,12 +10,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './create-workspace-card.scss',
 })
 export class CreateWorkspaceCard implements OnInit {
+isControlInvalid(arg0: string): any {
+throw new Error('Method not implemented.');
+}
+submit() {
+throw new Error('Method not implemented.');
+}
   form!: FormGroup;
-  Visibility = Visibility; // for template binding
 
   constructor(
     private fb: FormBuilder,
-    private workspaceService: Workspace,
   ) {}
 
   ngOnInit(): void {
@@ -28,33 +30,33 @@ export class CreateWorkspaceCard implements OnInit {
     });
   }
 
-  submit(): void {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
+  // submit(): void {
+  //   if (this.form.invalid) {
+  //     this.form.markAllAsTouched();
+  //     return;
+  //   }
 
-    const dto: CreateWorkspaceDto = {
-      name: this.form.value.name!,
-      description: this.form.value.description!,
-      visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
-      ownerId: '65ef429c-1697-4403-bbb5-f698456b2879', //check the user id issue here | solve this with jwt auth!
-    };
+  //   const dto: CreateWorkspaceDto = {
+  //     name: this.form.value.name!,
+  //     description: this.form.value.description!,
+  //     visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
+  //     ownerId: '65ef429c-1697-4403-bbb5-f698456b2879', //check the user id issue here | solve this with jwt auth!
+  //   };
 
-    this.workspaceService.createWorkspace(dto).subscribe({
-      next: (workspace) => {
-        console.log('Workspace created:', workspace);
-        this.form.reset({ isPrivate: true });
-      },
-      error: (err) => {
-        console.error('Error creating workspace:', err);
-      },
-    });
+  //   this.workspaceService.createWorkspace(dto).subscribe({
+  //     next: (workspace) => {
+  //       console.log('Workspace created:', workspace);
+  //       this.form.reset({ isPrivate: true });
+  //     },
+  //     error: (err) => {
+  //       console.error('Error creating workspace:', err);
+  //     },
+  //   });
   }
 
   // Helper to check validation
-  isControlInvalid(controlName: string): boolean {
-    const control = this.form.get(controlName);
-    return !!control && control.invalid && control.touched;
-  }
-}
+  // isControlInvalid(controlName: string): boolean {
+  //   const control = this.form.get(controlName);
+  //   return !!control && control.invalid && control.touched;
+  // }
+

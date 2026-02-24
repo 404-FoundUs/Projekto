@@ -1,3 +1,5 @@
+import { WorkspaceService } from './../../../../infrastructure/api/workspace-service';
+import { GetUserWorkspacesUsecase } from './../../../../application/use-cases/get-user-workspace.usecase';
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
@@ -5,8 +7,8 @@ import { SideNavigationbarDashboard } from '../../../../../dashboard/components/
 import { WorkspaceCard } from '../../../components/workspace-card/workspace-card';
 import { RouterLink } from '@angular/router';
 import { WorkspaceDto } from '../../../../domain/entities/workspace.model';
-import { Workspace } from '../../../../infrastructure/api/workspace';
 import { NgForOf } from '@angular/common';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-workspace-page',
@@ -15,25 +17,32 @@ import { NgForOf } from '@angular/common';
   styleUrl: './workspace-page.scss',
 })
 export class WorkspacePage implements OnInit {
+  private destroy$ = new Subject<void>();
   userId = '65ef429c-1697-4403-bbb5-f698456b2879';
 
   workspaces: WorkspaceDto[] = [];
 
-  constructor(private workspaceService: Workspace) {}
+  private getUserUsecase: GetUserWorkspacesUsecase;
 
+  constructor(private workspaceService: WorkspaceService) {
+    this.getUserUsecase = new GetUserWorkspacesUsecase(workspaceService);
+  }
   ngOnInit(): void {
     this.loadData();
   }
 
   loadData() {
-    this.workspaceService.getWorkspaces(this.userId).subscribe({
-      next: (response) => {
-        this.workspaces = response;
-      },
-      error: (error) => {
-        console.error('error', error);
-      },
-    });
+    this.getUserUsecase
+      .execute(this.userId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (response) => {
+          console.log('success response', response);
+        },
+        error: (err) => {
+          console.error('error' + err);
+        },
+      });
   }
 
   trackById(_: number, ws: WorkspaceDto): string {
