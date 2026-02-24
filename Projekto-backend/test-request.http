@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 
 ### Get User Workspaces
-GET http://localhost:8080/api/v1/workspaces/user/4af22f20-c6a7-4df6-b864-1170237a16d3
+GET http://localhost:8080/api/v1/workspaces/65ef429c-1697-4403-bbb5-f698456b2879
 Content-Type: application/json
 
 ### Get Workspace by ID
