@@ -14,12 +14,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class WorkspaceHttpRepository implements WorkspaceRepository {
-  private baseUrl = environment.apiUrl + '/workspaces/';
+  private baseUrl = environment.apiUrl + '/workspaces';
 
   constructor(private httpClient: HttpClient) {}
 
-  create(model: CreateWorkspaceDto): Observable<WorkspaceDto> {
-    return this.httpClient.post<WorkspaceDto>(this.baseUrl, { model });
+  create(model: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
+    return this.httpClient.post<CreateWorkspaceDto>(this.baseUrl, { model });
   }
   addMemberToWorkspace(workspaceId: UUID, userId: UUID): Observable<WorkspaceDto> {
     return this.httpClient.post<WorkspaceDto>(this.baseUrl, { workspaceId, userId });
@@ -38,6 +38,6 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
     return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + workspaceId);
   }
   getUserWorkspaces(userId: string): Observable<WorkspaceDto[]> {
-    return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + userId);
+    return this.httpClient.get<WorkspaceDto[]>(`${this.baseUrl}/${userId}`);
   }
 }

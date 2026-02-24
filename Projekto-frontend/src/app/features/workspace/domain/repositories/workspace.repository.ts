@@ -7,7 +7,7 @@ import {
 } from '../entities/workspace.model';
 
 export abstract class WorkspaceRepository {
-  abstract create(model: CreateWorkspaceDto): Observable<WorkspaceDto>;
+  abstract create(model: CreateWorkspaceDto): Observable<CreateWorkspaceDto>;
   abstract addMemberToWorkspace(workspaceId: UUID, userId: UUID): Observable<WorkspaceDto>;
   abstract update(userId: UUID, model: CreateWorkspaceDto): Observable<WorkspaceDto>;
   abstract delete(userId: UUID): Observable<void>;
