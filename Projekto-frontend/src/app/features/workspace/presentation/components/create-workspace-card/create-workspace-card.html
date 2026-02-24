@@ -1,29 +1,5 @@
 <!-- eslint-disable @angular-eslint/template/prefer-control-flow -->
 <!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          primary: '#135bec',
-          'background-light': '#f6f6f8',
-          'background-dark': '#101622',
-        },
-        fontFamily: {
-          display: ['Inter', 'sans-serif'],
-        },
-        borderRadius: {
-          DEFAULT: '0.25rem',
-          lg: '0.5rem',
-          xl: '0.75rem',
-          full: '9999px',
-        },
-      },
-    },
-  };
-</script>
-
 <div class="bg-background-light min-h-screen flex items-center justify-center p-4">
   <!-- Modal Overlay Backdrop -->
   <div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
@@ -62,9 +38,9 @@
             placeholder="e.g., Marketing Team"
             class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 text-sm transition-all"
           />
-          <p *ngIf="isControlInvalid('name')" class="text-red-500 text-xs mt-1">
-            Workspace name is required
-          </p>
+          @if (isControlInvalid('name')) {
+            <p class="text-red-500 text-xs mt-1">Workspace name is required</p>
+          }
         </div>
 
         <!-- Description -->
@@ -75,9 +51,9 @@
             placeholder="What's this workspace about?"
             class="w-full rounded-lg text-[#111318] border border-[#dbdfe6] bg-white focus:border-primary focus:ring-1 focus:ring-primary min-h-[100px] p-4 text-sm resize-none"
           ></textarea>
-          <p *ngIf="isControlInvalid('description')" class="text-red-500 text-xs mt-1">
-            Workspace description is required
-          </p>
+          @if (isControlInvalid('description')) {
+            <p class="text-red-500 text-xs mt-1">Workspace description is required</p>
+          }
         </div>
 
         <!-- Workspace Privacy Toggle -->
