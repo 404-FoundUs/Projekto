@@ -1,21 +1,19 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Injectable } from '@angular/core';
-import { WorkspaceRepository } from '../../domain/repositories/workspace.repository';
-import { UUID } from 'crypto';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment.development';
 import {
   CreateWorkspaceDto,
   WorkspaceDto,
   WorkspaceResponseDto,
 } from '../../domain/entities/workspace.model';
-import { environment } from '../../../../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { WorkspaceRepository } from '../../domain/repositories/workspace.repository';
+import { Observable } from 'rxjs';
+import { UUID } from 'crypto';
+import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class WorkspaceService implements WorkspaceRepository {
+@Injectable({ providedIn: 'root' })
+export class WorkspaceHttpRepository implements WorkspaceRepository {
   private baseUrl = environment.apiUrl + '/workspaces';
 
   constructor(private httpClient: HttpClient) {}
@@ -40,6 +38,6 @@ export class WorkspaceService implements WorkspaceRepository {
     throw new Error('Method not implemented.');
   }
   getUserWorkspaces(userId: UUID): Observable<WorkspaceResponseDto[]> {
-    return this.httpClient.get<WorkspaceResponseDto[]>(`${this.baseUrl}/user=${userId}`);
+    return this.httpClient.get<WorkspaceResponseDto[]>(`${this.baseUrl}/userId=${userId}`);
   }
 }

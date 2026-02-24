@@ -4,6 +4,6 @@ import { WorkspaceRepository } from '../../domain/repositories/workspace.reposit
 export class DeleteWorkspaceUsecase {
   constructor(private repository: WorkspaceRepository) {}
   execute(userId: UUID) {
-    this.repository.delete(userId);
+    return this.repository.delete(userId);
   }
 }

@@ -4,6 +4,6 @@ import { WorkspaceRepository } from '../../domain/repositories/workspace.reposit
 export class AddMemberToWorkspaceUsecase {
   constructor(private repository: WorkspaceRepository) {}
   excute(workspceId: UUID, userId: UUID) {
-    this.repository.addMemberToWorkspace(workspceId, userId);
+  return this.repository.addMemberToWorkspace(workspceId, userId);
   }
 }
