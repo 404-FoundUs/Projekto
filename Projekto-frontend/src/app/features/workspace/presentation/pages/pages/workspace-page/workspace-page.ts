@@ -20,7 +20,7 @@ export class WorkspacePage implements OnInit {
   private destroy$ = new Subject<void>();
   userId = '65ef429c-1697-4403-bbb5-f698456b2879';
 
-  workspaces: WorkspaceDto[] = [];
+  workspace: WorkspaceDto[] = [];
 
   private getUserWorkspaces: GetUserWorkspacesUsecase;
 
@@ -35,6 +35,9 @@ export class WorkspacePage implements OnInit {
     this.getUserWorkspaces.execute('65ef429c-1697-4403-bbb5-f698456b2879').subscribe({
       next: (response) => {
         console.log('success response', response);
+
+
+
       },
       error: (err) => {
         console.error('error' + err);

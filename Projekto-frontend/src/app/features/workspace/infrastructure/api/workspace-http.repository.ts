@@ -14,7 +14,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class WorkspaceHttpRepository implements WorkspaceRepository {
-  private baseUrl = environment.apiUrl + '/workspaces';
+  private baseUrl = environment.apiUrl + '/workspaces/';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -29,10 +29,10 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
   }
   // double check this
   delete(userId: UUID): Observable<void> {
-    return this.httpClient.delete<void>(this.baseUrl);
+    return this.httpClient.delete<void>(this.baseUrl + userId);
   }
   removeMemberFromWorkspace(workspaceId: UUID, userId: UUID): Observable<void> {
-    return this.httpClient.delete<void>(this.baseUrl);
+    return this.httpClient.delete<void>(this.baseUrl + workspaceId + userId);
   }
   getWorkspaceById(workspaceId: UUID): Observable<WorkspaceDto[]> {
     return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + workspaceId);
