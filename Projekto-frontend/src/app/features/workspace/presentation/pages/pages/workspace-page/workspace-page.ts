@@ -7,7 +7,7 @@ import { WorkspaceCard } from '../../../components/workspace-card/workspace-card
 import { RouterLink } from '@angular/router';
 import { WorkspaceDto } from '../../../../domain/entities/workspace.model';
 import { NgForOf } from '@angular/common';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { WorkspaceHttpRepository } from '../../../../infrastructure/api/workspace-http.repository';
 
 @Component({
@@ -32,17 +32,18 @@ export class WorkspacePage implements OnInit {
   }
 
   loadData() {
-    this.getUserWorkspaces.execute('65ef429c-1697-4403-bbb5-f698456b2879').subscribe({
-      next: (response) => {
-        console.log('success response', response);
-
-
-
-      },
-      error: (err) => {
-        console.error('error' + err);
-      },
-    });
+    this.getUserWorkspaces
+      .execute(this.userId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (response) => {
+          this.workspace = response;
+          console.log('success response', response);
+        },
+        error: (err) => {
+          console.error('error' + err);
+        },
+      });
   }
 
   trackById(_: number, ws: WorkspaceDto): string {
