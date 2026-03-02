@@ -44,7 +44,7 @@ export class WorkspacePage implements OnInit {
           console.log('success response', response);
         },
         error: (err: any) => {
-          console.error('error' + err.message);
+          console.error('error=:' + err.message);
         },
       });
   }
