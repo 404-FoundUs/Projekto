@@ -1,4 +1,5 @@
-import { GetUserWorkspacesUsecase } from '../../../../application/use-cases/get-user-workspaces.usecase';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {} from '../../../../application/use-cases/getByUserId.usecase';
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,7 @@ import { WorkspaceDto } from '../../../../domain/entities/workspace.model';
 import { NgForOf } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { WorkspaceHttpRepository } from '../../../../infrastructure/api/workspace-http.repository';
+import { GetByWorkspaceIdUsecase } from '../../../../application/use-cases/getByWorkspaceId.usecase';
 
 @Component({
   selector: 'app-workspace-page',
@@ -22,26 +24,27 @@ export class WorkspacePage implements OnInit {
 
   workspace: WorkspaceDto[] = [];
 
-  private getUserWorkspaces: GetUserWorkspacesUsecase;
+  private getByWorkspaceIdUsecase: GetByWorkspaceIdUsecase;
 
   constructor(private repo: WorkspaceHttpRepository) {
-    this.getUserWorkspaces = new GetUserWorkspacesUsecase(repo);
+    this.getByWorkspaceIdUsecase = new GetByWorkspaceIdUsecase(repo);
   }
+
   ngOnInit(): void {
     this.loadData();
   }
 
   loadData() {
-    this.getUserWorkspaces
+    this.getByWorkspaceIdUsecase
       .execute(this.userId)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: (response) => {
+        next: (response: any) => {
           this.workspace = response;
           console.log('success response', response);
         },
-        error: (err) => {
-          console.error('error' + err);
+        error: (err: any) => {
+          console.error('error' + err.message);
         },
       });
   }
