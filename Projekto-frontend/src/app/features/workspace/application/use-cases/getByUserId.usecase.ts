@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-wrapper-object-types */
 import { WorkspaceRepository } from '../../domain/repositories/workspace.repository';
 
 export class GetByUserIdUsecase {
