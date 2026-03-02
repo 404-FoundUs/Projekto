@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { SideNavigationbarDashboard } from '../../../../../dashboard/components/side-navigationbar-dashboard/side-navigationbar-dashboard';
 import { WorkspaceCard } from '../../../components/workspace-card/workspace-card';
 import { RouterLink } from '@angular/router';
-import { WorkspaceDto } from '../../../../domain/entities/workspace.model';
+import { Workspace } from '../../../../domain/entities/workspace.model';
 import { NgForOf } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { WorkspaceHttpRepository } from '../../../../infrastructure/api/workspace-http.repository';
@@ -22,7 +22,7 @@ export class WorkspacePage implements OnInit {
   private destroy$ = new Subject<void>();
   userId = '65ef429c-1697-4403-bbb5-f698456b2879';
 
-  workspace: WorkspaceDto[] = [];
+  workspace: Workspace[] = [];
 
   private getByWorkspaceIdUsecase: GetByWorkspaceIdUsecase;
 
@@ -49,7 +49,7 @@ export class WorkspacePage implements OnInit {
       });
   }
 
-  trackById(_: number, ws: WorkspaceDto): string {
+  trackById(_: number, ws: Workspace): string {
     return ws.id;
   }
 }
