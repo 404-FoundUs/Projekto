@@ -4,7 +4,7 @@ import { Visibility } from './../../../domain/entities/workspace.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CreateWorkspaceDto } from '../../../domain/entities/workspace.model';
+import { CreateWorkspacePayload } from '../../../domain/entities/workspace.model';
 import { CreateWorkspaceUseCase } from '../../../application/use-cases/createWorkspace.usecase';
 import { WorkspaceHttpRepository } from '../../../infrastructure/api/workspace-http.repository';
 
@@ -46,7 +46,7 @@ export class CreateWorkspaceCard implements OnInit {
       return;
     }
 
-    const dto: CreateWorkspaceDto = {
+    const dto: CreateWorkspacePayload = {
       name: this.form.value.name!,
       description: this.form.value.description!,
       visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
