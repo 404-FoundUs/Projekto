@@ -164,11 +164,10 @@ export const routes: Routes = [
   // },
 
   {
-    path: '',
+    path: 'workspaces',
     loadChildren: () =>
       import('./features/workspace/workspace-routing-module').then((m) => m.WorkspaceRoutingModule),
   },
-
   {
     path: '**',
     component: NotFoundPage,
