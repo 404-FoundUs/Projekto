@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CreateWorkspaceDto } from '../../../domain/entities/workspace.model';
-import { CreateWorkspaceUseCase } from '../../../application/use-cases/create-workspace.usecase';
+import { CreateWorkspaceUseCase } from '../../../application/use-cases/createWorkspace.usecase';
 import { WorkspaceHttpRepository } from '../../../infrastructure/api/workspace-http.repository';
 
 @Component({
