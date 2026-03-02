@@ -30,7 +30,7 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
     return this.httpClient.delete<void>(this.baseUrl + workspaceId + userId);
   }
   getByWorkspaceId(workspaceId: UUID): Observable<Workspace[]> {
-    return this.httpClient.get<Workspace[]>(this.baseUrl + workspaceId);
+    return this.httpClient.get<Workspace[]>(`${this.baseUrl}/${ workspaceId}`);
   }
   getByUserId(userId: string): Observable<Workspace[]> {
     return this.httpClient.get<Workspace[]>(`${this.baseUrl}/${userId}`);
