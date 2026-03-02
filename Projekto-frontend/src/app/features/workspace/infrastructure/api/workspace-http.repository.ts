@@ -1,5 +1,4 @@
 /* eslint-disable @angular-eslint/prefer-inject */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment.development';
 import { CreateWorkspacePayload, Workspace } from '../../domain/entities/workspace.model';
