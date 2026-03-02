@@ -2,7 +2,7 @@
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { WorkspaceDto } from '../../../domain/entities/workspace.model';
+import { Workspace } from '../../../domain/entities/workspace.model';
 
 @Component({
   selector: 'app-workspace-card',
@@ -12,5 +12,5 @@ import { WorkspaceDto } from '../../../domain/entities/workspace.model';
 })
 export class WorkspaceCard {
   icon = 'man';
-  @Input() workspace!: WorkspaceDto;
+  @Input() workspace!: Workspace;
 }
