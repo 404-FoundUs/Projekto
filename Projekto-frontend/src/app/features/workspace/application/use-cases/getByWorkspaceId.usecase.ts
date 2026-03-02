@@ -1,9 +1,9 @@
 import { WorkspaceRepository } from '../../domain/repositories/workspace.repository';
 
-export class GetWorkspaceById {
+export class GetByWorkspaceIdUsecase {
   constructor(private repository: WorkspaceRepository) {}
 
   execute(workspaceId: string) {
-    return this.repository.getWorkspaceById(workspaceId);
+    return this.repository.getByWorkspaceId(workspaceId);
   }
 }

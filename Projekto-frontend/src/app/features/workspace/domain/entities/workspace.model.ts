@@ -4,28 +4,23 @@ export enum Visibility {
   PUBLIC = 'PUBLIC',
   PRIVATE = 'PRIVATE',
 }
-export interface WorkspaceDto {
+export interface Workspace {
   id: string;
   name: string;
   description: string;
   visibility: Visibility;
   ownerId: string;
   memberIds: string[];
-  projectCount: number; // or whatever your backend returns
 }
-
-export interface CreateWorkspaceDto {
+export interface CreateWorkspacePayload {
   name: string;
   description: string;
   visibility: Visibility;
   ownerId: UUID;
 }
 
-export interface WorkspaceResponseDto {
-  id: string;
-  name: string;
-  description: string;
-  visibility: Visibility;
-  ownerId: string;
-  memberIds: string[];
-}
+// export interface Workspace extends Workspace{
+//   projectCount: number;
+// }
+
+

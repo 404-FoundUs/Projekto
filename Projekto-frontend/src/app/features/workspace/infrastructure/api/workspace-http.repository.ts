@@ -1,12 +1,7 @@
 /* eslint-disable @angular-eslint/prefer-inject */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../environments/environment.development';
-import {
-  CreateWorkspaceDto,
-  WorkspaceDto,
-  WorkspaceResponseDto,
-} from '../../domain/entities/workspace.model';
+import { CreateWorkspacePayload, Workspace } from '../../domain/entities/workspace.model';
 import { WorkspaceRepository } from '../../domain/repositories/workspace.repository';
 import { Observable } from 'rxjs';
 import { UUID } from 'crypto';
@@ -18,26 +13,26 @@ export class WorkspaceHttpRepository implements WorkspaceRepository {
 
   constructor(private httpClient: HttpClient) {}
 
-  create(model: CreateWorkspaceDto): Observable<CreateWorkspaceDto> {
-    return this.httpClient.post<CreateWorkspaceDto>(this.baseUrl, model);
+  create(model: CreateWorkspacePayload): Observable<CreateWorkspacePayload> {
+    return this.httpClient.post<CreateWorkspacePayload>(this.baseUrl, model);
   }
-  addMemberToWorkspace(workspaceId: UUID, userId: UUID): Observable<WorkspaceDto> {
-    return this.httpClient.post<WorkspaceDto>(this.baseUrl, { workspaceId, userId });
+  addMember(workspaceId: UUID, userId: UUID): Observable<Workspace> {
+    return this.httpClient.post<Workspace>(this.baseUrl, { workspaceId, userId });
   }
-  update(userId: UUID, model: CreateWorkspaceDto): Observable<WorkspaceDto> {
-    return this.httpClient.put<WorkspaceDto>(this.baseUrl, { userId, model });
+  update(userId: UUID, model: CreateWorkspacePayload): Observable<Workspace> {
+    return this.httpClient.put<Workspace>(this.baseUrl, { userId, model });
   }
   // double check this
   delete(userId: UUID): Observable<void> {
     return this.httpClient.delete<void>(this.baseUrl + userId);
   }
-  removeMemberFromWorkspace(workspaceId: UUID, userId: UUID): Observable<void> {
+  removeMember(workspaceId: UUID, userId: UUID): Observable<void> {
     return this.httpClient.delete<void>(this.baseUrl + workspaceId + userId);
   }
-  getWorkspaceById(workspaceId: UUID): Observable<WorkspaceDto[]> {
-    return this.httpClient.get<WorkspaceDto[]>(this.baseUrl + workspaceId);
+  getByWorkspaceId(workspaceId: UUID): Observable<Workspace[]> {
+    return this.httpClient.get<Workspace[]>(`${this.baseUrl}/${ workspaceId}`);
   }
-  getUserWorkspaces(userId: string): Observable<WorkspaceDto[]> {
-    return this.httpClient.get<WorkspaceDto[]>(`${this.baseUrl}/${userId}`);
+  getByUserId(userId: string): Observable<Workspace[]> {
+    return this.httpClient.get<Workspace[]>(`${this.baseUrl}/${userId}`);
   }
 }

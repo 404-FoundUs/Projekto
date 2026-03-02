@@ -4,12 +4,13 @@ import { Visibility } from './../../../domain/entities/workspace.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CreateWorkspaceDto } from '../../../domain/entities/workspace.model';
-import { CreateWorkspaceUseCase } from '../../../application/use-cases/create-workspace.usecase';
+import { CreateWorkspacePayload } from '../../../domain/entities/workspace.model';
+import { CreateWorkspaceUseCase } from '../../../application/use-cases/createWorkspace.usecase';
 import { WorkspaceHttpRepository } from '../../../infrastructure/api/workspace-http.repository';
 
 @Component({
   selector: 'app-create-workspace-card',
+  standalone:true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './create-workspace-card.html',
   styleUrl: './create-workspace-card.scss',
@@ -30,7 +31,7 @@ export class CreateWorkspaceCard implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.nonNullable.group({
       name: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''],
       isPrivate: [true], // default to private
     });
   }
@@ -41,26 +42,25 @@ export class CreateWorkspaceCard implements OnInit {
   }
 
   submit(): void {
+    console.log("button clicked");
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    const dto: CreateWorkspaceDto = {
+    const createPayload: CreateWorkspacePayload = {
       name: this.form.value.name!,
       description: this.form.value.description!,
       visibility: this.form.value.isPrivate ? Visibility.PRIVATE : Visibility.PUBLIC,
       ownerId: '65ef429c-1697-4403-bbb5-f698456b2879', //check the user id issue here | solve this with jwt auth!
     };
 
-    console.log("DTO=>",dto)
-
-    this.createworkspace.execute(dto).subscribe({
-      next: (response) => {
+    this.createworkspace.execute(createPayload).subscribe({
+      next: (response: any) => {
         console.log('Workspace created:', response);
         this.form.reset({ isPrivate: true });
       },
-      error: (error) => {
+      error: (error:any) => {
         console.error('Error creating workspace:', error);
       },
     });
