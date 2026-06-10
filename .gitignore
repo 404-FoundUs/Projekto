@@ -35,6 +35,3 @@ dist/
 .sass-cache/
 connect.lock
 typings/
-
-env/
-.env.local
