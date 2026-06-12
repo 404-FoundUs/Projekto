@@ -1,0 +1,51 @@
+<header
+  class="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-gray-200"
+>
+  <div class="flex items-center justify-between px-8 py-3">
+    <!-- Search -->
+    <div class="flex items-center gap-4 flex-1">
+      <label class="relative w-full max-w-md">
+        <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+          <span class="material-symbols-outlined">search</span>
+        </span>
+        <input
+          class="w-full bg-gray-100 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+          placeholder="Search boards, tasks..."
+          type="text"
+        />
+      </label>
+    </div>
+
+    <!-- Actions & Profile -->
+    <div class="flex items-center gap-4">
+      <button
+        class="size-10 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600"
+      >
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+
+      <button
+        class="size-10 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600"
+      >
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+
+      <div
+        class="size-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm"
+        data-alt="User profile avatar"
+        style="
+          background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-S3kplGngFTWYUhn9T1kU8sbzmfrorKYlXdGp90sJYJdvwQAtBex-iJ9Pemfi18EgwTFRqrv16k2Usm8loV0L4CYIY3LhyKS_8fWFzMfqGF8SmvW3cyzlVaYsxJ0GmbtsXjpuzHN8C8UQvFN0bEfdQmv2SFhADXCf7kyA-fRH5Yd5gd8MlWKBxlJAL6bt-lx5hUGEzySNkzngomJ3m-RUrXNaO8JxZ04Vgaax9HKXg_Oto0q4GnsVye2ikkdiNZtVh1tYtSLdgxE');
+        "
+      ></div>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="flex items-center gap-2 px-8 py-2 text-sm">
+    <a class="text-[#616f89] hover:text-primary transition-colors" href="#" routerLink="/workspaces"> <!-- need to do further implimentations -->
+      Workspace      
+    </a>
+    <span class="text-gray-300">/</span>
+    <span class="font-semibold text-primary">Boards</span>
+  </div>
+</header>

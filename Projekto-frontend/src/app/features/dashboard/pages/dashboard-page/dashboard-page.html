@@ -1,0 +1,92 @@
+<div class="bg-background-light font-display text-[#1e293b] min-h-screen">
+  <div class="flex h-screen overflow-hidden">
+    <app-side-navigationbar-dashboard></app-side-navigationbar-dashboard>
+
+    <main class="flex-1 flex flex-col overflow-y-auto custom-scrollbar">
+      <header class="px-8 py-10">
+        <div class="flex justify-between items-end">
+          <div>
+            <h2 class="text-slate-900 text-3xl font-extrabold leading-tight tracking-tight">
+              Welcome back, Alex! 👋
+            </h2>
+            <p class="text-slate-500 mt-2 text-lg">
+              You have
+              <span
+                class="text-primary font-semibold underline underline-offset-4 decoration-primary/30"
+              >
+                5 tasks
+              </span>
+              to complete today and
+              <span class="text-red-500 font-semibold">2 upcoming deadlines</span>.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button
+              class="bg-primary text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-blue-700 shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]"
+            >
+              <span class="material-symbols-outlined text-[20px]">add</span>
+              Create New Task
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 px-8 pb-10">
+        <div class="lg:col-span-8 flex flex-col gap-10">
+          <section>
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="text-xl font-bold text-slate-900">Quick Access Workspaces</h3>
+              <a class="text-sm text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+                View All
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <app-quick-access-card></app-quick-access-card>
+              <app-quick-access-card></app-quick-access-card>
+            </div>
+          </section>
+
+          <section>
+            <div class="flex items-center justify-between mb-5">
+              <div class="flex items-center gap-3">
+                <h3 class="text-xl font-bold text-slate-900">My Active Tasks</h3>
+                <span
+                  class="bg-red-50 text-red-600 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-tighter"
+                >
+                  3 Urgent
+                </span>
+              </div>
+              <button class="text-xs font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest">
+                Filter
+              </button>
+            </div>
+
+            <div class="space-x-1 space-y-3">
+              <app-mytasks-card></app-mytasks-card>
+              <app-mytasks-card></app-mytasks-card>
+              <app-mytasks-card></app-mytasks-card>
+              <app-mytasks-card></app-mytasks-card>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="text-xl font-bold text-slate-900 mb-5">Recent Activity</h3>
+
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+              <div class="divide-y divide-slate-100">
+                <app-recent-activity-card></app-recent-activity-card>
+                <app-recent-activity-card></app-recent-activity-card>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="lg:col-span-4">
+          <app-calendar-card></app-calendar-card>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
