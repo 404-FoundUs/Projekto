@@ -1,15 +1,15 @@
-services:
-  app:
-    build:
-      target: builder          # stop at the build stage for faster iteration
-    volumes:
-      - ./src:/app/src         # mount source for hot reload (if using devtools)
-    environment:
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update   # auto-migrate in dev only
+# services:
+#   app:
+#     build:
+#       target: builder          # stop at the build stage for faster iteration
+#     volumes:
+#       - ./src:/app/src         # mount source for hot reload (if using devtools)
+#     environment:
+#       SPRING_JPA_HIBERNATE_DDL_AUTO: update   # auto-migrate in dev only
 
-  db:
-    ports:
-      - "5432:5432"            # expose to host for DB tools (DBeaver, TablePlus)
+#   db:
+#     ports:
+#       - "5432:5432"            # expose to host for DB tools (DBeaver, TablePlus)
 
   # adminer:
   #   image: adminer
