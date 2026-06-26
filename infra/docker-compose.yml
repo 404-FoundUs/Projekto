@@ -23,6 +23,32 @@ services:
   #       limits:
   #         memory: 512m                 # prevent OOM on dev machine
 
+  # angular-prod:
+  #   build:
+  #     context: ./../Projekto-frontend
+  #     dockerfile: Dockerfile
+  #   image: docker-angular-sample
+  #   ports:
+  #     - "8080:8080"
+
+  # angular-dev:
+  #   build:
+  #     context: ./../Projekto-frontend
+  #     dockerfile: Dockerfile.dev
+  #   ports:
+  #     - "4200:4200"
+  #   develop:
+  #     watch:
+  #       - action: sync
+  #         path: .
+  #         target: /app
+  # angular-test:
+  #   build:
+  #     context: ./../Projekto-frontend
+  #     dockerfile: Dockerfile.dev
+  #   command: ["npm", "run", "test"]
+
+
   db:
     image: postgres:latest
     container_name: postgres-db
