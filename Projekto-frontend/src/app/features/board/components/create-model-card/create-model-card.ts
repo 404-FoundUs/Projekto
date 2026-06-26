@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-create-model-card',
+  selector: 'app-create-entities-card',
   imports: [],
   templateUrl: './create-model-card.html',
   styleUrl: './create-model-card.scss',

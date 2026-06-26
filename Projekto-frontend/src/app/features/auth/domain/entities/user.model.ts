@@ -1,4 +1,4 @@
-// models/user.model.ts
+// models/user.entities.ts
 
 // What the server expects when creating a user (signup)
 export interface RequestUserDto {

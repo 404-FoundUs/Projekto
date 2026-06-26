@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { UserService } from '../../services/user-services/user-service';
+
 
 
 @Component({
@@ -11,14 +11,6 @@ import { UserService } from '../../services/user-services/user-service';
 })
 
 export class LogInPage {
-  testData = {
-    name: 'ravindu',
-    value: 20,
-  };
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(private userService: UserService) {
-
-  }
 
 }
