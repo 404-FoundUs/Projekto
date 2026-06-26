@@ -31,22 +31,22 @@ services:
   #   ports:
   #     - "8080:8080"
 
-  angular-dev:
-    build:
-      context: ./../Projekto-frontend
-      dockerfile: Dockerfile.dev
-    ports:
-      - "4200:4200"
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /app
-  angular-test:
-    build:
-      context: ./../Projekto-frontend
-      dockerfile: Dockerfile.dev
-    command: ["npm", "run", "test"]
+  # angular-dev:
+  #   build:
+  #     context: ./../Projekto-frontend
+  #     dockerfile: Dockerfile.dev
+  #   ports:
+  #     - "4200:4200"
+  #   develop:
+  #     watch:
+  #       - action: sync
+  #         path: .
+  #         target: /app
+  # angular-test:
+  #   build:
+  #     context: ./../Projekto-frontend
+  #     dockerfile: Dockerfile.dev
+  #   command: ["npm", "run", "test"]
 
 
   db:
