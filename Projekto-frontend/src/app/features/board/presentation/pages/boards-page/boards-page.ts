@@ -1,12 +1,12 @@
-import { BoardService } from './../../services/boards-service';
+import { BoardService } from '../../../infrastructure/services/boards-service';
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Board } from '../../../workspace/domain/entities/board.model';
-import { SideNavigationbarBoard } from '../../components/side-navigationbar-board/side-navigationbar-board';
-import { BoardHeader } from '../../components/board-header/board-header';
-import { BoardCardComponent } from '../../components/board-card/board-card';
+import { Board } from '../../../../workspace/domain/entities/board.model';
+import { SideNavigationbarBoard } from '../../../components/side-navigationbar-board/side-navigationbar-board';
+import { BoardHeader } from '../../../components/board-header/board-header';
+import { BoardCardComponent } from '../../../components/board-card/board-card';
 
 @Component({
   selector: 'app-boards-page',

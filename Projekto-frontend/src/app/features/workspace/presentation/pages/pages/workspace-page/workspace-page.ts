@@ -3,7 +3,7 @@ import {} from '../../../../application/use-cases/getByUserId.usecase';
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @angular-eslint/prefer-inject */
 import { Component, OnInit } from '@angular/core';
-import { SideNavigationbarDashboard } from '../../../../../dashboard/components/side-navigationbar-dashboard/side-navigationbar-dashboard';
+import { SideNavigationbarDashboard } from '../../../../../dashboard/presentation/components/side-navigationbar-dashboard/side-navigationbar-dashboard';
 import { WorkspaceCard } from '../../../components/workspace-card/workspace-card';
 import { RouterLink } from '@angular/router';
 import { Workspace } from '../../../../domain/entities/workspace.model';

@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
-import { environment } from '../../../../environments/environment.development';
-import { Board, CreateBoardDto, UpdateBoardDto } from '../../workspace/domain/entities/board.model';
+import { environment } from '../../../../../environments/environment.development';
+import { Board, CreateBoardDto, UpdateBoardDto } from '../../../workspace/domain/entities/board.model';
 
 @Injectable({
   providedIn: 'root',

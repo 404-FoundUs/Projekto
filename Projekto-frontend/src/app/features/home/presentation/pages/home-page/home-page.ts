@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MainHeader } from '../../../../shared/components/main-header/main-header';
-import { MainFooter } from '../../../../shared/components/main-footer/main-footer';
+import { MainHeader } from '../../../../../shared/components/main-header/main-header';
+import { MainFooter } from '../../../../../shared/components/main-footer/main-footer';
 
 @Component({
   selector: 'app-home-page',
