@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Routes } from '@angular/router';
-import { LogInPage } from './features/auth/pages/log-in-page/log-in-page';
-import { RegisterPage } from './features/auth/pages/register-page/register-page';
+import { LogInPage } from './features/auth/presentation/pages/log-in-page/log-in-page';
+import { RegisterPage } from './features/auth/presentation/pages/register-page/register-page';
 import { NotFoundPage } from './shared/pages/not-found-page/not-found-page';
-import { HomePage } from './features/home/pages/home-page/home-page';
-import { ForgotPasswordPage } from './features/auth/pages/forgot-password-page/forgot-password-page';
+import { HomePage } from './features/home/presentation/pages/home-page/home-page';
+import { ForgotPasswordPage } from './features/auth/presentation/pages/forgot-password-page/forgot-password-page';
 import { WorkspacePage } from './features/workspace/presentation/pages/pages/workspace-page/workspace-page';
-import { ProfilePage } from './features/profile/pages/profile-page/profile-page';
-import { UpdateProfilePage } from './features/profile/pages/update-profile-page/update-profile-page';
-import { OtpVerificationPage } from './features/auth/pages/otp-verification-page/otp-verification-page';
-import { DashboardPage } from './features/dashboard/pages/dashboard-page/dashboard-page';
-import { BoardsPage } from './features/board/pages/boards-page/boards-page';
-import { KanbanBoardPage } from './features/board/pages/kanban-board-page/kanban-board-page';
+import { ProfilePage } from './features/profile/presentation/pages/profile-page/profile-page';
+import { UpdateProfilePage } from './features/profile/presentation/pages/update-profile-page/update-profile-page';
+import { OtpVerificationPage } from './features/auth/presentation/pages/otp-verification-page/otp-verification-page';
+import { DashboardPage } from './features/dashboard/presentation/pages/dashboard-page/dashboard-page';
+import { BoardsPage } from './features/board/presentation/pages/boards-page/boards-page';
+import { KanbanBoardPage } from './features/board/presentation/pages/kanban-board-page/kanban-board-page';
 import { CreateModelCard } from './features/board/components/create-model-card/create-model-card';
 import { CreateBaordCard } from './features/board/components/create-baord-card/create-baord-card';
-import { BoardSettingsPage } from './features/board/pages/board-settings-page/board-settings-page';
+import { BoardSettingsPage } from './features/board/presentation/pages/board-settings-page/board-settings-page';
 import { CreateWorkspaceCard } from './features/workspace/presentation/components/create-workspace-card/create-workspace-card';
 
 export const routes: Routes = [
@@ -141,9 +141,9 @@ export const routes: Routes = [
   //                   title: 'Kanban Board'
   //                 },
 
-  //                 // Create model/card in kanban
+  //                 // Create entities/card in kanban
   //                 {
-  //                   path: 'kanban/create-model',
+  //                   path: 'kanban/create-entities',
   //                   component: CreateModelCard,
   //                   title: 'Create Card'
   //                 },

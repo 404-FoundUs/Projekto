@@ -9,6 +9,8 @@ import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor
+// this use case belongs to profile domain.
+//fix this
 public class UpdateUserUsecase {
     private final UserStore userStore;
 
