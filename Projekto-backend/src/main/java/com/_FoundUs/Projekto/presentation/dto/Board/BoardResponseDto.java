@@ -74,10 +74,6 @@ public class BoardResponseDto {
     /**
      * Nested DTO for member information
      */
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
     public static class MemberDto {
         private UUID id;
         private String name;
