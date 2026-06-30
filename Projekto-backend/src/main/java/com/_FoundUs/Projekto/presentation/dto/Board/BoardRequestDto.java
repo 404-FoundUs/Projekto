@@ -9,9 +9,6 @@ import java.util.UUID;
 @Data
 public class BoardRequestDto {
 
-    /**
-     * ⚠️ ISSUE #1: Missing validation constraints
-     */
     private String name;
 
 
@@ -23,9 +20,6 @@ public class BoardRequestDto {
 
     private UUID createdBy; // ✅ This should be set server-side from auth token
 
-    /**
-     * ✅ NEW: Additional useful fields
-     */
     private String color; // Board color for UI
     private String icon;  // Board icon name
     private Boolean pinned; // Is board pinned
