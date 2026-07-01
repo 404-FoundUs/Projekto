@@ -1,4 +1,4 @@
-package com._FoundUs.Projekto.presentation.dto.Cards;
+package com._FoundUs.Projekto.presentation.dto.Card;
 
 import com._FoundUs.Projekto.domain.enums.Priority;
 import lombok.Builder;
