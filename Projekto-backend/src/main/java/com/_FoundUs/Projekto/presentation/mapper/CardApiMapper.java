@@ -2,8 +2,8 @@ package com._FoundUs.Projekto.presentation.mapper;
 
 
 import com._FoundUs.Projekto.domain.model.CardModel;
-import com._FoundUs.Projekto.presentation.dto.Cards.CardRequestDto;
-import com._FoundUs.Projekto.presentation.dto.Cards.CardResponseDto;
+import com._FoundUs.Projekto.presentation.dto.Card.CardRequestDto;
+import com._FoundUs.Projekto.presentation.dto.Card.CardResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
