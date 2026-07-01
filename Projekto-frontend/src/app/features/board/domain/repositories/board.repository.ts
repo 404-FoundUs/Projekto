@@ -2,6 +2,9 @@ import {Observable} from 'rxjs';
 import {Board} from '../../../workspace/domain/entities/board.model';
 import {BoardRequestDto} from '../entities/board.model';
 
+/*
+*Todo: need testing to do !
+* */
 export abstract class BoardRepository {
   abstract createBoard(board: BoardRequestDto): Observable<Board>;
 
