@@ -2,10 +2,10 @@ package com._FoundUs.Projekto.presentation.controller;
 
 import com._FoundUs.Projekto.domain.model.CardModel;
 import com._FoundUs.Projekto.domain.usecase.Cards.*;
-import com._FoundUs.Projekto.presentation.dto.Cards.CardRequestDto;
-import com._FoundUs.Projekto.presentation.dto.Cards.CardResponseDto;
-import com._FoundUs.Projekto.presentation.dto.Cards.MoveCardRequestDto;
-import com._FoundUs.Projekto.presentation.dto.Cards.ReorderCardsRequestDto;
+import com._FoundUs.Projekto.presentation.dto.Card.CardRequestDto;
+import com._FoundUs.Projekto.presentation.dto.Card.CardResponseDto;
+import com._FoundUs.Projekto.presentation.dto.Card.MoveCardRequestDto;
+import com._FoundUs.Projekto.presentation.dto.Card.ReorderCardsRequestDto;
 import com._FoundUs.Projekto.presentation.mapper.CardApiMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
