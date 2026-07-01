@@ -1,5 +1,8 @@
 import {UUID} from 'node:crypto';
 
+/*
+*Todo: need testing to do !
+* */
 export enum BoardVisibility {
   PRIVATE = 'PRIVATE',
   WORKSPACE = 'WORKSPACE',
