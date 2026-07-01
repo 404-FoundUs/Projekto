@@ -1,6 +1,9 @@
 /**
  * Board entities matching backend BoardResponseDto
  */
+/*
+*Todo: need testing to do !
+* */
 export interface Board {
   id: string;
   name: string;
